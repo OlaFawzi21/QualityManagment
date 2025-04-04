@@ -1,0 +1,28 @@
+.dropdown-toggle::after {
+  display: none !important;
+}
+.actions .dropdown-item {
+  padding-left: 36px;
+  font-size: 14px;
+}
+.actions .dropdown-item i {
+  padding-left: 0.3rem;
+}
+
+::ng-deep .p-editor-container {
+    margin-bottom: 20px;
+}
+
+::ng-deep .p-radiobutton .p-radiobutton-box.p-highlight {
+    border-color: #ff8b00;
+}
+
+::ng-deep .p-radiobutton-icon {
+    background-color: #ff8b00;
+}
+
+::ng-deep .p-radiobutton.p-radiobutton-checked:not(.p-radiobutton-disabled),
+::ng-deep .p-radiobutton.p-radiobutton-checked:not(.p-radiobutton-disabled):hover {
+    box-shadow: 0 0 1px 10px rgba(255, 140, 0, 10%);
+    border-color: #ff8b00;
+}

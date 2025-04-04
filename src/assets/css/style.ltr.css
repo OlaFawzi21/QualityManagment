@@ -1,0 +1,110 @@
+@media (min-width: 992px) {
+  [data-kt-app-sidebar-fixed="true"] .app-wrapper {
+    margin-left: calc(
+      var(--bs-app-sidebar-width) + var(--bs-app-sidebar-gap-start, 0px) +
+        var(--bs-app-sidebar-gap-end, 0px)
+    );
+    margin-right: 0 !important;
+  }
+}
+
+@media (min-width: 992px) {
+  [data-kt-app-sidebar-fixed="true"] .app-sidebar {
+    left: 0;
+    right: auto !important;
+  }
+}
+
+@media (min-width: 992px) {
+  [data-kt-app-header-fixed="true"][data-kt-app-sidebar-fixed="true"][data-kt-app-sidebar-push-header="true"]
+    .app-header,
+  [data-kt-app-header-fixed="true"][data-kt-app-sidebar-sticky="on"][data-kt-app-sidebar-push-header="true"]
+    .app-header {
+    left: calc(
+      var(--bs-app-sidebar-width) + var(--bs-app-sidebar-gap-start, 0px) +
+        var(--bs-app-sidebar-gap-end, 0px)
+    );
+    right: 0 !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .app-sidebar-toggle.translate-middle {
+    left: auto !important;
+    right: -30px !important;
+    transform: translate(-50%, -50%) rotate(180deg) !important;
+  }
+}
+
+[dir="ltr"] .phone {
+  padding-left: 85px !important;
+}
+
+[dir="ltr"] .code {
+  transform: translate(30px, -50%) !important;
+}
+
+[dir="ltr"] .line {
+  transform: translate(62px, -50%) !important;
+}
+
+[dir="ltr"] p-paginator .p-paginator-next,
+[dir="ltr"] p-paginator .p-paginator-last,
+[dir="ltr"] p-paginator .p-paginator-first,
+[dir="ltr"] p-paginator .p-paginator-prev {
+  transform: rotate(0deg) !important;
+}
+[dir="ltr"] .p-ripple.p-element.p-datepicker-prev {
+  transform: rotate(0deg) !important;
+}
+[dir="ltr"] .p-ripple.p-element.p-datepicker-next {
+  transform: rotate(0deg) !important;
+}
+[dir="ltr"] input[type="file"] {
+  padding-right: 150px;
+  padding-left: 1.5rem !important;
+}
+[dir="ltr"] .p-datepicker {
+  left: auto !important;
+}
+[dir="ltr"] .file1::before {
+  left: 26px;
+  right: auto !important;
+}
+
+[dir="ltr"] .file2::before {
+  left: 26px;
+  right: auto !important;
+}
+
+[dir="ltr"] .file3::before {
+  left: 26px;
+  right: auto !important;
+}
+
+[dir="ltr"] .span-pic {
+  left: 100px;
+  right: auto !important;
+}
+
+[dir="ltr"] .pi-angle-left,
+[dir="ltr"] .back-icon i {
+  transform: rotate(180deg);
+}
+
+[dir="ltr"] .toggle-eye {
+  right: 25px !important;
+  left: auto !important;
+}
+
+[dir="ltr"] .shape-report {
+  position: absolute;
+  width: 43.5px;
+  right: -1px;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  z-index: 2;
+  border-top-left-radius: 0.625rem;
+  transform: scaleX(-1);
+}

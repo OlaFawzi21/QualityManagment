@@ -1,0 +1,175 @@
+<div class="card">
+  <div class="card-header border-0 pt-5 px-10 justify-content-between align-items-center">
+    <div class="card-title m-0 align-items-start flex-column">
+      <span class="mb-3 text-gray-900 fs-3">إضافة وسائل التنقل</span>
+    </div>
+    <a class="text-gray-900 fs-3 d-flex align-items-center back-icon" routerLink="/reports">عودة
+      <i class="pi pi-angle-left fs-3"></i></a>
+  </div>
+
+  <div class="card-body py-5 px-10">
+    <form class="form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-lg-4 fv-row mb-8">
+          <p-dropdown [options]="cities" formControlName="selectedReport" placeholder="اختر نوع التقرير" />
+        </div>
+        <div class="col-lg-4 fv-row mb-8">
+          <input type="text" placeholder="اسم وسيلة النقل" class="form-control" formControlName="selectedTrans">
+        </div>
+        <div class="col-lg-4 fv-row mb-8">
+          <p-dropdown [options]="cities" formControlName="selectedNation" placeholder="اختر الجنسيه" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-2 col-6 fv-row mb-8">
+          <p-calendar formControlName="formDate" [showIcon]="true" [showTime]="true" placeholder="من"
+            inputId="icondisplay"></p-calendar>
+        </div>
+        <div class="col-lg-2 col-6 fv-row mb-8">
+          <p-calendar formControlName="formDate" [showIcon]="true" [showTime]="true" placeholder="إلي"
+            inputId="icondisplay"></p-calendar>
+
+        </div>
+        <div class="col-lg-4 fv-row mb-8">
+          <p-dropdown [options]="cities" formControlName="selectedHeritage" placeholder="نوع المزار" />
+        </div>
+        <div class="col-lg-4 fv-row mb-8">
+          <p-dropdown [options]="cities" formControlName="selectedPlace" placeholder="المزارات السياحية" />
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-primary px-15">
+          <span *ngIf="!isLoading">إنشاء تقرير</span>
+          <span *ngIf="isLoading">
+            يرجى الانتظار...
+            <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+          </span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="card my-10">
+  <div class="px-10 py-lg-20 py-10 bg-primary rounded-3 position-relative">
+    <div class="row align-items-center justify-content-center g-10">
+      <div class="col-lg-6">
+        <img src="../../../../../assets/images/img/big-logo.svg" alt="logo">
+      </div>
+      <div class="col-lg-5">
+        <div class="text-white">
+          <h3 class="text-white mb-5">
+            <span>المملكه العربيه السعوديه (إماره حائل)</span>
+            <br>
+            <span>
+              تقرير شامل عن عدد الزوار ف الموقع
+            </span>
+          </h3>
+          <p>تاريخ التقرير : 2 رمضان 1446</p>
+          <p>الفتره من: 20/1/1446 الي 18/7/1446</p>
+          <p class="mb-0">رقم التقرير : 140</p>
+        </div>
+      </div>
+      <img src="../../../../../assets/images/img/shape.svg" alt="shape" class="shape-report">
+    </div>
+  </div>
+  <div class="pt-15 px-10 table-responsive">
+    <div class="table-responsive">
+      <table class="table align-middle gs-0 gy-4">
+        <thead>
+          <tr class="text-muted bg-light">
+            <th class="ps-4 min-w-200px rounded-end">اسم المزار</th>
+            <th class="min-w-200px">عدد التقييمات</th>
+            <th class="min-w-200px rounded-start">متوسط التقييم</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <a class="mx-5 text-gray-900 text-hover-primary d-block mb-1 fs-6">
+                جبه حائل
+              </a>
+            </td>
+            <td>
+              <a class="text-gray-900 text-hover-primary d-block mb-1 fs-6">
+                30
+              </a>
+            </td>
+            <td>
+              <a class="text-gray-900 text-hover-primary d-block mb-1 fs-6">
+                2/5
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a class="mx-5 text-gray-900 text-hover-primary d-block mb-1 fs-6">
+                قلعه اعريف
+              </a>
+            </td>
+            <td>
+              <a class="text-gray-900 text-hover-primary d-block mb-1 fs-6">
+                50
+              </a>
+            </td>
+            <td>
+              <a class="text-gray-900 text-hover-primary d-block mb-1 fs-6">
+                4/5
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a class="mx-5 text-gray-900 text-hover-primary d-block mb-1 fs-6">
+                جبه حائل
+              </a>
+            </td>
+            <td>
+              <a class="text-gray-900 text-hover-primary d-block mb-1 fs-6">
+                40
+              </a>
+            </td>
+            <td>
+              <a class="text-gray-900 text-hover-primary d-block mb-1 fs-6">
+                4/5
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a class="mx-5 text-gray-900 text-hover-primary d-block mb-1 fs-6">
+                قلعه اعريف
+              </a>
+            </td>
+            <td>
+              <a class="text-gray-900 text-hover-primary d-block mb-1 fs-6">
+                20
+              </a>
+            </td>
+            <td>
+              <a class="text-gray-900 text-hover-primary d-block mb-1 fs-6">
+                2/5
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="card-footer text-end">
+        اسم المسؤول :   {{username}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card p-8">
+  <div class="d-flex justify-content-end gap-5">
+    <button type="button" class="btn btn-primary px-15">
+      حفظ
+    </button>
+    <button type="button" class="btn btn-outline-primary px-15">
+      حفظ و طباعة
+    </button>
+  </div>
+</div>

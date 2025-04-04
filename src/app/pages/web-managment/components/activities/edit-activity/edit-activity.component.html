@@ -1,0 +1,112 @@
+<div class="card">
+  <div class="card-header border-0 pt-5 px-10 justify-content-between align-items-center">
+    <h3 class="card-title m-0 text-gray-900 fs-3">
+      {{editMode? ' تعديل الفنادق و المطاعم' : 'إضافه الفنادق و المطاعم'}}
+
+    </h3>
+
+    <h3 class="card-title m-0 text-gray-900 fs-3">
+
+    </h3>
+    <a class="text-gray-900 fs-6 form-label fs-3 d-flex align-items-center back-icon"
+      routerLink="/management/activities">عودة <i class="pi pi-angle-left fs-3"></i></a>
+  </div>
+
+  <div class="card-body border-0 p-9">
+    <form class="form" [formGroup]="formGroup" (ngSubmit)="submit()">
+      <div class="col-lg-12 fv-row mb-8">
+        <div class="d-flex gap-12">
+          <div *ngFor="let type of types" class="field-checkbox d-flex gap-3">
+            <p-radioButton [value]="type.value" formControlName="type" required />
+            <label class="fs-5 text-gray-600">
+              {{ type.label }}
+            </label>
+          </div>
+        </div>
+        <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                validation: 'required',
+                message: 'برجاء ادخال النوع المراد إضافته ',
+                control: formGroup.controls['type']
+        }"></ng-container>
+      </div>
+
+      <div class="col-lg-12 fv-row mb-8">
+        <input type="text" class="form-control form-control-lg" required placeholder="العنوان" formControlName="name" />
+        <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                        validation: 'required',
+                        message: 'برجاء ادخال العنوان',
+                        control: formGroup.controls['name']
+        }"></ng-container>
+      </div>
+
+      <p-editor [style]="{ height: '320px'}" required formControlName="description" />
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                      validation: 'required',
+                      message: 'برجاء ادخال الوصف',
+                      control: formGroup.controls['description']
+      }"></ng-container>
+
+      <div class="my-8">
+        <label class="text-gray-900 fs-6 form-label"> إضافة بوستر</label>
+        <div class="position-relative">
+          <input type="file" class="form-control form-control-lg file1" required
+            [ngClass]="{ 'text-white': !isFileSelected1 }" (change)="onFileSelected1($event)" accept=".jpg, .jpeg, .png, .webp, .svg">
+          <span class="span-pic" *ngIf="!isFileSelected1">إضافة بوستر</span>
+        </div>
+        <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                        validation: 'required',
+                        message: 'برجاء ادخال البوستر ',
+                        control: formGroup.controls['posterUrl']
+        }"></ng-container>
+      </div>
+
+      <div class="col-lg-12 fv-row mb-8">
+        <label class="text-gray-900 fs-6 form-label">معاد الإفتتاح</label>
+        <p-calendar inputId="calendar-timeonly" [showIcon]="true" required [timeOnly]="true"
+          formControlName="openingTime" hourFormat="12" [style]="{width: '100%;'}">
+        </p-calendar>
+        <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                        validation: 'required',
+                        message: 'برجاء ادخال معاد الإفتتاح',
+                        control: formGroup.controls['openingTime']
+        }"></ng-container>
+      </div>
+
+      <div class="col-lg-12 fv-row mb-8">
+        <label class="text-gray-900 fs-6 form-label">معاد الإغلاق</label>
+        <p-calendar inputId="calendar-timeonly" [showIcon]="true" required [timeOnly]="true"
+          formControlName="closingTime" hourFormat="12" [style]="{width: '100%;'}">
+        </p-calendar>
+        <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                        validation: 'required',
+                        message: 'برجاء ادخال معاد الإغلاق ',
+                        control: formGroup.controls['closingTime']
+        }"></ng-container>
+      </div>
+
+      <div class="d-flex justify-content-end mt-4">
+        <button type="submit" class="btn btn-primary px-15">حفظ</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+<ng-template #formError let-control="control" let-message="message" let-validation="validation">
+  <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched && control.errors)">
+    <div class="fv-plugins-message-container">
+      <span class="text-danger" role="alert">
+        {{ message }}
+      </span>
+    </div>
+  </ng-container>
+</ng-template>
+
+
+<p-toast />
+
+
+<swal #successSwal [swalOptions]="{ showCancelButton: false, confirmButtonText: 'موافق' }" title="تم التحميل!" text=""
+  icon="success" [customClass]="{confirmButton: 'btn btn-primary'}">
+</swal>

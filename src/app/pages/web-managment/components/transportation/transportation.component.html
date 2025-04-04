@@ -1,0 +1,161 @@
+<div class="card">
+  <div class="card-header border-0 pt-5 px-10">
+    <div class="card-title m-0 align-items-start flex-column">
+      <span class="mb-3 text-gray-900 fs-3">إضافة وسائل التنقل</span>
+    </div>
+  </div>
+
+  <div class="card-body py-5 px-10">
+    <form class="form" [formGroup]="formGroup" (ngSubmit)="submitTrans()">
+      <div class="row">
+        <div class="col-lg-6 fv-row mb-8">
+          <select class="form-select" formControlName="type">
+            <option [value]='null' disabled selected>التنقل</option>
+            <option [ngValue]='1'>سيارة</option>
+            <option [ngValue]='2'>حافلة</option>
+            <option [ngValue]='3'>قطار</option>
+            <option [ngValue]='4'>دراجة</option>
+          </select>
+        </div>
+
+        <div class="col-lg-6 fv-row mb-8">
+          <input type="text" placeholder="اسم وسيلة النقل" class="form-control" formControlName="name">
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-primary px-15" [disabled]="formGroup.invalid">
+          <span *ngIf="!isLoading">حفظ</span>
+          <span *ngIf="isLoading">
+            يرجى الانتظار...
+            <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+          </span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+<div class="card mt-10">
+  <div class="card-header border-0 pt-5 px-10">
+    <div class="card-title m-0 align-items-start flex-column">
+      <span class="mb-3 text-gray-900 fs-3">وسائل التنقل في نطاق منطقة حائل</span>
+      <small class="text-gray-500">أكثر من41</small>
+    </div>
+  </div>
+
+  <div class="card-body py-5 px-10">
+    <div class="table-responsive">
+      <table class="table align-middle gs-0 gy-4">
+        <thead>
+          <tr class="text-muted bg-light">
+            <th class="ps-4 min-w-325px rounded-end">اسم الوسيلة</th>
+            <th class="min-w-125px">نوع الوسيلة</th>
+            <th class="min-w-200px text-end rounded-start"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let tran of trans">
+            <td>
+              <a class="text-gray-900 text-hover-primary d-block mb-1 fs-6 cursor-pointer">
+                {{ tran.name }}
+              </a>
+            </td>
+            <td>
+              <a class="text-gray-900 text-hover-primary d-block mb-1 fs-6 cursor-pointer">
+                {{ tran.type | transType}}
+              </a>
+            </td>
+            <td>
+              <div class="dropdown actions text-end">
+                <button class="btn dropdown-toggle actions-button py-3 px-5 mx-5" type="button" id="actionsDropdown"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fa-solid fa-ellipsis-v p-0 text-primary"></i>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="actionsDropdown">
+                  <li>
+                    <button class="dropdown-item" (click)="openModal(tran)">
+                      <div class="row justify-content-start gap-2">
+                        <div class="col-2">
+                          <i class="bi bi-pencil-square"></i>
+                        </div>
+                        <div class="col-4">تعديل</div>
+                      </div>
+                    </button>
+                  </li>
+                  <li>
+                    <button class="dropdown-item" (click)="openDeleteSwal(tran.id)">
+                      <div class="row justify-content-start gap-2">
+                        <div class="col-2">
+                          <i class="bi bi-trash" style="color: red;"></i>
+                        </div>
+                        <div class="col-4">مسح</div>
+                      </div>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="paginator-div d-flex justify-content-end align-items-center">
+      <p-paginator [totalRecords]="totalRecords" (onPageChange)="onPageChange($event)" [first]="first" [rows]="rows"
+        [rowsPerPageOptions]="[10, 25, 50,100]" />
+    </div>
+  </div>
+</div>
+
+
+<swal #deleteSwal [swalOptions]="swalOptions" title="هل أنت متأكد من الحذف؟" text="لا يمكن التراجع عن هذا"
+  icon="warning" [showCancelButton]="true" [focusCancel]="true" (confirm)="triggerDelete()"
+  [customClass]="{confirmButton: 'btn btn-danger', cancelButton: 'btn btn-active-light'}">
+</swal>
+
+<swal #successSwal [swalOptions]="{ showCancelButton: false, confirmButtonText: 'موافق' }" title="تم الحذف بنجاح!"
+  text="" icon="success" [customClass]="{confirmButton: 'btn btn-success'}">
+</swal>
+
+
+<p-toast />
+
+
+<ng-template #formModal let-modal>
+  <form [formGroup]="formGroupEdit" (ngSubmit)="submitEditTrans()">
+    <div class="modal-header border-0">
+      <h4 class="modal-title" id="modal-basic-title"></h4>
+      <button type="button" class="btn-close m-0" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body py-4">
+      <div class="row">
+        <div class="col-lg-6 fv-row mb-8">
+          <select class="form-select" formControlName="type">
+            <option [value]='null' disabled selected>التنقل</option>
+            <option [ngValue]='0'>طائرة</option>
+            <option [ngValue]='1'>سيارة</option>
+            <option [ngValue]='2'>حافلة</option>
+            <option [ngValue]='3'>قطار</option>
+            <option [ngValue]='4'>دراجة</option>
+          </select>
+        </div>
+
+        <div class="col-lg-6 fv-row mb-8">
+          <input type="text" placeholder="اسم وسيلة النقل" class="form-control" formControlName="name">
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer flex-center border-0">
+      <button type="submit" [disabled]="formGroupEdit.invalid" class="btn btn-primary w-100">
+        <span *ngIf="!isLoading">حفظ</span>
+        <span *ngIf="isLoading">
+          يرجى الانتظار...
+          <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+        </span>
+      </button>
+    </div>
+  </form>
+</ng-template>

@@ -1,0 +1,39 @@
+<div class="card-header border-0 pt-5">
+  <h3 class="card-title" style="
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  ">
+    آخر الفعاليات المضافه
+  </h3>
+</div>
+<div class="card-body pt-5">
+  <div class="d-flex align-items-sm-center mb-7" *ngFor="let item of attractionPlaces">
+    <div class="symbol symbol-50px me-5">
+      <span class="symbol-label overflow-hidden">
+        <img [src]="item.posterUrl ?assets+ item.posterUrl : 'assets/images/img/Group.png'"
+          class="w-100 h-100 align-self-center" alt="" />
+      </span>
+    </div>
+    <div class="d-flex align-items-center flex-row-fluid flex-wrap">
+      <div class="flex-grow-1 mx-2">
+        <a class="fs-6 text-gray-900" style="
+        font-weight: 500;
+        line-height: 21px;"> {{item.name}}
+        </a>
+        <span class="text-muted d-block fs-7">تاريخ البدء {{item.startDate}}</span>
+      </div>
+      <a [routerLink]="['/management/edit-event',item.id]"
+        class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary">
+        <app-keenicon name="arrow-left" class="fs-2" style="display: contents;">
+          <span class="fs-2 ki-arrow-right ki-duotone">
+            <span class="path1"></span>
+            <span class="path2"></span>
+          </span>
+        </app-keenicon>
+      </a>
+    </div>
+  </div>
+
+
+</div>

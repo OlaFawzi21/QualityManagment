@@ -1,0 +1,44 @@
+::ng-deep{
+    #kt_app_sidebar_menu_scroll::-webkit-scrollbar{
+      display:none !important;
+    }
+  }
+  #kt_app_sidebar_menu_scroll{
+  overflow-y:scroll;
+  overflow-x:hidden;
+  scrollbar-width: none!important;
+  }
+   .menu-link.active .menu-title{
+    color: #ffff!important;
+  }
+  .menu-link.active .menu-bullet .bullet{
+    background-color: #fff!important;
+  }
+ 
+  .menu-link .menu-title{
+    color: #ffff!important;
+  }
+  .menu-link.active{
+    background-color: #F6F6F71A!important;
+  }
+  .menu-link.active .menu-title{
+    color:#ff8b00!important;
+  }
+  .menu-link.activeParent .menu-title{
+    color:#ff8b00!important;
+  }
+  .menu-item {
+    padding: 0.5rem 0!important;
+  }
+
+  // .menu-icon{
+  //   // margin-left:0.5rem ;
+  //   // display: grid!important;
+  // }
+  .menu-icon img{
+    margin: auto;
+  }
+  .menu-item .menu-link .menu-icon{
+    margin-right: 1rem!important;
+  }
+  

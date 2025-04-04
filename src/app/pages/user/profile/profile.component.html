@@ -1,0 +1,154 @@
+<div class="card mb-5 mb-xl-10">
+  <form novalidate="" class="form">
+    <div class="card-body border-top p-9">
+      <div class="row">
+        <div class="col-lg-6 fv-row position-relative mb-6">
+          <input type="text" disabled class="form-control form-control-lg px-12" placeholder="First name" name="fName"
+            [value]="userDetails?.fullName" />
+          <img src="assets/images/icons/user.svg" class="position-absolute top-50 translate-middle-y mx-3"
+            alt="user icon">
+        </div>
+        <!-- <div class="col-lg-4 fv-row position-relative mb-6">
+          <input type="text" disabled class="form-control form-control-lg px-12" placeholder="Last name" name="lName"
+            value="محمود محمد" />
+          <img src="assets/images/icons/user.svg" class="position-absolute top-50 translate-middle-y mx-3"
+            alt="user icon">
+        </div> -->
+        <div class="col-lg-6 fv-row position-relative mb-6">
+          <input type="text" disabled class="form-control form-control-lg px-12" placeholder="nationality"
+            name="nationality" [value]="userDetails?.nationalityName" />
+          <img src="assets/images/icons/nation.svg" class="position-absolute top-50 translate-middle-y mx-3"
+            alt="nation icon">
+        </div>
+      </div>
+      <div class="row mb-6">
+        <div class="col-lg-12 fv-row align-items-center position-relative">
+          <input type="text" disabled class="form-control form-control-lg phone" placeholder="رقم الهاتف"
+            name="contactPhone" [value]="userDetails?.phoneNumber" />
+          <img src="assets/images/icons/phone.svg" class="position-absolute top-50 translate-middle-y mx-3"
+            alt="phone icon">
+          <span class="position-absolute top-50 text-gray-500 code mx-3 fs-5">20+</span>
+          <img src="assets/images/icons/line.svg" class="position-absolute top-50 line mx-3" alt="line">
+        </div>
+      </div>
+      <div class="row mb-6">
+        <div class="col-lg-12 fv-row position-relative">
+          <input type="text" disabled class="form-control form-control-lg px-12" placeholder="email" name="email"
+            [value]="userDetails?.email" />
+          <img src="assets/images/icons/solar_user-linear.svg" class="position-absolute top-50 translate-middle-y mx-3"
+            alt="email icon">
+        </div>
+      </div>
+      <!-- <div class="row">
+        <div class="col-lg-12 fv-row position-relative">
+          <input type="text" disabled class="form-control form-control-lg px-12" placeholder="date" name="date"
+            value="12-2-2024" />
+          <img src="assets/images/icons/birthDate.svg" class="position-absolute top-50 translate-middle-y mx-3"
+            alt="birth-date icon">
+        </div>
+      </div> -->
+    </div>
+  </form>
+</div>
+
+
+
+<div class="card" *ngIf="!userDetails?.isLocked">
+  <div class="card-header px-10 border-0 cursor-pointer" role="button" data-bs-toggle="collapse"
+    data-bs-target="#kt_account_deactivate" aria-expanded="true" aria-controls="kt_account_deactivate">
+    <div class="card-title m-0">
+      <h3 class="fw-bolder m-0">إلغاء تنشيط الحساب</h3>
+    </div>
+  </div>
+  <div id="kt_account_deactivate" class="collapse show">
+    <form id="kt_account_deactivate_form" class="form">
+      <div class="card-body border-top p-9">
+        <div class="
+            notice
+            d-flex
+            bg-light-warning
+            rounded
+            border-warning border border-dashed
+            mb-9
+            p-6
+        ">
+          <div class="d-flex flex-stack flex-grow-1">
+            <div class="fw-bold">
+              <h4 class="text-gray-800 fw-bolder">
+                أنت تقوم بإلغاء تنشيط الحساب
+              </h4>
+              <div class="fs-6 text-gray-600">
+                لمزيد من الأمان، يتطلب منك هذا تأكيد بريدك الإلكتروني أو رقم هاتفك عند إيقاف الحساب يدب
+                التأكد من
+                صلاحياتك
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-check form-check-solid fv-row">
+          <input class="form-check-input" type="checkbox" [(ngModel)]="isChecked"
+            [ngModelOptions]="{standalone: true}" /><label class="form-check-label fw-bold ps-2 fs-6"
+            for="deactivate">تأكيد إلغاء تنشيط الحساب</label>
+        </div>
+      </div>
+
+      <div class="card-footer d-flex justify-content-end py-6 px-9">
+        <button id="kt_account_deactivate_account_submit" type="button" class="btn" [disabled]="!isChecked"
+          [ngClass]="userDetails?.isLocked ? 'btn-primary' : 'btn-danger'" (click)="toggleLockUser(userDetails?.id)">
+          {{ userDetails?.isLocked ? 'تنشيط الحساب' : 'إلغاء تنشيط الحساب' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="card" *ngIf="userDetails?.isLocked">
+  <div class="card-header px-10 border-0 cursor-pointer" role="button" data-bs-toggle="collapse"
+    data-bs-target="#kt_account_deactivate" aria-expanded="true" aria-controls="kt_account_deactivate">
+    <div class="card-title m-0">
+      <h3 class="fw-bolder m-0"> تنشيط الحساب </h3>
+    </div>
+  </div>
+  <div id="kt_account_deactivate" class="collapse show">
+    <form id="kt_account_deactivate_form" class="form">
+      <div class="card-body border-top p-9">
+        <div class="
+            notice
+            d-flex
+            bg-light-warning
+            rounded
+            border-warning border border-dashed
+            mb-9
+            p-6
+        ">
+          <div class="d-flex flex-stack flex-grow-1">
+            <div class="fw-bold">
+              <h4 class="text-gray-800 fw-bolder">
+                أنت تقوم تنشيط الحساب
+              </h4>
+              <div class="fs-6 text-gray-600">
+                لمزيد من الأمان، يتطلب منك هذا تأكيد بريدك الإلكتروني أو رقم هاتفك عند إيقاف الحساب يدب
+                التأكد من
+                صلاحياتك
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-check form-check-solid fv-row">
+          <input class="form-check-input" type="checkbox" [(ngModel)]="isChecked"
+            [ngModelOptions]="{standalone: true}" /><label class="form-check-label fw-bold ps-2 fs-6"
+            for="deactivate">تأكيد تنشيط الحساب</label>
+        </div>
+      </div>
+
+      <div class="card-footer d-flex justify-content-end py-6 px-9">
+        <button id="kt_account_deactivate_account_submit" type="button" class="btn btn-primary" [disabled]="!isChecked"
+          (click)="toggleLockUser(userDetails?.id)">
+          تنشيط الحساب
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<swal #successSwal [swalOptions]="{ showCancelButton: false, confirmButtonText: 'موافق' }"
+  title="تم تغيير نشاط الحساب بنجاح!" text="" icon="success" [customClass]="{confirmButton: 'btn btn-primary'}">
+</swal>

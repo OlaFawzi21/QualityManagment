@@ -1,0 +1,198 @@
+<div class="card">
+  <div class="card-header border-0 pt-5 px-10">
+    <div class="card-title m-0 align-items-start flex-column">
+      <span class="text-gray-700 fs-3">الحساب</span>
+    </div>
+  </div>
+  <div class="card-body pt-3 px-10">
+    <form [formGroup]="myForm" (ngSubmit)="submitForm()">
+      <div class="position-relative symbol symbol-100px symbol-lg-160px rounded-3 overflow-hidden">
+        <input type="file" id="profilePicture" (change)="onFileSelected($event)" accept=".jpg, .jpeg, .png, .webp, .svg" hidden />
+        <label for="profilePicture" class="cursor-pointer">
+          <img [src]="profileImage" alt="userImg" width="100" height="100" />
+        </label>
+        <!-- Pen Icon Overlay -->
+        <label for="profilePicture"
+          class="pen-icon position-absolute bottom-0 end-0 bg-white p-2 rounded-circle shadow-sm">
+          <i class="bi bi-pencil-fill text-primary"></i>
+        </label>
+      </div>
+      <p class="text-gray-700 mt-4 fs-5">تغيير الصوره الشخصيه</p>
+      <div class="row">
+        <div class="col-lg-6 fv-row mb-7">
+          <input type="text" class="form-control" formControlName="fullName" placeholder="اسم الموظف" />
+          <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+              validation: 'required',
+              message: 'الاسم مطلوب',
+              control: myForm.controls['fullName']
+            }"></ng-container>
+          <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+              validation: 'minlength',
+              message: 'يجب أن يكون الاسم مكونًا من 4 أحرف على الأقل',
+              control: myForm.controls['fullName']
+            }"></ng-container>
+        </div>
+
+        <div class="col-lg-6 fv-row mb-7">
+          <input type="number" class="form-control" formControlName="phoneNumber" placeholder="رقم الهاتف" />
+          <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+              validation: 'required',
+              message: 'رقم الهاتف مطلوب',
+              control: myForm.controls['phoneNumber']
+            }"></ng-container>
+          <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+              validation: 'pattern',
+              message: 'رقم الهاتف غير صالح',
+              control: myForm.controls['phoneNumber']
+            }"></ng-container>
+        </div>
+
+        <div class="col-12 fv-row mb-7">
+          <input type="email" class="form-control" formControlName="email" placeholder="البريد الإلكتروني" />
+          <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+              validation: 'required',
+              message: 'البريد الإلكتروني مطلوب',
+              control: myForm.controls['email']
+            }"></ng-container>
+          <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+              validation: 'pattern',
+              message: 'البريد الإلكتروني غير صالح',
+              control: myForm.controls['email']
+            }"></ng-container>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-primary px-15" [disabled]="myForm.invalid">
+          <span>تعديل</span>
+          <span *ngIf="isLoading">
+            يرجى الانتظار...
+            <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+          </span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="card mt-15">
+  <div class="card-header border-0 pt-5 px-10">
+    <div class="card-title m-0 align-items-start flex-column">
+      <span class="text-gray-700 fs-3">تغيير كلمه المرور</span>
+    </div>
+  </div>
+  <div class="card-body pt-3 px-10">
+    <form [formGroup]="formPassword" (ngSubmit)="submitPasswordForm()">
+      <div class="row">
+        <!-- password -->
+        <div class="col-12 fv-row mb-7">
+          <div class="position-relative">
+            <input [type]="isHide ? 'password' : 'text'" class="form-control" formControlName="oldPassword"
+              placeholder="كلمة المرور الحاليه" />
+            <a class="toggle-eye" (click)="togglePasswordVisibility('current')">
+              <i [class]="
+                  isHide ? 'fa-regular fa-eye-slash' : 'fa-regular fa-eye'
+                "></i>
+            </a>
+          </div>
+          <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+              validation: 'required',
+              message: 'كلمة المرور الحالية مطلوبة',
+              control: formPassword.controls['oldPassword']
+            }"></ng-container>
+          <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+              validation: 'pattern',
+              message: ' يجب أن تحتوي كلمة المرور على 8 أحرف على الأقل بما في ذلك حرف كبير وحرف صغير ورمز' ,
+              control: formPassword.controls['oldPassword']
+            }"></ng-container>
+        </div>
+
+        <!-- new password -->
+        <div class="col-lg-6 fv-row mb-7">
+          <div class="position-relative">
+            <input [type]="isHideNew ? 'password' : 'text'" class="form-control" formControlName="password"
+              placeholder="كلمة المرور الجديدة" />
+            <a class="toggle-eye" (click)="togglePasswordVisibility('new')">
+              <i [class]="
+                  isHideNew ? 'fa-regular fa-eye-slash' : 'fa-regular fa-eye'
+                "></i>
+            </a>
+          </div>
+          <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+              validation: 'required',
+              message: 'كلمة المرور الجديدة مطلوبة',
+              control: formPassword.controls['password']
+            }"></ng-container>
+          <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+              validation: 'pattern',
+              message: ' يجب أن تحتوي كلمة المرور على 8 أحرف على الأقل بما في ذلك حرف كبير وحرف صغير ورمز' ,
+              control: formPassword.controls['password']
+            }"></ng-container>
+        </div>
+
+        <!-- confirm password -->
+        <div class="col-lg-6 fv-row mb-7">
+          <div class="position-relative">
+            <input [type]="isHideConfirm ? 'password' : 'text'" class="form-control"
+              formControlName="passwordConfirmation" placeholder="تأكيد كلمة المرور الجديدة" />
+            <a class="toggle-eye" (click)="togglePasswordVisibility('confirm')">
+              <i [class]="
+                  isHideConfirm
+                    ? 'fa-regular fa-eye-slash'
+                    : 'fa-regular fa-eye'
+                "></i>
+            </a>
+          </div>
+          <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+              validation: 'required',
+              message: 'تأكيد كلمة المرور الجديدة مطلوبة',
+              control: formPassword.controls['passwordConfirmation']
+            }"></ng-container>
+          <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+              validation: 'notMatch',
+              message: 'كلمتا المرور غير متطابقتين',
+              control: formPassword.controls['passwordConfirmation']
+            }"></ng-container>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-primary px-15" [disabled]="formPassword.invalid">
+          <span *ngIf="!isLoadingEdit">تعديل</span>
+          <span *ngIf="isLoadingEdit">
+            يرجى الانتظار...
+            <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+          </span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!--control error msg -->
+<ng-template #formError let-control="control" let-message="message" let-validation="validation">
+  <ng-container *ngIf="
+      control.hasError(validation) &&
+      (control.dirty || (control.touched && control.errors))
+    ">
+    <div class="fv-plugins-message-container">
+      <span class="text-danger" role="alert">
+        {{ message }}
+      </span>
+    </div>
+  </ng-container>
+</ng-template>
+<swal #successSwal [swalOptions]="{ showCancelButton: false, confirmButtonText: 'موافق' }" title="تم التحميل!" text=""
+  icon="success" [customClass]="{confirmButton: 'btn btn-primary'}">
+</swal>
+
+<swal #successSwal2 [swalOptions]="{ showCancelButton: false, confirmButtonText: 'موافق' }"
+  title="تم تعديل بياناتك بنجاح!" text="" icon="success" [customClass]="{confirmButton: 'btn btn-primary'}">
+</swal>
+<swal #successSwal3 [swalOptions]="{ showCancelButton: false, confirmButtonText: 'موافق' }"
+  title="تم تغيير كلمة المرور بنجاح!" text="" icon="success" [customClass]="{confirmButton: 'btn btn-primary'}">
+</swal>
+
+<swal #error [swalOptions]="{ showCancelButton: false, confirmButtonText: 'تم' }" title="كمة المرور القديمه غير صحيحة!"
+  text="" icon="error" [customClass]="{confirmButton: 'btn btn-danger'}">
+</swal>

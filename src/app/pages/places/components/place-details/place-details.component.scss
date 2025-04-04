@@ -1,0 +1,66 @@
+::ng-deep{
+.p-element.p-icon-wrapper{
+  color: black;
+  width: 18px;
+}
+.p-ripple.p-element{
+background-color: #D9D9D966;
+width: 28px;
+height: 96px;
+border-radius: 5px;
+margin-inline: 10px;
+}
+.p-component-overlay{
+  background: rgba(0, 0, 0, 0.5)!important;
+}
+.p-dialog .p-dialog-content{
+  background:transparent!important;
+  padding: 0 !important;
+}
+.p-dialog .p-dialog-header{
+  background:transparent!important;
+  padding: 0 !important;
+}.p-dialog{
+  box-shadow: none!important;
+}
+.p-ripple.p-element.p-dialog-header-close{
+  background:transparent!important;
+  color: #fff!important;
+  margin: 0;
+  width: auto;
+}
+.p-ripple.p-element.p-dialog-header-close .p-element.p-icon-wrapper{
+  color: #fff!important;
+  width: 24px;
+}
+}
+h4{
+font-weight: 800;
+font-size: 35px;
+line-height: 39.06px;
+}
+p{
+  font-family: Almarai;
+font-weight: 400;
+font-size: 18px;
+line-height: 36px;
+}
+h5{
+font-weight: 700;
+font-size: 20px;
+line-height: 24px;
+}
+h6{
+font-weight: 700;
+font-size: 18px;
+line-height: 21.6px;
+}
+.edit{
+  border:  1px solid #4B0082!important;
+// font-weight: 700;
+font-size: 16px;
+// line-height: 17.86px;
+// text-align: center;
+// border-radius: 4px;
+// padding-block: 0.775rem;
+}

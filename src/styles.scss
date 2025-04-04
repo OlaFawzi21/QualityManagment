@@ -1,0 +1,236 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./assets/sass/style.scss";
+// Replace above style with this css file to enable RTL styles
+// @import "./assets/css/style.rtl";
+@import "./assets/sass/plugins.scss";
+// @import "./assets/css/style.rtl.css";
+@import "./assets/sass/style.angular.scss";
+@import "./assets/plugins/keenicons/duotone/style.css";
+@import "./assets/plugins/keenicons/outline/style.css";
+@import "./assets/plugins/keenicons/solid/style.css";
+// google font
+@font-face {
+  font-family: "Tajawal";
+  src: url("./assets/fonts/Tajawal-Medium.ttf");
+  // font-weight: 700;
+  // font-style: 16px;
+}
+@font-face {
+  font-family: "Rubik";
+  src: url("./assets/fonts/Rubik-Medium.ttf");
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("./assets/fonts/Roboto-Medium.ttf");
+}
+@font-face {
+  font-family: "Public Sans";
+  src: url("./assets/fonts/PublicSans-Regular.ttf");
+}
+:root {
+  --purple-text-color: #4b0082;
+  --btn-bg-purple: #4b0082;
+
+  --secondry-text-color: #3e3232bf;
+  --secondry-text-color-opacity-50: #00000080;
+  --white-text-color: #fff;
+  --bg-white: #fff;
+  --text-black: #000;
+  --title-color: #1e1b39;
+  --ancor-color: #28914f;
+  --border-color: #e9f1ff;
+  --label-text-color: #3f4254;
+  --text-333-color: #333;
+  --main-green-color: #28914f;
+  --main-btn-bg-color: #28914f;
+  --main-btn-color: #fff;
+  --border-green-color: #288f4e;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Tajawal", sans-serif;
+  // font-weight: normal;
+  // font-style: normal;
+  overflow-x: hidden;
+}
+.p-paginator ul {
+  padding: 0;
+}
+.p-paginator span {
+  padding-right: 8px;
+  // color: #fff!important;
+}
+.p-paginator .p-dropdown {
+  border-radius: 8px;
+  display: flex !important;
+  align-items: center !important;
+}
+.p-dropdown:not(.p-disabled):hover {
+  border-color: #4b0082;
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+  color: #fff !important;
+}
+.p-dropdown:not(.p-disabled):focus {
+  box-shadow: none !important;
+}
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+  background-color: #4b0082;
+  border-radius: 8px;
+  color: #fff !important;
+}
+.p-paginator .p-paginator-first,
+.p-paginator .p-paginator-prev {
+  transform: rotate(180deg) !important;
+}
+.p-paginator .p-paginator-next,
+.p-paginator .p-paginator-last {
+  transform: rotate(-180deg) !important;
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight.p-focus {
+  background: #4b0082;
+}
+.p-ripple.p-element.p-datepicker-prev {
+  transform: rotate(180deg) !important;
+}
+.p-ripple.p-element.p-datepicker-next {
+  transform: rotate(-180deg) !important;
+}
+.p-datepicker-title {
+  flex: auto;
+}
+.p-datepicker {
+  left: 0 !important;
+}
+
+.p-inputtext,
+.p-component {
+  font-family: "Tajawal" !important;
+}
+
+::ng-deep .ql-editor {
+  font-family: "Tajawal";
+}
+
+.ql-container {
+  font-size: 1.1rem !important;
+  font-family: "Tajawal" !important;
+}
+
+.p-inline-message {
+  gap: 10px;
+}
+
+.p-datepicker-calendar th {
+  text-align: center !important;
+}
+
+.p-calendar.p-calendar-w-btn {
+  width: 100% !important;
+  border: 1px solid #dbdfe9 !important;
+  border-radius: 0.625rem !important;
+  .p-inputtext {
+    padding: 0.775rem !important;
+  }
+}
+
+::placeholder {
+  font-size: 13px !important;
+}
+body[data-kt-app-layout="dark-sidebar"] .p-paginator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: #15171c;
+}
+body[data-kt-app-layout="dark-sidebar"] .p-paginator .p-dropdown,
+body[data-kt-app-layout="dark-sidebar"] .p-paginator .p-dropdown-items-wrapper {
+  background: #15171c;
+}
+body[data-kt-app-layout="dark-sidebar"] thead tr th {
+  background: inherit !important;
+}
+body[data-kt-app-layout="dark-sidebar"] .p-stepper .p-stepper-panels {
+   background: #15171c!important  ;
+  }
+  body[data-kt-app-layout="dark-sidebar"] .p-dropdown {
+    background: #15171c!important  ;
+   }
+   body[data-kt-app-layout="dark-sidebar"] .p-dropdown-label{
+    color:#b5b7c8!important
+   }
+   body[data-kt-app-layout="dark-sidebar"] .p-dropdown-trigger-icon{
+    color:#b5b7c8!important
+   }
+   body[data-kt-app-layout="dark-sidebar"] .p-dropdown-panel ul{
+    background: #15171c!important  ;
+   }
+   body[data-kt-app-layout="dark-sidebar"] .p-dropdown-panel .p-dropdown-items .p-dropdown-item{
+    color:#b5b7c8!important
+   }
+   body[data-kt-app-layout="dark-sidebar"] .p-stepper .p-stepper-header .p-stepper-title{
+    color:#b5b7c8!important
+   }
+   body[data-kt-app-layout="dark-sidebar"] .p-stepper-number{
+    color:#b5b7c8!important
+   }
+   body[data-kt-app-layout="dark-sidebar"] .p-editor-container .p-editor-content .ql-editor{
+    color:#b5b7c8!important;
+    background: #15171c!important  ;
+   }
+   body[data-kt-app-layout="dark-sidebar"] .p-editor-container .p-editor-toolbar{
+
+    background: #b5b7c8!important  ;
+   }
+   body[data-kt-app-layout="dark-sidebar"] .p-multiselect{
+    background: #15171c!important  ;
+   }
+   body[data-kt-app-layout="dark-sidebar"] .p-multiselect-label, body[data-kt-app-layout="dark-sidebar"] .p-multiselect .p-multiselect-trigger{
+    color:#b5b7c8!important;
+   }
+   body[data-kt-app-layout="dark-sidebar"] .p-multiselect-panel .p-multiselect-header {
+    border-bottom: 1px solid #f4f4f4!important ;
+    color: #b5b7c8 !important;
+    background: #15171c !important;
+}
+     body[data-kt-app-layout="dark-sidebar"] .p-multiselect-filter,
+     body[data-kt-app-layout="dark-sidebar"] .p-multiselect-panel .p-multiselect-items,
+     body[data-kt-app-layout="dark-sidebar"] .p-multiselect-items-wrapper{
+    color:#b5b7c8!important;
+    background: #15171c !important;
+   }
+
+   body[data-kt-app-layout="dark-sidebar"] .p-calendar.p-calendar-w-btn .p-inputtext,
+   body[data-kt-app-layout="dark-sidebar"] .p-datepicker-trigger{
+     background: #15171c !important;
+   }
+
+   body[data-kt-app-layout="dark-sidebar"] .p-datepicker {
+    background: #15171c!important;
+    color: #b5b7c8!important;
+}
+
+body[data-kt-app-layout="dark-sidebar"] .p-datepicker .p-datepicker-header {
+  background: #15171c!important;
+  color: #b5b7c8!important;
+}
+
+body[data-kt-app-layout="dark-sidebar"] .p-datepicker-title button,
+body[data-kt-app-layout="dark-sidebar"] .p-icon-wrapper{
+  color: #b5b7c8!important;
+}
+
+body[data-kt-app-layout="dark-sidebar"] .p-accordion .p-accordion-content,
+body[data-kt-app-layout="dark-sidebar"] .p-accordion .p-accordion-header .p-accordion-header-link{
+  background: #1f212a!important;
+}
+
+.p-toast-message-icon .p-element.p-icon-wrapper {
+    display: none !important;
+}

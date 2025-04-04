@@ -1,0 +1,69 @@
+<div class="container-fluid">
+
+  <div class="row gy-4 gx-5 gx-lg-10 p-4 mt-5 align-items-center">
+    <div class="col-xl-4 col-lg-6 col-md-6" *ngFor="let event of attractionPlaces">
+      <div style="height:300px">
+        <a class="tourCard shadow-3 rounded-8 bg-white text-decoration-none">
+          <div class="position-relative">
+            <div class="tourCard__image overflow-hidden rounded-top-8" style="background-color:#979797; height:180px">
+              <img class="w-100" [src]="event.posterUrl ? event.posterUrl : 'assets/images/img/Group.png'"
+                alt="attraction places image" width="300" height="180">
+            </div>
+            <div class="d-flex justify-content-between py-10 px-2 absolute-full-center z-3">
+              <div class="dropdown actions text-start">
+                <button class="btn dropdown-toggle actions-button py-3 px-5" type="button" id="actionsDropdown"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fa-solid fa-ellipsis-v p-0" style="color:#979797;"></i>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="actionsDropdown">
+                  <li>
+                    <button class="dropdown-item" [routerLink]="['/management/edit-activity',event.id]">
+                      <div class="row justify-content-start gap-2">
+                        <div class="col-2">
+                          <i class="bi bi-pencil-square"></i>
+                        </div>
+                        <div class="col-4">تعديل</div>
+                      </div>
+                    </button>
+                  </li>
+                  <li>
+                    <button class="dropdown-item" (click)="openDeleteSwal(event.id)">
+                      <div class="row justify-content-start gap-2">
+                        <div class="col-2">
+                          <i class="bi bi-trash" style="color: red;"></i>
+                        </div>
+                        <div class="col-4">مسح</div>
+                      </div>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="h-100 pt-20 pb-15 px-15">
+              <div class="d-flex align-items-center justify-content-between">
+                <h2 class="text-gray-900 mb-4">
+                  {{event.name}}
+                </h2>
+              </div>
+              <div class="line"></div>
+              <div class="text-17 text-gray-900 my-4">
+                <div class="row align-items-center">
+                  <div class="col-5">
+                    <img src="assets/images/icons/calender.svg" alt="">
+                    <span class="mx-2">معاد الإفتتاح : </span>
+                  </div>
+                  <div class="col-7">
+                    <p class="py-0 my-0 text-gray-800">{{convertTimeStringToDate(event.openingTime) }} &nbsp; إلي &nbsp; {{convertTimeStringToDate(event.closingTime)}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</div>

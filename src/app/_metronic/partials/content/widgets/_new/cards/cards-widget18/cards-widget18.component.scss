@@ -1,0 +1,119 @@
+.tourCard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.shadow-3 {
+  box-shadow: 0px 20px 30px 0px #19192E0A;
+}
+.rounded-8 {
+  border-radius: 8px !important;
+}
+
+.bg-white {
+  background-color: #fff;
+}
+.rounded-top-8 {
+  border-radius: 8px 8px 0 0 !important;
+}
+.tourCard .tourCard__image img {
+transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.py-10 {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+.px-10 {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+.absolute-full-center {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.px-15 {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+.upload-icon {
+  background-color: #FFFFFF80;
+}
+.bg-orange-1{
+  background-color: #E46538;
+}
+.upload-icon ,
+.bg-orange-1{
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+.fw-500 {
+  font-weight: 500 !important;
+}
+.text-white {
+  color: #fff !important;
+}
+.lh-1 {
+  line-height: 1 !important;
+}
+.text-11 {
+  font-size: 16px!important;
+}
+.pt-20 {
+  padding-top: 20px !important;
+}
+.pb-15 {
+  padding-bottom: 15px !important;
+}
+h2{
+font-weight: 800;
+font-size: 18px;
+line-height: 21.6px;
+letter-spacing: 0%;
+}
+.text-17{
+font-weight: 400;
+font-size: 14px;
+line-height: 22px;
+letter-spacing: 0%;
+}
+.text-17 span{
+font-weight: 400;
+font-size: 14px;
+line-height: 13.39px;
+color:  #67747C;
+text-wrap: nowrap;
+}
+.text-17 p{
+font-weight: 700;
+font-size: 14px;
+line-height: 13.39px;
+}
+.line{
+  width: 100%;
+  background-color: #F7F7FF;
+  height: 1px;
+}
+
+.dropdown-toggle {
+  background: #FAF2FF;
+}
+.dropdown-toggle::after {
+  display: none !important;
+}
+.actions .dropdown-item {
+  padding-left: 36px;
+  font-size: 14px;
+}
+.actions .dropdown-item i {
+  padding-left: 0.3rem;
+}
+.actions span {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22px;
+}

@@ -1,0 +1,49 @@
+<div class="d-flex flex-column bgi-no-repeat rounded-top"
+  [style.background-image]="'url(./assets/media/misc/menu-header-bg.jpg)'">
+  <h3 class="text-gray-900 fw-bold px-9 mt-10 mb-6">
+    الإشعارات
+  </h3>
+
+  <ul class="nav nav-line-tabs nav-line-tabs-2x nav-stretch fw-bold px-9">
+    <!-- <li class="nav-item">
+      <a class="
+          nav-link
+          text-gray-900
+          opacity-75 opacity-state-100
+          pb-4
+          cursor-pointer
+        " data-bs-toggle="tab" [ngClass]="activeTabId === 'kt_topbar_notifications_2' ? 'active' : ''"
+        (click)="setActiveTabId('kt_topbar_notifications_2')">
+        Logs
+      </a>
+    </li> -->
+  </ul>
+</div>
+
+<div class="tab-content">
+
+  <!-- <div class="tab-pane fade" id="kt_topbar_notifications_2" role="tabpanel"
+    [ngClass]="activeTabId === 'kt_topbar_notifications_2' ? 'show active' : ''">
+    <div class="d-flex flex-column px-9">
+      <div *ngFor="let log of logs" class="d-flex flex-stack py-4">
+        <div class="d-flex align-items-center me-2">
+          <span class="w-70px badge" [ngClass]="'badge-light-' + log.state + ' me-4'">
+            {{ log.code }}
+          </span>
+
+          <a class="text-gray-800 text-hover-primary fw-bold cursor-pointer">
+            {{ log.message }}
+          </a>
+
+          <span class="badge badge-light fs-8">{{ log.time }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="py-3 text-center border-top">
+      <a routerLink="/crafted/pages/profile" class="btn btn-color-gray-600 btn-active-color-primary">
+        View All
+        <app-keenicon name="arrow-right" class="fs-5"></app-keenicon>
+      </a>
+    </div>
+  </div> -->
+</div>

@@ -1,0 +1,27 @@
+.stepper-wrapper{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media(max-width:992px){
+  .stepper-wrapper{
+    flex-direction: row;
+    align-items: start;
+    justify-content: start;
+  }
+  .stepper.stepper-pills.stepper-column .stepper-line{
+    margin-right: 0;
+    border-right:none ;
+  }
+  .h-40px{
+    width: 40px;
+  }
+}
+.stepper-title{
+font-weight: 400 !important;
+font-size: 12px!important;
+line-height: 13.39px;
+letter-spacing: 0%;
+text-align: center;
+}

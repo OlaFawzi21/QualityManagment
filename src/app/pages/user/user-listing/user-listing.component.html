@@ -1,0 +1,241 @@
+<div class="card">
+  <div class="card-header border-0 pt-5 px-10">
+    <div class="card-title m-0 align-items-start flex-column">
+      <span class="mb-3 text-gray-900 fs-3">{{title}}</span>
+      <small class="text-gray-500">أكثر من {{totalRecords}} عضو جديد</small>
+    </div>
+    <div class="d-flex align-items-center gap-3">
+      <input type="text" class="form-control w-250px" placeholder="بحث...">
+      <select name="" id="" class="form-select w-200px" (change)="handleSelectionChange($event)">
+        <option [value]="0">الجميع</option>
+        <option [value]="1">الموظفين</option>
+        <option [value]="2">مستخدمي الموقع</option>
+      </select>
+      <button type="button" class="btn btn-primary d-flex gap-3" data-action="create"
+        [routerLink]="['/users/add-user']">
+        <img src="assets/images/icons/add-user.svg" alt="add-user">
+        <span>إضافة موظف جديد</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="card-body py-5 px-10">
+    <div class="table-responsive">
+      <table class="table align-middle gs-0 gy-4">
+        <thead>
+          <tr class="text-muted bg-light">
+            <th class="ps-4 min-w-325px rounded-end">الاسم / البريد الالكتروني</th>
+            <th class="min-w-125px" *ngIf="selectedUserType === 2">الجنسيه</th>
+            <th class="min-w-125px" *ngIf="selectedUserType === 1">الدور</th>
+            <th class="min-w-125px">رقم الهاتف</th>
+            <th class="min-w-200px text-end rounded-start"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>
+              <div class="d-flex align-items-center">
+                <div class="symbol symbol-50px mx-5" *ngIf="user.profilePicture">
+                  <img
+                    [src]="user.profilePicture.startsWith('http') ? user.profilePicture : assets + user.profilePicture"
+                    alt="userImg" />
+                </div>
+                <div
+                  class="mx-5 font-bolder text-primary fs-1 border-2 rounded-circle border d-flex justify-content-center align-items-center"
+                  style="width:50px; height:50px" *ngIf="!user.profilePicture">{{ user.fullName | uppercase |
+                  slice:0:1 }}</div>
+                <div class="d-flex justify-content-start flex-column">
+                  <a class="text-gray-900 text-hover-primary mb-1 fs-6 cursor-pointer">
+                    {{ user.fullName }}
+                  </a>
+                  <span class="text-muted text-muted d-block fs-7">
+                    {{ user.email }}
+                  </span>
+                </div>
+              </div>
+            </td>
+            <td *ngIf="selectedUserType === 2">
+              <a class="text-gray-900 text-hover-primary d-block mb-1 fs-6 cursor-pointer">
+                {{ user.nationalityName }}
+              </a>
+            </td>
+            <td *ngIf="selectedUserType === 1">
+              <a class="text-gray-900 text-hover-primary d-block mb-1 fs-6 cursor-pointer">
+                {{ user.roleName }}
+              </a>
+            </td>
+            <td>
+              <a class="text-gray-900 text-hover-primary d-block mb-1 fs-6 cursor-pointer">
+                {{ user.phoneNumber }}
+              </a>
+            </td>
+            <td>
+              <div class="dropdown actions text-end">
+                <button class="btn dropdown-toggle actions-button py-3 px-5 mx-5" type="button" id="actionsDropdown"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fa-solid fa-ellipsis-v p-0 text-primary"></i>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="actionsDropdown">
+                  <li *ngIf="user.isTourist ===true">
+                    <button class="dropdown-item" (click)="exportPDF(user.id)">
+                      <div class="row justify-content-start gap-2">
+                        <div class="col-2">
+                          <i class="bi bi-download"></i>
+                        </div>
+                        <div class="col-4">طباعه</div>
+                      </div>
+                    </button>
+                  </li>
+                  <li>
+                    <button class="dropdown-item" [routerLink]="['/users',user.id]">
+                      <div class="row justify-content-start gap-2">
+                        <div class="col-2">
+                          <i class="bi bi-eye"></i>
+                        </div>
+                        <div class="col-4">التفاصيل</div>
+                      </div>
+                    </button>
+                  </li>
+                  <li *ngIf="user.isTourist ===false">
+                    <button class="dropdown-item" [routerLink]="['/users/edit-user',user.id]">
+                      <div class="row justify-content-start gap-2">
+                        <div class="col-2">
+                          <i class="bi bi-pencil-square"></i>
+                        </div>
+                        <div class="col-4">تعديل</div>
+                      </div>
+                    </button>
+                  </li>
+                  <li>
+                    <button class="dropdown-item" (click)="openDeleteSwal(user.id)">
+                      <div class="row justify-content-start gap-2">
+                        <div class="col-2">
+                          <i class="bi bi-trash" style="color: red;"></i>
+                        </div>
+                        <div class="col-4">مسح</div>
+                      </div>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="paginator-div d-flex justify-content-end align-items-center">
+      <p-paginator [totalRecords]="totalRecords" (onPageChange)="onPageChange($event)" [first]="first" [rows]="rows"
+        [rowsPerPageOptions]="[10, 25, 50,100]" />
+    </div>
+  </div>
+</div>
+
+
+<swal #deleteSwal [swalOptions]="swalOptions" title="هل أنت متأكد من الحذف؟" text="لا يمكن التراجع عن هذا"
+  icon="warning" [showCancelButton]="true" [focusCancel]="true" (confirm)="triggerDelete()"
+  [customClass]="{confirmButton: 'btn btn-danger', cancelButton: 'btn btn-active-light'}">
+</swal>
+
+<swal #successSwal [swalOptions]="{ showCancelButton: false, confirmButtonText: 'موافق' }" title="تم الحذف بنجاح!"
+  text="" icon="success" [customClass]="{confirmButton: 'btn btn-success'}">
+</swal>
+
+<swal #successSwal1 [swalOptions]="{ showCancelButton: false, confirmButtonText: 'موافق' }" title="تم الإضافة بنجاح!"
+  text="" icon="success" [customClass]="{confirmButton: 'btn btn-success'}">
+</swal>
+
+<swal #successSwal2 [swalOptions]="{ showCancelButton: false, confirmButtonText: 'موافق' }" title="تم التعديل بنجاح!"
+  text="" icon="success" [customClass]="{confirmButton: 'btn btn-success'}">
+</swal>
+
+<!-- <ng-template #formModal let-modal>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="modal-header border-0">
+      <h4 class="modal-title" id="modal-basic-title">{{ editMode ? 'تعديل' : 'إضافة' }} موظف</h4>
+      <button type="button" class="btn-close m-0" aria-label="Close"
+        (click)="modal.dismiss('Cross click'); resetForm()"></button>
+    </div>
+
+    <div class="modal-body py-4">
+      <div class="d-flex flex-column mw-650px" id="kt_modal_update_customer_scroll">
+        <div class="collapse show" #collapse1="ngbCollapse" [(ngbCollapse)]="isCollapsed1">
+
+          <div class="fv-row mb-7">
+            <input type="text" class="form-control" formControlName="fullName" required minlength="4"
+              placeholder="اسم الموظف" />
+            <div *ngIf="userForm.get('fullName')?.invalid && userForm.get('fullName')?.touched">
+              <small class="text-danger">الاسم مطلوب</small>
+              <div *ngIf="userForm.controls.fullName.errors?.['minlength']">يجب أن يكون الاسم مكونًا من 4 أحرف على الأقل
+              </div>
+            </div>
+          </div>
+
+          <div class="fv-row mb-7">
+            <input type="email" class="form-control" formControlName="email" placeholder="البريد الإلكتروني" />
+            <div *ngIf="userForm.get('email')?.invalid && userForm.get('fullName')?.touched">
+              <small class="text-danger">البريد الإلكتروني مطلوب</small>
+            </div>
+          </div>
+
+          <div class="fv-row mb-7">
+            <input type="text" class="form-control" formControlName="identityNumber" required
+              placeholder="رقم الهوية" />
+            <div *ngIf="userForm.get('identityNumber')?.invalid && userForm.get('identityNumber')?.touched">
+              <small class="text-danger">رقم الهوية مطلوب</small>
+            </div>
+          </div>
+
+          <div class="fv-row mb-7">
+            <select class="form-select" formControlName="dataSourceId" required>
+              <option value="" disabled selected>الهيئة التابع لها</option>
+              <option value="1">الهيئة الأولى</option>
+              <option value="2">الهيئة الثانية</option>
+            </select>
+            <div *ngIf="userForm.get('dataSourceId')?.invalid && userForm.get('dataSourceId')?.touched">
+              <small class="text-danger">الهيئة مطلوبة</small>
+            </div>
+          </div>
+
+          <div class="fv-row mb-7">
+            <select class="form-select" formControlName="nationalityId" required>
+              <option value="" disabled selected>الجنسية</option>
+              <option value="1">سعودي</option>
+              <option value="2">غير سعودي</option>
+            </select>
+            <div *ngIf="userForm.get('nationalityId')?.invalid && userForm.get('dataSourceId')?.touched">
+              <small class="text-danger">الجنسية مطلوبة</small>
+            </div>
+          </div>
+
+          <div class="fv-row">
+            <select class="form-select" formControlName="roleName" required>
+              <option value="" disabled selected>الدور</option>
+              <option value="admin">مسؤول</option>
+              <option value="user">موظف</option>
+            </select>
+            <div *ngIf="userForm.get('roleName')?.invalid && userForm.get('roleName')?.touched">
+              <small class="text-danger">الدور مطلوب</small>
+            </div>
+          </div>
+
+          <div class="fv-row my-8">
+            <label class="text-gray-900 fs-4 mb-2">إضافة صورة شخصية</label>
+            <div class="mb-6 position-relative">
+              <input type="file" class="form-control form-control-lg" (change)="onImagesSelected($event)">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer flex-center border-0">
+      <button type="submit" class="btn btn-primary w-100" [attr.data-kt-indicator]="isLoading ? 'on' : 'off'">
+        <span class="indicator-label">حفظ</span>
+        <span class="indicator-progress">
+          يرجى الانتظار... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+        </span>
+      </button>
+    </div>
+  </form>
+</ng-template> -->

@@ -1,0 +1,22 @@
+.dropdown-toggle {
+  background: #f8fafb;
+}
+
+.dropdown-toggle::after {
+  display: none !important;
+}
+
+.actions .dropdown-item {
+  padding-left: 36px;
+  font-size: 14px;
+}
+
+.actions .dropdown-item i {
+  padding-left: 0.3rem;
+}
+
+.desc {
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
