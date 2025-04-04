@@ -1,23 +1,3 @@
-<!--begin::Logo image-->
-<a routerLink="/dashboard">
-  <ng-container *ngIf="currentLayoutType === 'dark-sidebar'">
-
-    <img alt="Logo" width="" src="assets/images/logo/Logo Purple BG.svg"
-      class="h-55px app-sidebar-logo-default mx-auto" />
-  </ng-container>
-  <ng-container *ngIf="currentLayoutType !== 'dark-sidebar'">
-    <img alt="Logo" src="../../../../../../assets/images/logo/logo.svg"
-      class="h-50px ps-2  app-sidebar-logo-default theme-light-show mx-auto" />
-    <img alt="Logo" src="../../../../../../assets/images/logo/logo.svg"
-      class="h-50px  app-sidebar-logo-default theme-dark-show mx-auto" />
-  </ng-container>
-
-  <img alt="Logo" src="../../../../../../assets/images/logo/logo.svg"
-    class="h-50px ps-2 app-sidebar-logo-minimize  mx-auto" />
-</a>
-<!--end::Logo image-->
-
-
 <ng-container *ngIf="toggleEnabled">
   <!--begin::Sidebar toggle-->
   <div id="kt_app_sidebar_toggle"

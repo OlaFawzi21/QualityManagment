@@ -28,8 +28,8 @@
   src: url("./assets/fonts/PublicSans-Regular.ttf");
 }
 :root {
-  --purple-text-color: #4b0082;
-  --btn-bg-purple: #4b0082;
+  --purple-text-color: #076871;
+  --btn-bg-purple: #076871;
 
   --secondry-text-color: #3e3232bf;
   --secondry-text-color-opacity-50: #00000080;
@@ -71,7 +71,7 @@ body {
   align-items: center !important;
 }
 .p-dropdown:not(.p-disabled):hover {
-  border-color: #4b0082;
+  border-color: #076871;
 }
 .p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
   color: #fff !important;
@@ -80,7 +80,7 @@ body {
   box-shadow: none !important;
 }
 .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
-  background-color: #4b0082;
+  background-color: #076871;
   border-radius: 8px;
   color: #fff !important;
 }
@@ -93,7 +93,7 @@ body {
   transform: rotate(-180deg) !important;
 }
 .p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight.p-focus {
-  background: #4b0082;
+  background: #076871;
 }
 .p-ripple.p-element.p-datepicker-prev {
   transform: rotate(180deg) !important;

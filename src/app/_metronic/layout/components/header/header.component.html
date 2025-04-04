@@ -48,14 +48,13 @@
     <!--end::Logo-->
   </ng-container>
 
-  <!--begin::Header wrapper-->
-  <div class="d-flex flex-row align-items-center justify-content-between flex-lg-grow-1" id="kt_app_header_wrapper">
-    <p class="d-lg-block d-none fw-bold fs-3 m-0">
-      <!-- اهلا بك في منصه مؤشر -->
-    </p>
-    <app-navbar class="app-navbar flex-shrink-0 align-items-center" [appHeaderDefaulMenuDisplay]="appHeaderDefaulMenuDisplay"
-      [isRtl]="false"></app-navbar>
+  <div class="d-flex justify-content-between w-100">
+    <img src="../../../../../assets/images/logo/logo-header.svg" alt="logo" width="140">
+    
+    <div class="d-flex flex-row align-items-center justify-content-between" id="kt_app_header_wrapper">
+      <app-navbar class="app-navbar flex-shrink-0 align-items-center"
+        [appHeaderDefaulMenuDisplay]="appHeaderDefaulMenuDisplay" [isRtl]="false"></app-navbar>
+    </div>
   </div>
-  <!--end::Header wrapper-->
 </div>
 <!--end::Header container-->

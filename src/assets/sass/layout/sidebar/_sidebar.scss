@@ -27,7 +27,7 @@
     }
 
     .app-sidebar-logo {
-        height: calc(var(--#{$prefix}app-header-height) + 1px);
+        // height: calc(var(--#{$prefix}app-header-height) + 1px);
         display: flex;
         align-items: center;
         justify-content: space-between;

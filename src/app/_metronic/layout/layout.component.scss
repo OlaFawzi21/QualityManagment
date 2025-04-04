@@ -13,3 +13,14 @@
     transition: opacity 1s ease-in-out;
   }
 }
+
+.app-header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  right: 0 !important;
+}
+
+.app-sidebar{
+  top: 74px;
+}
