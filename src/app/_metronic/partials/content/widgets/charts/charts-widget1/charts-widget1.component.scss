@@ -1,0 +1,46 @@
+#path628:hover,
+#path667:hover,
+#path706:hover,
+#path745:hover,
+#path784:hover,
+#path823:hover,
+#path901:hover,
+#path940:hover,
+#path979:hover {
+  fill: #ff8b00 !important;
+}
+
+.bg-icon {
+  background-color: #fff6eb;
+  width: fit-content;
+}
+
+path.selected {
+  fill: #ff8b00 !important;
+}
+
+::ng-deep .p-component {
+  font-family: "Tajawal", sans-serif !important;
+}
+
+::ng-deep .p-scrollpanel-bar.p-scrollpanel-bar-y {
+  right: -5px !important;
+  width: 4px !important;
+}
+
+::ng-deep .p-scrollpanel-content {
+  padding: 0 !important;
+  width: calc(100% + 1px) !important;
+}
+
+::ng-deep .p-scrollpanel-content::-webkit-scrollbar {
+  width: 0px; /* Hide scrollbar for Chrome, Safari */
+  height: 0px;
+  display: none !important;
+}
+
+/* Hide scrollbar for Firefox */
+::ng-deep .p-scrollpanel-content {
+  scrollbar-width: none;
+  -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+}

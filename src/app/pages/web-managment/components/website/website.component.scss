@@ -1,0 +1,15 @@
+@import url(../../../../_metronic/partials/content/widgets/_new/cards/cards-widget20/cards-widget20.component.scss);
+@import url(../activities/edit-activity/edit-activity.component.scss);
+.ql-editor::before {
+  content: attr(data-placeholder);
+  color: #999;
+  font-style: italic;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  pointer-events: none;
+}
+
+.text-color {
+  color: var(--bs-body-bg);
+}

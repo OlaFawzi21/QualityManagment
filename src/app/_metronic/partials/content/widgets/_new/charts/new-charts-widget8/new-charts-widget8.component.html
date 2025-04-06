@@ -1,0 +1,111 @@
+<!--begin::Chart widget 8-->
+<div>
+  <!--begin::Header-->
+  <div class="card-header pt-5">
+    <!--begin::Title-->
+    <h3 class="card-title align-items-start flex-column">
+      <span class="card-label mb-1" style="font-weight: 500; font-size: 18px; line-height: 24px">
+        المستخدمون الجدد
+      </span>
+      <span class="text-muted" style="font-weight: 400; font-size: 13px; line-height: 20px">
+        انضم مستخدمون جدد إلى مٌرشد
+      </span>
+    </h3>
+    <!--end::Title-->
+
+    <!--begin::Toolbar-->
+    <div class="card-toolbar border-0">
+      <ul class="nav" id="kt_chart_widget_8_tabs">
+
+        <li class="nav-item">
+          <a class="nav-link btn btn-sm btn-color-muted btn-active btn-active-light px-4 me-1"
+            [ngClass]="{'active': tab === 'Week'}" data-bs-toggle="tab" (click)="setTab('Week')"
+            id="kt_chart_widget_8_month_toggle">اسبوعي</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-sm btn-color-muted btn-active btn-active-light px-4 me-1"
+            [ngClass]="{'active': tab === 'Month'}" data-bs-toggle="tab" (click)="setTab('Month')"
+            id="kt_chart_widget_8_week_toggle">شهري</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-sm btn-color-muted btn-active btn-active-light px-4 me-1"
+            [ngClass]="{'active': tab === 'Year'}" data-bs-toggle="tab" (click)="setTab('Year')"
+            id="kt_chart_widget_8_week_toggle">سنوي</a>
+        </li>
+
+      </ul>
+    </div>
+    <!--end::Toolbar-->
+  </div>
+  <!--end::Header-->
+
+  <!--begin::Body-->
+  <div class="card-body pt-6 border-0">
+    <!--begin::Tab content-->
+    <div class="tab-content">
+      <!--begin::Tab pane-->
+      <div class="tab-pane fade" [ngClass]="{'active show': tab === 'Week'}" id="kt_chart_widget_8_week_tab"
+        role="tabpanel">
+
+
+        <!--begin::Chart-->
+        <div id="kt_chart_widget_8_week_chart" class="ms-n5 min-h-auto" [ngStyle]="{'height': chartHeight}">
+          <ng-container *ngIf="hadDelay">
+            <!-- <app-charts-widget2></app-charts-widget2> -->
+            <apx-chart [series]="chart1Options.series" [chart]="chart1Options.chart" [xaxis]="chart1Options.xaxis"
+              [yaxis]="chart1Options.yaxis" [dataLabels]="chart1Options.dataLabels" [stroke]="chart1Options.stroke"
+              [legend]="chart1Options.legend" [fill]="chart1Options.fill" [states]="chart1Options.states"
+              [tooltip]="chart1Options.tooltip" [colors]="chart1Options.colors" [markers]="chart1Options.markers"
+              [plotOptions]="chart1Options.plotOptions"></apx-chart>
+          </ng-container>
+
+
+        </div>
+        <!--end::Chart-->
+      </div>
+      <!--end::Tab pane-->
+
+      <!--begin::Tab pane-->
+      <div class="tab-pane fade" [ngClass]="{'active show': tab === 'Month'}" id="kt_chart_widget_8_month_tab"
+        role="tabpanel">
+
+        <!--begin::Chart-->
+        <div id="kt_chart_widget_8_month_chart" class="ms-n5 min-h-auto" [ngStyle]="{'height': chartHeight}">
+          <ng-container *ngIf="hadDelay">
+            <apx-chart #monthChart [series]="chart2Options.series" [chart]="chart2Options.chart"
+              [xaxis]="chart2Options.xaxis" [yaxis]="chart2Options.yaxis" [dataLabels]="chart2Options.dataLabels"
+              [stroke]="chart2Options.stroke" [legend]="chart2Options.legend" [fill]="chart2Options.fill"
+              [states]="chart2Options.states" [tooltip]="chart2Options.tooltip" [colors]="chart2Options.colors"
+              [markers]="chart2Options.markers" [plotOptions]="chart2Options.plotOptions"></apx-chart>
+
+          </ng-container>
+
+        </div>
+        <!--end::Chart-->
+
+      </div>
+      <!--end::Tab pane--> <!--begin::Tab pane-->
+      <div class="tab-pane fade" [ngClass]="{'active show': tab === 'Year'}" id="kt_chart_widget_8_month_tab"
+        role="tabpanel">
+
+        <!--begin::Chart-->
+        <div id="kt_chart_widget_8_month_chart" class="ms-n5 min-h-auto" [ngStyle]="{'height': chartHeight}">
+          <ng-container *ngIf="hadDelay">
+            <apx-chart #yearhChart [series]="chart3Options.series" [chart]="chart3Options.chart"
+              [xaxis]="chart3Options.xaxis" [yaxis]="chart3Options.yaxis" [dataLabels]="chart3Options.dataLabels"
+              [stroke]="chart3Options.stroke" [legend]="chart3Options.legend" [fill]="chart3Options.fill"
+              [states]="chart3Options.states" [tooltip]="chart3Options.tooltip" [colors]="chart3Options.colors"
+              [markers]="chart3Options.markers" [plotOptions]="chart3Options.plotOptions"></apx-chart>
+          </ng-container>
+
+        </div>
+        <!--end::Chart-->
+
+      </div>
+      <!--end::Tab pane-->
+    </div>
+    <!--end::Tab content-->
+  </div>
+  <!--end::Body-->
+</div>
+<!--end::Chart widget 8-->

@@ -1,0 +1,51 @@
+h3{
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19.2px;
+  }
+.seeMore{
+font-weight: 700;
+font-size: 14px;
+line-height: 16.8px;
+color: #FF8B00;
+}
+.nav-item .nav-link.active{
+  background-color: #3F4254;
+font-weight: 600;
+font-size: 14px;
+line-height: 14.4px;
+color: #fff;
+height: 34px;
+border-radius: 12px;
+}
+.nav-item .nav-link{
+font-weight: 600;
+font-size: 14px;
+line-height: 14.4px;
+color: #B5B5C3;
+}
+.notification-title{
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0px;
+}
+.notification-date{
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0px;
+color: #67747C;
+
+}
+.active-notify .active-natification{
+  width: 10px;
+  height: 10px;
+  background-color: #FF681A;
+  border-radius: 50%;
+}
+.active-notify{
+  background-color: #FAF2FF;
+}

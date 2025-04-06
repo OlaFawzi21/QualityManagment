@@ -1,0 +1,6 @@
+<div class="mb-8 position-relative">
+  <input type="file" class="form-control form-control-lg file" [style.--bg-url]="'url(' + imgPath + ')'"
+    [ngClass]="{ 'text-color': !fileSelectedState }" (change)="handleFileChange($event)" [multiple]="acceptMultiple"
+    [accept]="accept" />
+  <span class="span-pic fs-5" *ngIf="!fileSelectedState">{{ label }}</span>
+</div>

@@ -1,0 +1,91 @@
+::ng-deep{
+    #kt_app_sidebar_menu_scroll::-webkit-scrollbar{
+      display:none !important;
+    }
+  }
+  #kt_app_sidebar_menu_scroll{
+  overflow-y:scroll;
+  overflow-x:hidden;
+  scrollbar-width: none!important;
+  }
+   .menu-link.active .menu-title{
+    color: #ffff!important;
+  }
+  .menu-link.active .menu-bullet .bullet{
+    background-color: #fff!important;
+  }
+ 
+  .menu-link .menu-title{
+    color: #ffff!important;
+  }
+  .menu-link.active{
+    background-color: #ffff!important;
+    border-radius: none !important;
+  }
+  .menu-link.activeDashboard{
+    // background: linear-gradient(to right, rgba(7, 104, 113, 0.514) 0%, rgb(255, 255, 255) 53%);
+    background-color:rgb(255, 255, 255);
+    border-radius: none !important;
+  }
+  .menu-link.activeDashboard .menu-title{
+    color:#076871!important;
+  }
+  .menu-link.active .menu-title{
+    color:#076871!important;
+  }
+   
+  .menu-link.activeParent .menu-title{
+    color:#ff8b00!important;
+  }
+  .menu-item {
+    padding: 0.5rem 0!important;
+  }
+
+  // .menu-icon{
+  //   // margin-left:0.5rem ;
+  //   // display: grid!important;
+  // }
+  .menu-icon img{
+    margin: auto;
+  }
+  .menu-item .menu-link .menu-icon{
+    margin-right: 1rem!important;
+  }
+  .menu-item {
+    margin-left: 0 !important;
+  }
+ ::ng-deep .app-sidebar .menu .menu-item .menu-link.active {
+    transition: color 0.2s ease;
+    border-top-left-radius:0 !important ;
+    border-bottom-left-radius:0 !important ;
+    background-color: var(--bs-app-sidebar-light-menu-link-bg-color-active);
+    color: #E46538;
+}
+::ng-deep .app-sidebar .menu .menu-item .menu-link.active {
+    transition: color 0.2s ease;
+    border-top-left-radius:0 !important ;
+    border-bottom-left-radius:0 !important ;
+    background-color: var(--bs-app-sidebar-light-menu-link-bg-color-active);
+    color: #E46538;
+}
+::ng-deep .app-sidebar .app-sidebar-logo {
+  border-bottom: 0;
+  padding: 19px;
+}
+::ng-deep .ki-double-left .path2:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  opacity: 0.3;
+  color: rgba(45, 44, 121, 1);
+  transform: rotate(180deg);
+  font-size: larger;
+  font-weight: 800;
+}
+::ng-deep .ki-double-left .path1:before {
+  content: "\eb95";
+  color: rgba(45, 44, 121, 1);
+  transform: rotate(180deg);
+  font-size: larger;
+  font-weight: 800;
+}

@@ -1,0 +1,490 @@
+<!--begin::Menu wrapper-->
+<div id="kt_app_sidebar_menu_scroll" class="scroll-y my-5 mx-3" data-kt-scroll="true" data-kt-scroll-activate="true"
+  data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_app_sidebar_logo, #kt_app_sidebar_footer"
+  data-kt-scroll-wrappers="#kt_app_sidebar_menu" data-kt-scroll-offset="5px" data-kt-scroll-save-state="true">
+  <!--begin::Menu-->
+  <div *ngIf="userRole==='Admin'" class="menu menu-column menu-rounded menu-sub-indention fw-semibold fs-6"
+    id="#kt_app_sidebar_menu" data-kt-menu="true" data-kt-menu-expand="false">
+    <div class="menu-item">
+      <a class="menu-link without-sub" routerLinkActive='active' style="padding-right: 0px !important;"
+        routerLink="/dashboard">
+        <span class="menu-icon">
+          <img width="20" height="20"
+            [src]="getIcon('/dashboard', '../../../../../../assets/images/img2/menu_3388694.svg', '../../../../../../assets/images/img2/collage_8022304.svg')"
+            alt="">
+        </span>
+        <span class="menu-title mx-2">
+          لوحة التحكم
+        </span>
+      </a>
+    </div>
+
+    <!--  الاشعارات -->
+    <div class="menu-item">
+      <a class="menu-link without-sub" routerLinkActive='active' style="padding-right: 0px !important;"
+        routerLink="/settings/notifications">
+        <span class="menu-icon">
+          <img width="20" height="20"
+            [src]="getIcon('/settings/notifications', '../../../../../../assets/images/img2/notification_4194503 (1).svg', '../../../../../../assets/images/img2/notification_4194503.svg')"
+            alt="">
+        </span>
+        <span class="menu-title mx-2">
+          الاشعارات
+        </span>
+      </a>
+    </div>
+    <!--  الملف الشخصي -->
+    <div class="menu-item">
+      <a class="menu-link without-sub" routerLinkActive='active' style="padding-right: 0px !important;"
+        routerLink="/users">
+        <span class="menu-icon">
+          <img width="20" height="20"
+            [src]="getIcon('/users', '../../../../../../assets/images/img2/Vector (3).svg', '../../../../../../assets/images/img2/Vector (2).svg')"
+            alt="">
+        </span>
+        <span class="menu-title mx-2">
+          الملف الشخصي
+        </span>
+      </a>
+    </div>
+    <!-- Users -->
+    <div class="menu-item">
+      <a class="menu-link without-sub" routerLinkActive='active' style="padding-right: 0px !important;"
+        routerLink="/users">
+        <span class="menu-icon">
+          <img width="20" height="20"
+            [src]="getIcon('/users', '../../../../../../assets/images/img2/certificate_8110187 (1).svg', '../../../../../../assets/images/img2/certificate_8110187.svg')"
+            alt="">
+        </span>
+        <span class="menu-title mx-2">
+          المستخدمين
+        </span>
+      </a>
+    </div>
+    <!-- الهياكل التنظيمية -->
+    <div class="menu-item">
+      <a class="menu-link without-sub" routerLinkActive='active' style="padding-right: 0px !important;"
+        routerLink="/users">
+        <span class="menu-icon">
+          <img width="20" height="20"
+            [src]="getIcon('/users', '../../../../../../assets/images/img2/Group (2).svg', '../../../../../../assets/images/img2/user_6336524.svg')"
+            alt="">
+        </span>
+        <span class="menu-title mx-2">
+          الهياكل التنظيمية
+        </span>
+      </a>
+    </div>
+    <!-- المسميات الوظيفية -->
+    <div class="menu-item">
+      <a class="menu-link without-sub" routerLinkActive='active' style="padding-right: 0px !important;"
+        routerLink="/users">
+        <span class="menu-icon">
+          <img width="20" height="20"
+            [src]="getIcon('/users', '../../../../../../assets/images/img2/employee_2572970 (1).svg', '../../../../../../assets/images/img2/employee_2572970.svg')"
+            alt="">
+        </span>
+        <span class="menu-title mx-2">
+          المسميات الوظيفية
+        </span>
+      </a>
+    </div>
+    <!-- الاجراءات -->
+    <div class="menu-item">
+      <a class="menu-link without-sub" routerLinkActive='active' style="padding-right: 0px !important;"
+        routerLink="/users">
+        <span class="menu-icon">
+          <img width="20" height="20"
+            [src]="getIcon('/users', '../../../../../../assets/images/img2/process_5344673 (1).svg', '../../../../../../assets/images/img2/process_5344673.svg')"
+            alt="">
+        </span>
+        <span class="menu-title mx-2">
+          الاجراءات
+        </span>
+      </a>
+    </div>
+    <!-- التدريب -->
+    <div class="menu-item">
+      <a class="menu-link without-sub" routerLinkActive='active' style="padding-right: 0px !important;"
+        routerLink="/users">
+        <span class="menu-icon">
+          <img width="20" height="20"
+            [src]="getIcon('/users', '../../../../../../assets/images/img2/teacher_12404427 (1).svg', '../../../../../../assets/images/img2/teacher_12404427.svg')"
+            alt="">
+        </span>
+        <span class="menu-title mx-2">
+          التدريب
+        </span>
+      </a>
+    </div>
+    <!-- الاستبيانات -->
+    <div class="menu-item">
+      <a class="menu-link without-sub" routerLinkActive='active' style="padding-right: 0px !important;"
+        routerLink="/users">
+        <span class="menu-icon">
+          <img width="20" height="20"
+            [src]="getIcon('/users', '../../../../../../assets/images/img2/list_6172023 (1).svg', '../../../../../../assets/images/img2/list_6172023.svg')"
+            alt="">
+        </span>
+        <span class="menu-title mx-2">
+          الاستبيانات
+        </span>
+      </a>
+    </div>
+    <!-- مدير الوثائق -->
+    <div class="menu-item">
+      <a class="menu-link without-sub" routerLinkActive='active' style="padding-right: 0px !important;"
+        routerLink="/users">
+        <span class="menu-icon">
+          <img width="20" height="20"
+            [src]="getIcon('/users', '../../../../../../assets/images/img2/data-management_11534851 (1).svg', '../../../../../../assets/images/img2/data-management_11534851.svg')"
+            alt="">
+        </span>
+        <span class="menu-title mx-2">
+          مدير الوثائق
+        </span>
+      </a>
+    </div>
+    <!-- تقارير الابلاغ عن حدث -->
+    <div class="menu-item">
+      <a class="menu-link without-sub" routerLinkActive='active' style="padding-right: 0px !important;"
+        routerLink="/users">
+        <span class="menu-icon">
+          <img width="20" height="20"
+            [src]="getIcon('/users', '../../../../../../assets/images/img2/google-docs_2991106 1 (1).svg', '../../../../../../assets/images/img2/google-docs_2991106 1.svg')"
+            alt="">
+        </span>
+        <span class="menu-title mx-2">
+          تقارير الابلاغ عن حدث
+        </span>
+      </a>
+    </div>
+    <!-- نشاط النظام -->
+    <div class="menu-item">
+      <a class="menu-link without-sub" routerLinkActive='active' style="padding-right: 0px !important;"
+        routerLink="/users">
+        <span class="menu-icon">
+          <img width="20" height="20"
+            [src]="getIcon('/users', '../../../../../../assets/images/img2/optimization_10268649 (1).svg', '../../../../../../assets/images/img2/optimization_10268649.svg')"
+            alt="">
+        </span>
+        <span class="menu-title mx-2">
+          نشاط النظام
+        </span>
+      </a>
+    </div>
+    <!-- تواصل مع الموظفين -->
+    <div class="menu-item">
+      <a class="menu-link without-sub" routerLinkActive='active' style="padding-right: 0px !important;"
+        routerLink="/users">
+        <span class="menu-icon">
+          <img width="20" height="20"
+            [src]="getIcon('/users', '../../../../../../assets/images/img2/messages_5803387 1 (2).svg', '../../../../../../assets/images/img2/messages_5803387 1.svg')"
+            alt="">
+        </span>
+        <span class="menu-title mx-2">
+          تواصل مع الموظفين
+        </span>
+      </a>
+    </div>
+    <!-- تواصل مع الموظفين -->
+    <div class="menu-item">
+      <a class="menu-link without-sub" routerLinkActive='active' style="padding-right: 0px !important;"
+        routerLink="/users">
+        <span class="menu-icon">
+          <img width="20" height="20"
+            [src]="getIcon('/users', '../../../../../../assets/images/img2/messages_5803387 1 (2).svg', '../../../../../../assets/images/img2/messages_5803387 1.svg')"
+            alt="">
+        </span>
+        <span class="menu-title mx-2">
+          تواصل مع الموظفين
+        </span>
+      </a>
+    </div>
+    <!-- الشركات -->
+    <div class="menu-item">
+      <a class="menu-link without-sub" routerLinkActive='active' style="padding-right: 0px !important;"
+        routerLink="/users">
+        <span class="menu-icon">
+          <img width="20" height="20"
+            [src]="getIcon('/users', '../../../../../../assets/images/img2/office-building_9511568 (1).svg', '../../../../../../assets/images/img2/office-building_9511568.svg')"
+            alt="">
+        </span>
+        <span class="menu-title mx-2">
+          الشركات
+        </span>
+      </a>
+    </div>
+    <!-- المكتبه الطبيه -->
+    <div class="menu-item">
+      <a class="menu-link without-sub" routerLinkActive='active' style="padding-right: 0px !important;"
+        routerLink="/users">
+        <span class="menu-icon">
+          <img width="20" height="20"
+            [src]="getIcon('/users', '../../../../../../assets/images/img2/medical-book_10396668 (1).svg', '../../../../../../assets/images/img2/medical-book_10396668.svg')"
+            alt="">
+        </span>
+        <span class="menu-title mx-2">
+          المكتبه الطبيه
+        </span>
+      </a>
+    </div>
+    <!-- التراخيص -->
+    <div class="menu-item">
+      <a class="menu-link without-sub" routerLinkActive='active' style="padding-right: 0px !important;"
+        routerLink="/users">
+        <span class="menu-icon">
+          <img width="20" height="20"
+            [src]="getIcon('/users', '../../../../../../assets/images/img2/certificate_8110187 (1).svg', '../../../../../../assets/images/img2/certificate_8110187.svg')"
+            alt="">
+        </span>
+        <span class="menu-title mx-2">
+          التراخيص
+        </span>
+      </a>
+    </div>
+    <!-- الشكاوى -->
+    <div class="menu-item">
+      <a class="menu-link without-sub" routerLinkActive='active' style="padding-right: 0px !important;"
+        routerLink="/users">
+        <span class="menu-icon">
+          <img width="20" height="20"
+            [src]="getIcon('/users', '../../../../../../assets/images/img2/user_1438226 1 (1).svg', '../../../../../../assets/images/img2/user_1438226 1.svg')"
+            alt="">
+        </span>
+        <span class="menu-title mx-2">
+          الشكاوى
+        </span>
+      </a>
+    </div>
+
+    <!-- Map -->
+    <!-- <div class="menu-item">
+      <a class="menu-link without-sub" routerLinkActive='active' style="padding-right: 0px !important;"
+        routerLink="/location">
+        <span class="menu-icon">
+          <img width="20" height="20"
+            [src]="getIcon('/location', '../../../../../../assets/images/icons/map-active.svg', '../../../../../../assets/images/icons/map.svg')"
+            alt="">
+        </span>
+        <span class="menu-title mx-2">
+          الخريطة
+        </span>
+      </a>
+    </div> -->
+
+    <!-- places -->
+    <!-- <div class="menu-item">
+      <a class="menu-link without-sub" routerLinkActive='active' style="padding-right: 0px !important;"
+        routerLink="/places">
+        <span class="menu-icon">
+          <img width="20" height="20"
+            [src]="getIcon('/places', '../../../../../../assets/images/icons/places-active.svg', '../../../../../../assets/images/icons/places.svg')"
+            alt="">
+        </span>
+        <span class="menu-title mx-2">
+          المواقع التراثية
+        </span>
+      </a>
+    </div> -->
+    <!-- support -->
+    <!-- <div class="menu-item">
+      <a class="menu-link without-sub" routerLinkActive='active' style="padding-right: 0px !important;"
+        routerLink="/support">
+        <span class="menu-icon">
+          <img width="20" height="20"
+            [src]="getIcon('/support', '../../../../../../assets/images/icons/headphones-active.svg', '../../../../../../assets/images/icons/headphones.svg')"
+            alt="">
+        </span>
+        <span class="menu-title mx-2">
+          الدعم الفني
+        </span>
+      </a>
+    </div> -->
+
+    <!-- Manage Website -->
+    <!-- <div class="menu-item menu-accordion" data-kt-menu-trigger="click">
+      <a class="menu-link" [class.activeParent]="currentRoute.startsWith('/management')"
+        style="padding-right: 0px !important;">
+        <span class="menu-icon">
+          <img width="20" height="20"
+            [src]="getIcon('/management', '../../../../../../assets/images/icons/solar_global-linear-active.svg', '../../../../../../assets/images/icons/solar_global-linear.svg')"
+            alt="">
+        </span>
+        <span class="menu-title mx-2">ادارة الموقع</span>
+        <span class="menu-arrow"></span>
+      </a>
+
+      <div class="menu-sub menu-sub-accordion">
+        <div class="menu-item">
+          <a class="menu-link without-sub" routerLink="/management/edit-website" routerLinkActive="active">
+            <span class="menu-bullet">
+              <span class="bullet bullet-dot"></span>
+            </span>
+            <span class="menu-title">الرئيسية</span>
+          </a>
+        </div>
+        <div class="menu-item">
+          <a class="menu-link without-sub" routerLink="/management/terms-and-privacy" routerLinkActive="active">
+            <span class="menu-bullet">
+              <span class="bullet bullet-dot"></span>
+            </span>
+            <span class="menu-title">سياسة الخصوصية وشروط الاستخدام</span>
+          </a>
+        </div> -->
+        <!-- <div class="menu-item">
+          <a class="menu-link without-sub" routerLink="/management/security-and-safety" routerLinkActive="active">
+            <span class="menu-bullet">
+              <span class="bullet bullet-dot"></span>
+            </span>
+            <span class="menu-title">الامن والسلامة</span>
+          </a>
+        </div> -->
+        <!-- <div class="menu-item">
+          <a class="menu-link without-sub" routerLink="/management/FAQ" routerLinkActive="active">
+            <span class="menu-bullet">
+              <span class="bullet bullet-dot"></span>
+            </span>
+            <span class="menu-title">الاسئلة الاكثر شيوعا</span>
+          </a>
+        </div>
+        <div class="menu-item">
+          <a class="menu-link without-sub" routerLink="/management/events" routerLinkActive="active">
+            <span class="menu-bullet">
+              <span class="bullet bullet-dot"></span>
+            </span>
+            <span class="menu-title">الفاعليات</span>
+          </a>
+        </div>
+        <div class="menu-item">
+          <a class="menu-link without-sub" routerLink="/management/activities" routerLinkActive="active">
+            <span class="menu-bullet">
+              <span class="bullet bullet-dot"></span>
+            </span>
+            <span class="menu-title"> الفنادق و المطاعم</span>
+          </a>
+        </div>
+        <div class="menu-item">
+          <a class="menu-link without-sub" routerLink="/management/about-us" routerLinkActive="active">
+            <span class="menu-bullet">
+              <span class="bullet bullet-dot"></span>
+            </span>
+            <span class="menu-title">نبذه عنا</span>
+          </a>
+        </div>
+        <div class="menu-item">
+          <a class="menu-link without-sub" routerLink="/management/transportation" routerLinkActive="active">
+            <span class="menu-bullet">
+              <span class="bullet bullet-dot"></span>
+            </span>
+            <span class="menu-title">وسائل التنقل</span>
+          </a>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- Settings -->
+    <!-- <div class="menu-item menu-accordion" data-kt-menu-trigger="click">
+      <a class="menu-link" [class.activeParent]="currentRoute.startsWith('/settings')"
+        style="padding-right: 0px !important;">
+        <span class="menu-icon">
+          <img width="20" height="20"
+            [src]="getIcon('/settings', '../../../../../../assets/images/icons/lsicon_setting-outline.-active.svg', '../../../../../../assets/images/icons/lsicon_setting-outline.svg')"
+            alt="">
+        </span>
+        <span class="menu-title mx-2">الاعدادات</span>
+        <span class="menu-arrow"></span>
+      </a>
+
+      <div class="menu-sub menu-sub-accordion">
+        <div class="menu-item">
+          <a class="menu-link without-sub" routerLink="/settings/account" routerLinkActive="active">
+            <span class="menu-bullet">
+              <span class="bullet bullet-dot"></span>
+            </span>
+            <span class="menu-title">الحساب</span>
+          </a>
+        </div>
+        <div class="menu-item">
+          <a class="menu-link without-sub" routerLink="/settings/notifications" routerLinkActive="active">
+            <span class="menu-bullet">
+              <span class="bullet bullet-dot"></span>
+            </span><span class="menu-title">الاشعارات</span>
+          </a>
+        </div>
+        <div class="menu-item">
+          <a class="menu-link without-sub" routerLink="/settings/seo" routerLinkActive="active">
+            <span class="menu-bullet">
+              <span class="bullet bullet-dot"></span>
+            </span><span class="menu-title">محركات البحث</span>
+          </a>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- Reports -->
+    <!-- <div class="menu-item">
+      <a class="menu-link without-sub" routerLinkActive='active' style="padding-right: 0px !important;"
+        routerLink="/reports">
+        <span class="menu-icon">
+          <img width="20" height="20"
+            [src]="getIcon('/reports', '../../../../../../assets/images/icons/carbon_report_orange.svg', '../../../../../../assets/images/icons/carbon_report.svg')"
+            alt="">
+        </span>
+        <span class="menu-title mx-2">
+          التقارير
+        </span>
+      </a>
+    </div> -->
+  </div>
+  <!--end::Menu-->
+  <!--begin::Menu-->
+  <div *ngIf="userRole==='Manager'" class="menu menu-column menu-rounded menu-sub-indention fw-semibold fs-6"
+    id="#kt_app_sidebar_menu" data-kt-menu="true" data-kt-menu-expand="false">
+    <div class="menu-item">
+      <a class="menu-link without-sub" routerLinkActive='active' style="padding-right: 0px !important;"
+        [routerLink]="['/heritage/dashboard']">
+        <span class="menu-icon">
+          <img width="20" height="20"
+            [src]="getIcon('/heritage/dashboard', '../../../../../../assets/images/icons/smart-home-active.svg', '../../../../../../assets/images/icons/smart-home.svg')"
+            alt="">
+        </span>
+        <span class="menu-title mx-2">
+          لوحة التحكم
+        </span>
+      </a>
+    </div>
+
+    <!-- places -->
+    <div class="menu-item">
+      <a class="menu-link without-sub" routerLinkActive='active' style="padding-right: 0px !important;"
+        [routerLink]="['/heritage/places']">
+        <span class="menu-icon">
+          <img width="20" height="20"
+            [src]="getIcon('/heritage/places', '../../../../../../assets/images/icons/places-active.svg', '../../../../../../assets/images/icons/places.svg')"
+            alt="">
+        </span>
+        <span class="menu-title mx-2">
+          المواقع الأثرية
+        </span>
+      </a>
+    </div>
+
+    <!-- Reports -->
+    <div class="menu-item">
+      <a class="menu-link without-sub" routerLinkActive='active' style="padding-right: 0px !important;"
+        [routerLink]="['/heritage/reports']">
+        <span class="menu-icon">
+          <img width="20" height="20"
+            [src]="getIcon('/heritage/reports', '../../../../../../assets/images/icons/carbon_report_orange.svg', '../../../../../../assets/images/icons/carbon_report.svg')"
+            alt="">
+        </span>
+        <span class="menu-title mx-2">
+          التقارير
+        </span>
+      </a>
+    </div>
+  </div>
+  <!--end::Menu-->
+</div>
+<!--end::Menu wrapper-->

@@ -1,0 +1,49 @@
+<p-accordion>
+  <div class="row align-items-center" *ngFor="let item of data">
+    <div class="col-11">
+      <p-accordionTab [header]="item.title">
+        <p>
+          {{item.description}}
+        </p>
+      </p-accordionTab>
+    </div>
+    <div class="col-1">
+      <div class="dropdown actions text-start mx-4">
+        <button class="btn dropdown-toggle actions-button py-3 px-5" type="button" id="actionsDropdown"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa-solid fa-ellipsis-v p-0" style="color:#979797;"></i>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="actionsDropdown">
+          <li>
+            <button class="dropdown-item" (click)="editData(item)">
+              <div class="row justify-content-start gap-2">
+                <div class="col-2">
+                  <i class="bi bi-pencil-square"></i>
+                </div>
+                <div class="col-4">تعديل</div>
+              </div>
+            </button>
+          </li>
+          <li>
+            <button class="dropdown-item" (click)="openDeleteSwal(item.id)">
+              <div class="row justify-content-start gap-2">
+                <div class="col-2">
+                  <i class="bi bi-trash" style="color: red;"></i>
+                </div>
+                <div class="col-4">مسح</div>
+              </div>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</p-accordion>
+<swal #deleteSwal [swalOptions]="swalOptions" title="هل أنت متأكد من الحذف؟" text="لا يمكن التراجع عن هذا"
+  icon="warning" [showCancelButton]="true" [focusCancel]="true" (confirm)="triggerDelete()"
+  [customClass]="{confirmButton: 'btn btn-danger', cancelButton: 'btn btn-active-light'}">
+</swal>
+<swal #successSwal [swalOptions]="{ showCancelButton: false, confirmButtonText: 'موافق' }" title="تم الحذف بنجاح!"
+  text="" icon="success" [customClass]="{confirmButton: 'btn btn-primary'}">
+</swal>

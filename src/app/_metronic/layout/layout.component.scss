@@ -1,0 +1,29 @@
+:host {
+  height: 100%;
+  margin: 0;
+
+  .flex-root {
+    height: 100%;
+  }
+}
+
+.page-loaded {
+  app-layout {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
+}
+
+.app-header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  right: 0 !important;
+}
+
+.app-sidebar{
+  top: 74px;
+}
+::ng-deep div#kt_app_sidebar_menu_scroll {
+  margin-left: 0px !important;
+}

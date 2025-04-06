@@ -1,0 +1,17 @@
+section {
+  height: 100vh !important;
+  box-sizing: border-box;
+
+  .login-content {
+    width: 93%;
+  }
+
+  .login-img {
+    width: 100%;
+    height: 100%;
+    background-image: url('../../../assets/images/login/login.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}

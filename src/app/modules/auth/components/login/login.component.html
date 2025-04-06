@@ -1,0 +1,121 @@
+<form class="form w-100" [formGroup]="loginForm" novalidate="novalidate" id="kt_login_signin_form"
+  (ngSubmit)="submit()">
+
+  <div class="login-title text-right mb-11">
+    <img src="../../../../../assets/images/logo/logo-ar.svg" alt="logo">
+    <h2 class="mb-3 mt-5 text-gray-900">
+      مرحبًا بعودتك
+    </h2>
+    <div class="text-gray-900 fw-semibold mt-5 fs-6">
+      <p>سجل دخول, واستمتع برحلتك فى حائل!</p>
+    </div>
+
+  </div>
+
+  <div class="fv-row mb-10 position-relative">
+    <input class="form-control bg-transparent" type="email" name="email" formControlName="email" autocomplete="off"
+      placeholder="البريد الإلكتروني" />
+    <img src="../../../../../assets/images/icons/solar_user-linear.svg"
+      class="position-absolute top-50 translate-middle-y mx-2" alt="email">
+    <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'required',
+        message: 'برجاء اخال البريد الإلكتروني',
+        control: loginForm.controls['email']
+      }"></ng-container>
+    <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'email',
+        message: 'البريد الإلكتروني غير صحيح',
+        control: loginForm.controls['email']
+      }"></ng-container>
+    <!-- <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'minLength',
+        message: 'Email should have at least 3 symbols',
+        control: loginForm.controls['email']
+      }"></ng-container> -->
+    <!-- <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'maxLength',
+        message: 'Email should have maximum 360 symbols',
+        control: loginForm.controls['email']
+      }"></ng-container> -->
+  </div>
+
+  <div class="fv-row mb-3 position-relative">
+
+    <div class="input-group">
+      <span class="input-group-text" id="basic-addon1">
+        <img src="../../../../../assets/images/icons/lock.svg" alt="email icon">
+      </span>
+      <input [type]="isHide ? 'password' : 'text'" id="password" name="password" formControlName="password"
+        class="border-left-0 border-right-0 form-control bg-transparent" style="padding-inline: 10px !important;"
+        aria-describedby="basic-addon1" placeholder="كلمة المرور" />
+      <a class="input-group-text" (click)="togglePasswordVisibility()">
+        <i [class]="isHide ? 'fa-regular fa-eye-slash' : 'fa-regular fa-eye'"></i>
+      </a>
+    </div>
+
+    <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'required',
+        message: 'برجاء ادخال كلمة المرور',
+        control: loginForm.controls['password']
+      }"></ng-container>
+    <!-- <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'minlength',
+        message: 'Password should have at least 3 symbols',
+        control: loginForm.controls['password']
+      }"></ng-container>
+    <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'maxLength',
+        message: 'Password should have maximum 100 symbols',
+        control: loginForm.controls['password']
+      }"></ng-container> -->
+
+  </div>
+
+  <!-- <div class="fv-row mt-8 mb-2">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="rememberme">
+      <label class="form-check-label text-gray-900" for="rememberme">
+        تذكرنى دائما
+      </label>
+    </div>
+
+  </div> -->
+
+  <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
+    <!-- <a routerLink="/auth/forgot-password" class="link-primary">
+      Forgot Password ?
+    </a> -->
+  </div>
+
+  <div class="d-grid login-btn mb-10">
+    <button type="submit" id="kt_sign_in_submit" class="btn btn-primary" [disabled]="loginForm.invalid">
+      <!-- <ng-container *ngIf="isLoading$ | async">
+          <span class="indicator-progress" [style.display]="'block'">
+            برجاء الأنتظار...
+            <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+          </span>
+        </ng-container> -->
+      <ng-container>
+        <span class="indicator-label" routerLink="/dashboard">تسجيل الدخول</span>
+      </ng-container>
+    </button>
+  </div>
+
+</form>
+
+<ng-template #formError let-control="control" let-message="message" let-validation="validation">
+  <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched && control.errors)">
+    <div class="fv-plugins-message-container">
+      <span class="text-danger" role="alert">
+        {{ message }}
+      </span>
+    </div>
+  </ng-container>
+</ng-template>
+
+<swal #successSwal [swalOptions]="{ showCancelButton: false, confirmButtonText: 'موافق' }" title="تم التسجيل بنجاح!"
+  text="" icon="success" [customClass]="{confirmButton: 'btn btn-primary'}">
+</swal>
+<swal #deleteSwal [swalOptions]="swalOptions" title=" حدث خطأ اثناء تسجيل الدخول!" icon="error"
+  [customClass]="{confirmButton: 'btn btn-danger'}" [showCancelButton]="false">
+</swal>

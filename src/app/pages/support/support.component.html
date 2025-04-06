@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="card-header border-0 px-10">
+        <div class="card-title m-0 align-items-start flex-column">
+            <span class="text-gray-900 fs-3">خدمة العملاء</span>
+        </div>
+    </div>
+    <div class="card-body pt-0 px-10">
+        <div class="d-flex overflow-auto h-55px mb-10">
+            <ul class="
+            nav nav-stretch nav-line-tabs nav-line-tabs-2x
+            fs-5
+            flex-nowrap
+            w-100
+            gap-6
+            ">
+                <li class="nav-item">
+                    <a class="nav-link text-active-primary" routerLink="general-inquiry" routerLinkActive="active">
+                        استفسار عام
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-active-primary" routerLink="complaints" routerLinkActive="active">
+                        شكاوي
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-active-primary" routerLink="suggestions" routerLinkActive="active">
+                        مقترحات</a>
+                </li>
+            </ul>
+        </div>
+
+        <router-outlet></router-outlet>
+    </div>
+</div>

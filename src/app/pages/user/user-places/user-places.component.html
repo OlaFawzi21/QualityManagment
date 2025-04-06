@@ -1,0 +1,49 @@
+<div class="card ">
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table align-middle gs-0 gy-4">
+        <thead>
+          <tr class="text-muted bg-light">
+            <th class="ps-4 min-w-325px rounded-end">اسم المزار</th>
+            <th class="min-w-125px"> خط الطول</th>
+            <th class="min-w-125px">خط العرض</th>
+            <th class="min-w-125px">تاريخ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let place of places">
+            <td>
+              <div class="d-flex align-items-center">
+                <div class="mx-5 rounded-3 overflow-hidden" style="width:70px; height:70px;">
+                  <img class="w-100 h-100" [src]="place.imageUrl" alt="image">
+                </div>
+                <div class="d-flex justify-content-start flex-column">
+                  <a class="text-gray-900 text-hover-primary mb-1 fs-6">
+                    {{place.placeName}}
+                  </a>
+                  <span class="text-muted text-muted d-block fs-6">التصنيف: {{place.classification | textPipe}}</span>
+                </div>
+              </div>
+            </td>
+            <td>
+              <a class="text-gray-900 text-hover-primary d-block mb-1 fs-6">
+                {{place.lat}}
+              </a>
+            </td>
+            <td>
+              <a class="text-gray-900 text-hover-primary d-block mb-1 fs-6">
+                {{place.long}}
+              </a>
+            </td>
+            <td>
+              <a class="text-gray-900 text-hover-primary d-block mb-1 fs-6">
+                {{ place.date | date:'d/M/yyyy' }}
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

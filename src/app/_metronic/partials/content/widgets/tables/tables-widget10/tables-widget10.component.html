@@ -1,0 +1,153 @@
+<!-- begin::Header -->
+
+<div class="card-header border-0 pt-5">
+  <h3 class="card-title align-items-start flex-column">
+    <span class="card-label mb-1" style="
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    color:#076871 ;
+    ">خدمه العملاء</span>
+  </h3>
+  <div class="d-flex align-items-center">
+    <input type="text" class="form-control w-250px me-2" placeholder="بحث...">
+    <select name="" id="" class="form-select w-150px me-2" [(ngModel)]="status" (change)="getInquiries()">
+      <option [value]="null" disabled>الحالة</option>
+      <option [value]="true">تم التواصل</option>
+      <option [value]="false">لم يتم التواصل</option>
+      <option [value]="null">الجميع</option>
+    </select>
+  </div>
+</div>
+<!-- end::Header -->
+<!-- begin::Body -->
+<div class="card-body py-3 px-10">
+  <!-- begin::Table container -->
+  <div class="table-responsive">
+    <!-- begin::Table -->
+    <table class="table table-row-bordered table-row-gray-300 align-middle gs-0 gy-4">
+      <!-- begin::Table head -->
+      <thead>
+        <tr class=" text-active-gray-700" style="
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 15.28px;
+        letter-spacing: 1px;
+        ">
+          <th class="min-w-150px">العنوان</th>
+          <th class="min-w-140px">التاريخ</th>
+          <th class="min-w-120px">السبب</th>
+          <th class="min-w-100px text-end"></th>
+        </tr>
+      </thead>
+      <!-- end::Table head -->
+      <!-- begin::Table body -->
+      <tbody>
+        <tr *ngFor="let inquiry of generalInq;">
+          <td>
+            <span class="d-block " style="color: #7367F0;">
+              {{inquiry.title}}
+            </span>
+          </td>
+          <td>
+            <span class="d-block text-gray-700">
+              {{inquiry.createedAt | date: 'dd MMMM yyyy':'ar'}}
+            </span>
+          </td>
+          <td>
+            <span class="d-block text-gray-700">
+              {{inquiry.type | support}}
+            </span>
+          </td>
+          <td>
+            <div class="dropdown actions text-end">
+              <button class="btn dropdown-toggle actions-button mx-5" type="button" id="actionsDropdown"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-ellipsis-v"></i>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="actionsDropdown">
+                <li>
+                  <button class="dropdown-item" (click)="openModal(inquiry.id,formModal)">
+                    <div class="row justify-content-start gap-2">
+                      <div class="col-2">
+                        <i class="bi bi-eye"></i>
+                      </div>
+                      <div class="col-4">التفاصيل</div>
+                    </div>
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" (click)="openDeleteSwal(inquiry.id)">
+                    <div class="row justify-content-start gap-2">
+                      <div class="col-2">
+                        <i class="bi bi-trash" style="color: red;"></i>
+                      </div>
+                      <div class="col-4">مسح</div>
+                    </div>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+      <!-- end::Table body -->
+    </table>
+    <!-- end::Table -->
+  </div>
+  <!-- end::Table container -->
+  <div class="paginator-div d-flex justify-content-end align-items-center">
+    <p-paginator [totalRecords]="totalRecords" (onPageChange)="onPageChange($event)" [first]="first" [rows]="rows"
+      [rowsPerPageOptions]="[10, 25, 50,100]" />
+  </div>
+</div>
+<!-- begin::Body -->
+<swal #deleteSwal [swalOptions]="swalOptions" title="هل أنت متأكد من الحذف؟" text="لا يمكن التراجع عن هذا"
+  icon="warning" [showCancelButton]="true" [focusCancel]="true" (confirm)="triggerDelete()"
+  [customClass]="{confirmButton: 'btn btn-danger', cancelButton: 'btn btn-active-light'}">
+</swal>
+
+<swal #successSwal [swalOptions]="{ showCancelButton: false, confirmButtonText: 'موافق' }" title="تم الحذف بنجاح!"
+  text="" icon="success" [customClass]="{confirmButton: 'btn btn-success'}">
+</swal>
+
+
+<p-toast />
+
+
+<ng-template #formModal let-modal>
+  <form #myForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="modal-header border-0 align-items-start">
+      <div>
+        <h4 class="modal-title" id="modal-basic-title">{{user.fullName}}</h4>
+        <p class="text-gray-600 mt-5 mb-0">{{user.type | support}}</p>
+      </div>
+      <button type="button" class="btn-close m-0" aria-label="Close" (click)="modal.dismiss('Cross click');"></button>
+    </div>
+    <div class="modal-body pt-0 border-bottom-3">
+      <div class="d-flex flex-column mw-650px" id="kt_modal_update_customer_scroll">
+        <p class="text-gray-600">{{user.phoneNumber}}</p>
+        <p style="color:#E46538">{{user.email}}</p>
+        <p class="text-gray-800 fs-5">محتوي الرسالة</p>
+        <p class="text-gray-600">{{user.description}}</p>
+      </div>
+      <div class="my-5 d-flex flex-wrap align-items-center gap-5 pt-5 border-2 border-top">
+        <div *ngFor="let type of types" class="text-gray-600 field-checkbox d-flex gap-3">
+          <p-radioButton [value]="type.value" name="iscontacted" [(ngModel)]="selectedStatus" />
+          <label class="text-gray-600">
+            {{ type.label }}
+          </label>
+        </div>
+      </div>
+      <textarea class="form-control fs-7" rows="4" placeholder="أترك ملاحظتك" name="notes"
+        [(ngModel)]="note"></textarea>
+    </div>
+    <div class="modal-footer">
+      <div class="d-flex justify-content-end gap-5">
+        <button type="submit" class="btn btn-primary py-3 px-10">
+          تحديث
+        </button>
+      </div>
+    </div>
+  </form>
+</ng-template>

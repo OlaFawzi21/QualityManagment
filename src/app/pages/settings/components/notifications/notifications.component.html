@@ -1,0 +1,67 @@
+<!-- <div class="card">
+  <div
+    class="card-header border-0 pt-5 px-10 justify-content-between align-items-center"
+  >
+    <h3 class="card-title m-0 text-gray-900 fs-3">الإشعارات</h3>
+    <a
+      class="text-gray-900 fs-3 d-flex align-items-center back-icon"
+      routerLink="/settings"
+      >عودة <i class="pi pi-angle-left fs-3"></i
+    ></a>
+  </div>
+
+  <div class="card-body px-10">
+    <form [formGroup]="notificationForm" (ngSubmit)="submitForm()">
+      <div class="d-flex justify-content-between align-items-center pb-10 border-2 border-bottom">
+        <span class="text-gray-900 fs-5"
+          >استقبال الاشعارات علي البريد الالكتروني</span
+        >
+        <p-inputSwitch formControlName="checked1" />
+      </div>
+      <div class="d-flex justify-content-between align-items-center py-10 border-2 border-bottom">
+        <span class="text-gray-900 fs-5"
+          >استقبال اشعارات رسائل خدمه العملاء</span
+        >
+        <p-inputSwitch formControlName="checked2" />
+      </div>
+      <div class="d-flex justify-content-between align-items-center py-10 border-2 border-bottom">
+        <span class="text-gray-900 fs-5">استقبال الاشعارات علي رقم الهاتف</span>
+        <p-inputSwitch formControlName="checked3" />
+      </div>
+
+      
+      <div class="d-flex justify-content-end mt-8">
+        <button
+          type="submit"
+          class="btn btn-primary px-15"
+          [disabled]="notificationForm.invalid"
+        >
+          <span *ngIf="!isLoading">حفظ</span>
+          <span *ngIf="isLoading">
+            يرجى الانتظار...
+            <span
+              class="spinner-border spinner-border-sm align-middle ms-2"
+            ></span>
+          </span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div> -->
+<div class="toolBar d-flex align-items-center gap-10">
+  <h2 class="text-muted">الاشعارات</h2>
+  <h2>ارسال اشعار</h2>
+</div>
+<div class="notificationsContainer mt-10 w-75">
+    <form class="d-flex flex-column gap-3">
+    <div class="mb-3">
+      <label for="title" class="form-label">العنوان</label>
+      <input type="text" class="form-control" id="title" placeholder="" [(ngModel)]="title" name="title">
+    </div>
+    <div class="mb-3">
+      <label for="content" class="form-label">المحتوى</label>  
+      <textarea class="form-control" id="content" rows="10" placeholder="" [(ngModel)]="content" name="content"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary align-self-end" (click)="onSubmit()">ارسال</button>
+    </form>
+</div>

@@ -1,0 +1,25 @@
+<div class="card border-0">
+
+  <div class="card-body p-4">
+    <form class="form mb-10" [formGroup]="videoForm" (ngSubmit)="updateMainVideo()">
+      <div class="my-8 ">
+        <div class="mb-6 position-relative">
+          <input type="file" accept="video/mp4" class="form-control form-control-lg file1"
+            [ngClass]="{ 'text-white': !isFileSelected1 }" [ngClass]="{ 'text-white': isFileSelected1 }"
+            (change)="onFileSelected1($event)">
+          <span class="span-pic fs-5" *ngIf="!isFileSelected1">إرفاق فيديو</span>
+          <span class="span-pic fs-5" *ngIf="isFileSelected1">{{videoName}}</span>
+        </div>
+      </div>
+      <div class="d-flex justify-content-end mt-4">
+        <button type="submit" class="btn btn-primary px-15">حفظ</button>
+      </div>
+    </form>
+  </div>
+</div>
+<swal #successSwal [swalOptions]="{ showCancelButton: false, confirmButtonText: 'موافق' }" title="تم التحديث بنجاح!"
+  text="" icon="success" [customClass]="{confirmButton: 'btn btn-primary'}">
+</swal>
+<swal #deleteSwal [swalOptions]="swalOptions" title="حدث خطأ!" icon="error"
+  [customClass]="{confirmButton: 'btn btn-danger'}" [showCancelButton]="false">
+</swal>

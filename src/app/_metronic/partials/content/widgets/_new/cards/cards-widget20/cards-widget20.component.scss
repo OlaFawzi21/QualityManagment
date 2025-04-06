@@ -1,0 +1,38 @@
+::ng-deep .p-accordion-tab{
+  margin-bottom: 14px!important;
+}
+::ng-deep .p-element.p-icon-wrapper{
+position: absolute;
+left: 15px;
+}
+::ng-deep .p-accordion-header-text{
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 17.86px;
+  letter-spacing: -2%;
+  font-family: 'Tajawal';
+}
+.dropdown-toggle {
+  background: #FAF2FF;
+}
+.dropdown-toggle::after {
+  display: none !important;
+}
+.actions .dropdown-item {
+  padding-left: 36px;
+  font-size: 14px;
+}
+.actions .dropdown-item i {
+  padding-left: 0.3rem;
+}
+.actions span {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22px;
+}
+::ng-deep .p-accordion-content p{
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  font-family:'Tajawal';
+}

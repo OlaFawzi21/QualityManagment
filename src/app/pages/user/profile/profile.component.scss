@@ -1,0 +1,17 @@
+.form-control:disabled {
+  color: var(--bs-gray-700) !important;
+  background-color: var(--bs-body-bg) !important;
+}
+
+.phone {
+  padding-right: 85px;
+  direction: inherit;
+}
+
+.code {
+  transform: translate(-30px, -50%);
+}
+
+.line {
+  transform: translate(-62px, -50%);
+}

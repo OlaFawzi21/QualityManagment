@@ -1,0 +1,115 @@
+<div class="card-header border-0 py-5 px-11">
+  <div class="card-title m-0 align-items-start flex-column">
+    <span class="mb-3 text-gray-900 fs-3">
+      آخر المزارات المضافه
+    </span>
+    <small class="text-gray-500">
+      أكثر من 400 مزار جديد
+    </small>
+  </div>
+  <div class="d-flex align-items-center gap-3">
+    <input type="text" class="form-control w-250px" placeholder="بحث...">
+    <select name="" id="" class="form-select w-125px">
+      <option value="" disabled selected>نوع المزار</option>
+      <option value="0">تاريخي</option>
+      <option value="1">أثري</option>
+      <option value="2">ثقافي</option>
+      <option value="3">طبيعي</option>
+      <option value="4">ديني</option>
+    </select>
+  </div>
+</div>
+<div class="card-body py-5 px-12">
+  <div class="table-responsive">
+    <table class="table align-middle gs-0 gy-4">
+      <thead>
+        <tr class="text-muted bg-light">
+          <th class="ps-4 min-w-325px rounded-end">اسم المزار</th>
+          <th class="min-w-125px">مٌدخل البيانات</th>
+          <th class="min-w-125px"> اسم المٌدقق</th>
+          <th class="min-w-125px">تاريح الادخال</th>
+          <th class="min-w-200px text-end rounded-start"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let place of allPlaces">
+          <td>
+            <div class="d-flex align-items-center">
+              <div class="mx-5 rounded-3 overflow-hidden" style="width:70px; height:70px;">
+                <img class="w-100 h-100" *ngIf="place.images && place.images.length > 0; else defaultImage"
+                  [src]="place.images[0]" alt="image">
+                <ng-template #defaultImage>
+                  <img class="w-100 h-100" src="assets/images/img/Group.png" alt="default image">
+                </ng-template>
+              </div>
+              <div class="d-flex justify-content-start flex-column">
+                <a class="text-gray-900 text-hover-primary mb-1 fs-6">
+                  {{place.name}}
+                </a>
+                <span class="text-muted text-muted d-block fs-6">التصنيف: {{place.classification | textPipe}}</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <a class="text-gray-900 text-hover-primary d-block mb-1 fs-6">
+              {{place.createdByName}}
+            </a>
+          </td>
+          <td>
+            <a class="text-gray-900 text-hover-primary d-block mb-1 fs-6">
+              {{place.createdByName}}
+            </a>
+          </td>
+          <td>
+            <a class="text-gray-900 text-hover-primary d-block mb-1 fs-6">
+              {{ place.createdAt | date:'d/M/yyyy' }}
+            </a>
+          </td>
+          <td>
+            <a class="text-danger d-block mb-1 fs-6">
+              تم الرفض
+            </a>
+          </td>
+          <td>
+            <div class="dropdown actions text-end">
+              <button class="btn dropdown-toggle actions-button py-3 px-5 mx-5" type="button" id="actionsDropdown"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-ellipsis-v p-0 text-primary"></i>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="actionsDropdown">
+                <li>
+                  <button class="dropdown-item" routerLink="/heritage/edit-place/{{place.id}}">
+                    <div class="row justify-content-start gap-2">
+                      <div class="col-2">
+                        <i class="bi bi-pencil-square"></i>
+                      </div>
+                      <div class="col-4">تعديل</div>
+                    </div>
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" (click)="openDelete(place.id)">
+                    <div class="row justify-content-start gap-2">
+                      <div class="col-2">
+                        <i class="bi bi-trash" style="color: red;"></i>
+                      </div>
+                      <div class="col-4">مسح</div>
+                    </div>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<swal #deleteSwal [swalOptions]="swalOptions" title="هل أنت متأكد من الحذف؟" text="لا يمكن التراجع عن هذا"
+  icon="warning" [showCancelButton]="true" [focusCancel]="true" (confirm)="triggerDelete()"
+  [customClass]="{confirmButton: 'btn btn-danger', cancelButton: 'btn btn-active-light'}">
+</swal>
+
+<swal #successSwal [swalOptions]="{ showCancelButton: false, confirmButtonText: 'موافق' }" title="تم الحذف بنجاح!"
+  text="" icon="success" [customClass]="{confirmButton: 'btn btn-primary'}">
+</swal>
