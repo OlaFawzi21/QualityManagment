@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeritagePlaceComponent } from './heritage-place.component';
+import { ProfileComponent } from './profile.component';
 
-describe('HeritagePlaceComponent', () => {
-  let component: HeritagePlaceComponent;
-  let fixture: ComponentFixture<HeritagePlaceComponent>;
+describe('ProfileComponent', () => {
+  let component: ProfileComponent;
+  let fixture: ComponentFixture<ProfileComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HeritagePlaceComponent]
+      imports: [ProfileComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HeritagePlaceComponent);
+    fixture = TestBed.createComponent(ProfileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

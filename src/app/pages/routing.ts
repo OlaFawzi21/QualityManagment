@@ -4,40 +4,37 @@ import { AuthGuard } from '../modules/auth/services/auth.guard';
 const Routing: Routes = [
   {
     path: 'dashboard',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     loadChildren: () =>
       import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
   {
-    path: 'heritage',
-    // canActivate: [AuthGuard],
-    loadChildren: () =>
-      import('./heritage-authority/heritage-authority.module').then(
-        (m) => m.HeritageAuthorityModule
-      ),
-  },
-  {
     path: 'allNotifications',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     loadChildren: () =>
       import('./all-notifications/all-notifications.module').then(
         (m) => m.AllNotificationsModule
       ),
   },
   {
+    path: 'account',
+    loadChildren: () =>
+      import('../pages/account/account.module').then((m) => m.AccountModule),
+  },
+  {
     path: 'places',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     loadChildren: () =>
       import('./places/places.module').then((m) => m.PlacesModule),
   },
   {
     path: 'location',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     loadChildren: () => import('./map/map.module').then((m) => m.MapModule),
   },
   {
     path: 'management',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     loadChildren: () =>
       import('./web-managment/web-managment.module').then(
         (m) => m.WebManagmentModule
@@ -45,40 +42,38 @@ const Routing: Routes = [
   },
   {
     path: 'support',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     loadChildren: () =>
       import('./support/support.module').then((m) => m.SupportModule),
   },
   {
     path: 'settings',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     loadChildren: () =>
       import('./settings/settings.module').then((m) => m.SettingsModule),
   },
   {
     path: 'reports',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     loadChildren: () =>
       import('./reports/reports.module').then((m) => m.ReportsModule),
   },
 
   {
     path: 'crafted/account',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     loadChildren: () =>
       import('../modules/account/account.module').then((m) => m.AccountModule),
-    // data: { layout: 'dark-header' },
   },
   {
     path: 'crafted/pages/wizards',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     loadChildren: () =>
       import('../modules/wizards/wizards.module').then((m) => m.WizardsModule),
-    // data: { layout: 'light-header' },
   },
   {
     path: 'users',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     loadChildren: () =>
       import('../pages/user/user.module').then((m) => m.UserModule),
   },

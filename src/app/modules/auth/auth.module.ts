@@ -7,6 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { AuthComponent } from './auth.component';
 import { TranslationModule } from '../i18n/translation.module';
+import { SharedModule } from 'src/app/_metronic/shared/shared.module';
 
 @NgModule({
   declarations: [LoginComponent, AuthComponent],
@@ -18,6 +19,7 @@ import { TranslationModule } from '../i18n/translation.module';
     ReactiveFormsModule,
     HttpClientModule,
     SweetAlert2Module.forChild(),
+    SharedModule
   ],
 })
 export class AuthModule {}

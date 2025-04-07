@@ -13,8 +13,8 @@
 
 ::ng-deep .p-dropdown.p-focus,
 ::ng-deep .p-dropdown:focus {
-    border-color: rgb(95, 2, 161) !important;
-    box-shadow: 0 0 0 0.25rem rgba(76, 0, 130, 0.25) !important;
+    border-color: rgb(7 104 113) !important;
+    box-shadow: 0 0 0 0.25rem rgb(7 104 113 / 25%) !important;
 }
 
 ::ng-deep .p-dropdown-panel ul {

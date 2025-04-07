@@ -11,73 +11,63 @@
     }
   }
 }
-.login-title{
-  h1{
-font-weight: 900;
-font-size: 60px;
-line-height: 72px;
-color: var(--purple-text-color);
-
+.login-title {
+  h1 {
+    font-weight: 900;
+    font-size: 60px;
+    line-height: 72px;
+    color: var(--purple-text-color);
   }
-  h2{
-font-weight: 700;
-font-size: 20px;
-line-height: 24px;
+  h2 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
   }
-  p{
+  p {
     font-weight: 400;
     font-size: 14px;
     line-height: 16.8px;
   }
 }
-.login-btn{
-  .btn-primary{
+.login-btn {
+  .btn-primary {
     background-color: var(--btn-bg-purple);
     color: white;
-    font-size: 20px;
   }
-  .btn-primary:hover,.btn-primary:active,.btn-primary:focus
-{
-  background-color:  var(--btn-bg-purple)!important;
-}
+  .btn-primary:hover,
+  .btn-primary:active,
+  .btn-primary:focus {
+    background-color: var(--btn-bg-purple) !important;
+  }
 }
 
 .form-control:focus {
-  // outline: 0;
-  // // box-shadow:0 0 0 0.25rem rgba(23, 198, 38)!important;
+  border-color: rgb(7 104 113) !important;
+  box-shadow: 0 0 0 0.25rem rgb(7 104 113 / 25%) !important;
+}
 
-border-color: rgb(95, 2, 161)!important;
-    box-shadow: 0 0 0 0.25rem rgba(76, 0, 130 , 0.25)!important;
-}
-.form-check {
-  display: block;
-  min-height: 1.5rem;
-  padding-right: 2.25rem;
-  margin-bottom: 0.125rem;
-  padding-left: 0!important;
-}
-.form-check .form-check-input {
-  float: right !important;
-  margin-right: -2.25rem!important;
-}
 .form-check-input:checked {
-  background-color: rgb(95, 2, 161)!important;
-  border-color: rgb(95, 2, 161)!important;
+  background-color: rgb(7 104 113) !important;
+  border-color: rgb(7 104 113) !important;
 }
 
 .form-control {
-  padding: 0.775rem 2.8rem!important
-  
+  padding: 10px !important;
 }
 
-span.input-group-text{
-  border-radius: 0 6px 6px 0  !important;
+span.input-group-text {
+  border-radius: 0 6px 6px 0 !important;
 }
 
-a.input-group-text{
-  border-radius: 6px 0 0 6px  !important;
+a.input-group-text {
+  border-radius: 6px 0 0 6px !important;
 }
 
 .fv-plugins-message-container {
   position: absolute;
+}
+
+.rounded-t-b-left{
+  border-radius: 6px 0 0 6px !important;
+  border-right: 0 !important;
 }

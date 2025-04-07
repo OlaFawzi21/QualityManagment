@@ -1,16 +1,16 @@
 .bg-purple {
-    background-color: #a480be;
+  background-color: #a480be;
 }
 
 .bg-orange {
-    background-color: #ffb966;
+  background-color: #ffb966;
 }
 ::ng-deep .p-dropdown {
   width: 100%;
   border-color: var(--bs-gray-300);
   border-radius: 0.475rem;
   &:not(.p-disabled):hover {
-      border-color: #dbdfe9;
+    border-color: #dbdfe9;
   }
 }
 
@@ -20,8 +20,8 @@
 
 ::ng-deep .p-dropdown.p-focus,
 ::ng-deep .p-dropdown:focus {
-  border-color: rgb(95, 2, 161) !important;
-  box-shadow: 0 0 0 0.25rem rgba(76, 0, 130, 0.25) !important;
+  border-color: rgb(7 104 113) !important;
+  box-shadow: 0 0 0 0.25rem rgb(7 104 113 / 25%) !important;
 }
 
 ::ng-deep .p-dropdown-panel ul {
