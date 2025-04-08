@@ -1,0 +1,142 @@
+<section>
+    <div class="table-responsive mt-15">
+        <table class="table align-middle gs-0 gy-4">
+            <thead>
+                <tr class="text-gray-600 bg-gray-300">
+                    <th class="min-w-125px">رقم الرخصة</th>
+                    <th class="min-w-125px">الرخصة</th>
+                    <th class="min-w-125px">يتبع قائمة</th>
+                    <th class="min-w-125px">المسؤل عن الرفع</th>
+                    <th class="min-w-125px">الملف</th>
+                    <th class="min-w-125px">تاريخ الإنهاء</th>
+                    <th class="min-w-125px">اخر تحديث</th>
+                    <th class="min-w-125px">تعديل</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-primary">
+                    <td>1</td>
+                    <td>رخصة i</td>
+                    <td>الأوراق الثبوتية</td>
+                    <td>المستخدم نفسه</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
+                        <a (click)="openModal(formModal)" class="cursor-pointer">
+                            <i class="bi bi-pencil-square text-primary"></i>
+                        </a>
+                    </td>
+                </tr>
+                <tr class="text-primary">
+                    <td>1</td>
+                    <td>رخصة i</td>
+                    <td>الأوراق الثبوتية</td>
+                    <td>المستخدم نفسه</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
+                        <a (click)="openModal(formModal)" class="cursor-pointer">
+                            <i class="bi bi-pencil-square text-primary"></i>
+                        </a>
+                    </td>
+                </tr>
+                <tr class="text-primary">
+                    <td>1</td>
+                    <td>رخصة i</td>
+                    <td>الأوراق الثبوتية</td>
+                    <td>المستخدم نفسه</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
+                        <a (click)="openModal(formModal)" class="cursor-pointer">
+                            <i class="bi bi-pencil-square text-primary"></i>
+                        </a>
+                    </td>
+                </tr>
+                <tr class="text-primary">
+                    <td>1</td>
+                    <td>رخصة i</td>
+                    <td>الأوراق الثبوتية</td>
+                    <td>المستخدم نفسه</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
+                        <a (click)="openModal(formModal)" class="cursor-pointer">
+                            <i class="bi bi-pencil-square text-primary"></i>
+                        </a>
+                    </td>
+                </tr>
+                <tr class="text-primary">
+                    <td>1</td>
+                    <td>رخصة i</td>
+                    <td>الأوراق الثبوتية</td>
+                    <td>المستخدم نفسه</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
+                        <a (click)="openModal(formModal)" class="cursor-pointer">
+                            <i class="bi bi-pencil-square text-primary"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="paginator-div d-flex justify-content-center align-items-center">
+        <p-paginator [totalRecords]="totalRecords" (onPageChange)="onPageChange($event)" [first]="first" [rows]="rows"
+            [rowsPerPageOptions]="[10, 25, 50, 100]" />
+    </div>
+</section>
+
+<ng-template #formModal let-modal>
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div class="modal-header border-0">
+            <h4 class="modal-title fw-normal">رخصة أ</h4>
+        </div>
+
+        <div class="modal-body py-4">
+            <div class="d-flex flex-column mw-650px" id="kt_modal_update_customer_scroll">
+                <div>
+                    <label class="text-gray-900 fs-6 form-label">تاريخ الإنتهاء</label>
+                    <p-calendar [showIcon]="true" formControlName="dateLicense" dateFormat="yy-mm-dd">
+                    </p-calendar>
+                    <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                                            validation: 'required',
+                                            message: 'برجاء ادخال تاريخ الإنتهاء',
+                                            control: myForm.controls['dateLicense']
+                            }"></ng-container>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer flex-end border-0">
+            <button type="button" class="btn btn-secondary py-2" (click)="modal.dismiss('Cross click')">
+                <span class="indicator-label">إغلاق</span>
+            </button>
+            <button type="submit" class="btn btn-primary py-2" [attr.data-kt-indicator]="isLoading ? 'on' : 'off'">
+                <span class="indicator-label">حفظ التغييرات</span>
+                <span class="indicator-progress">
+                    يرجى الانتظار... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                </span>
+            </button>
+        </div>
+    </form>
+</ng-template>
+
+
+
+<!--control error msg -->
+<ng-template #formError let-control="control" let-message="message" let-validation="validation">
+    <ng-container *ngIf="control.hasError(validation) && (control.dirty || (control.touched && control.errors))">
+        <div class="fv-plugins-message-container">
+            <span class="text-danger" role="alert">
+                {{ message }}
+            </span>
+        </div>
+    </ng-container>
+</ng-template>

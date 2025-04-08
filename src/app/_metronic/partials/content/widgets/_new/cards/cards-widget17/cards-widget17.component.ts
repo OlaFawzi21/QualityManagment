@@ -29,7 +29,7 @@ export class CardsWidget17Component implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.getUserProfile();
+    // this.getUserProfile();
     this.getAllUserslenght();
   }
 

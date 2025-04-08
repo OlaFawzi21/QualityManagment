@@ -1,88 +1,150 @@
 import { Routes } from '@angular/router';
 import { AuthGuard } from '../modules/auth/services/auth.guard';
+import { NotificationsComponent } from '../modules/account/settings/forms/notifications/notifications.component';
 
 const Routing: Routes = [
   {
     path: 'dashboard',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     loadChildren: () =>
       import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
   {
-    path: 'heritage',
-    // canActivate: [AuthGuard],
-    loadChildren: () =>
-      import('./heritage-authority/heritage-authority.module').then(
-        (m) => m.HeritageAuthorityModule
-      ),
-  },
-  {
     path: 'allNotifications',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     loadChildren: () =>
       import('./all-notifications/all-notifications.module').then(
         (m) => m.AllNotificationsModule
       ),
   },
   {
+    path: 'account',
+    loadChildren: () =>
+      import('../pages/account/account.module').then((m) => m.AccountModule),
+  },
+  {
     path: 'places',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     loadChildren: () =>
       import('./places/places.module').then((m) => m.PlacesModule),
   },
   {
-    path: 'location',
-    canActivate: [AuthGuard],
-    loadChildren: () => import('./map/map.module').then((m) => m.MapModule),
-  },
-  {
     path: 'management',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     loadChildren: () =>
       import('./web-managment/web-managment.module').then(
         (m) => m.WebManagmentModule
       ),
   },
   {
-    path: 'support',
-    canActivate: [AuthGuard],
+    path: 'crafted/account',
+    // canActivate: [AuthGuard],
     loadChildren: () =>
-      import('./support/support.module').then((m) => m.SupportModule),
+      import('../modules/account/account.module').then((m) => m.AccountModule),
+  },
+  {
+    path: 'crafted/pages/wizards',
+    // canActivate: [AuthGuard],
+    loadChildren: () =>
+      import('../modules/wizards/wizards.module').then((m) => m.WizardsModule),
+  },
+  {
+    path: 'users',
+    // canActivate: [AuthGuard],
+    loadChildren: () =>
+      import('../pages/user/user.module').then((m) => m.UserModule),
   },
   {
     path: 'settings',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     loadChildren: () =>
       import('./settings/settings.module').then((m) => m.SettingsModule),
   },
   {
-    path: 'reports',
-    canActivate: [AuthGuard],
+    path: 'organizationalStructure',
     loadChildren: () =>
-      import('./reports/reports.module').then((m) => m.ReportsModule),
-  },
-
-  {
-    path: 'crafted/account',
-    canActivate: [AuthGuard],
-    loadChildren: () =>
-      import('../modules/account/account.module').then((m) => m.AccountModule),
-    // data: { layout: 'dark-header' },
+      import(
+        '../pages/organizational-structure/organizational-structure.module'
+      ).then((m) => m.OrganizationalStructureModule),
   },
   {
-    path: 'crafted/pages/wizards',
-    canActivate: [AuthGuard],
+    path: 'jobTitles',
     loadChildren: () =>
-      import('../modules/wizards/wizards.module').then((m) => m.WizardsModule),
-    // data: { layout: 'light-header' },
+      import('../pages/job-titles/job-titles.module').then(
+        (m) => m.JobTitlesModule
+      ),
   },
   {
-    path: 'users',
-    canActivate: [AuthGuard],
+    path: 'procedures',
     loadChildren: () =>
-      import('../pages/user/user.module').then((m) => m.UserModule),
+      import('../pages/procedures/procedures.module').then(
+        (m) => m.ProceduresModule
+      ),
   },
-
+  {
+    path: 'training',
+    loadChildren: () =>
+      import('../pages/training/training.module').then((m) => m.TrainingModule),
+  },
+  {
+    path: 'surveys',
+    loadChildren: () =>
+      import('../pages/surveys/surveys.module').then((m) => m.SurveysModule),
+  },
+  {
+    path: 'documentManager',
+    loadChildren: () =>
+      import('../pages/document-manager/document-manager.module').then(
+        (m) => m.DocumentManagerModule
+      ),
+  },
+  {
+    path: 'incidentReporting',
+    loadChildren: () =>
+      import('../pages/incident-reporting/incident-reporting.module').then(
+        (m) => m.IncidentReportingModule
+      ),
+  },
+  {
+    path: 'systemActivity',
+    loadChildren: () =>
+      import('../pages/system-activity/system-activity.module').then(
+        (m) => m.SystemActivityModule
+      ),
+  },
+  {
+    path: 'employeeCommunication',
+    loadChildren: () =>
+      import(
+        '../pages/employee-communication/employee-communication.module'
+      ).then((m) => m.EmployeeCommunicationModule),
+  },
+  {
+    path: 'companies',
+    loadChildren: () =>
+      import('../pages/companies/companies.module').then(
+        (m) => m.CompaniesModule
+      ),
+  },
+  {
+    path: 'medicalLibrary',
+    loadChildren: () =>
+      import('../pages/medical-library/medical-library.module').then(
+        (m) => m.MedicalLibraryModule
+      ),
+  },
+  {
+    path: 'licenses',
+    loadChildren: () =>
+      import('../pages/licenses/licenses.module').then((m) => m.LicensesModule),
+  },
+  {
+    path: 'complaints',
+    loadChildren: () =>
+      import('../pages/complaints/complaints.module').then(
+        (m) => m.ComplaintsModule
+      ),
+  },
   {
     path: '',
     redirectTo: '/auth',

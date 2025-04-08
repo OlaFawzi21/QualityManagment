@@ -1,24 +1,24 @@
 ::ng-deep .p-radiobutton .p-radiobutton-box.p-highlight {
-  border-color: #ff8b00;
+  border-color: #129fa5;
 }
-::ng-deep .p-calendar.p-calendar-w-btn.p-calendar-timeonly{
+::ng-deep .p-calendar.p-calendar-w-btn.p-calendar-timeonly {
   width: 100%;
   border: 1px solid #dbdfe9;
   border-radius: 0.625rem;
 }
-::ng-deep .p-calendar.p-calendar-w-btn{
-  width: 100%!important;
-  border: 1px solid #dbdfe9!important;
-  border-radius: 0.625rem!important;
+::ng-deep .p-calendar.p-calendar-w-btn {
+  width: 100% !important;
+  border: 1px solid #dbdfe9 !important;
+  border-radius: 0.625rem !important;
 }
 ::ng-deep .p-radiobutton-icon {
-  background-color: #ff8b00;
+  background-color: #129fa5;
 }
 
 ::ng-deep .p-radiobutton.p-radiobutton-checked:not(.p-radiobutton-disabled),
 ::ng-deep .p-radiobutton.p-radiobutton-checked:not(.p-radiobutton-disabled):hover {
   box-shadow: 0 0 1px 10px rgba(255, 140, 0, 10%);
-  border-color: #ff8b00;
+  border-color: #129fa5;
 }
 
 input[type="file"] {
@@ -55,7 +55,6 @@ input[type="file"]::file-selector-button {
   transform: translateY(-50%);
   pointer-events: none;
 }
-
 
 body[data-kt-app-layout="dark-sidebar"] .file1 {
   color: black !important;

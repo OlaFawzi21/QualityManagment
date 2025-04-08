@@ -133,19 +133,19 @@
 
 // Set menu link theme
 @mixin menu-link-theme($title-color, $icon-color, $bullet-color, $arrow-color, $bg-color: null) {
-	@if ( $bg-color != null ) {
+	@if ($bg-color != null) {
 		background-color: $bg-color;
 	}
 
-	@if ( $title-color != null ) {
-		color:#E46538 ;
+	@if ($title-color != null) {
+		color: #129fa5;
 
 		.menu-title {
-			color:#E46538;
+			color: #129fa5;
 		}
 	}
 
-	@if ( $icon-color != null ) {
+	@if ($icon-color != null) {
 		.menu-icon {
 			&,
 			.svg-icon,
@@ -155,7 +155,7 @@
 		}
 	}
 
-	@if ( $bullet-color != null ) {
+	@if ($bullet-color != null) {
 		.menu-bullet {
 			.bullet {
 				background-color: $bullet-color;
@@ -163,7 +163,7 @@
 		}
 	}
 
-	@if ( $arrow-color != null ) {
+	@if ($arrow-color != null) {
 		// Arrow
 		.menu-arrow:after {
 			@include svg-bg-icon(arrow-start, $arrow-color);
@@ -175,11 +175,18 @@
 }
 
 // Set menu link default state
-@mixin menu-link-default-state($title-color, $icon-color, $bullet-color, $arrow-color, $bg-color: null, $all-links: true) {
-	$sel: '';
+@mixin menu-link-default-state(
+	$title-color,
+	$icon-color,
+	$bullet-color,
+	$arrow-color,
+	$bg-color: null,
+	$all-links: true
+) {
+	$sel: "";
 
 	@if ($all-links == false) {
-		$sel: '& > ';
+		$sel: "& > ";
 	}
 
 	#{$sel}.menu-link {
@@ -188,11 +195,18 @@
 }
 
 // Set menu link hover state
-@mixin menu-link-hover-state($title-color, $icon-color, $bullet-color, $arrow-color, $bg-color: null, $all-links: true) {
-	$sel: '&:not(.here) ';
+@mixin menu-link-hover-state(
+	$title-color,
+	$icon-color,
+	$bullet-color,
+	$arrow-color,
+	$bg-color: null,
+	$all-links: true
+) {
+	$sel: "&:not(.here) ";
 
 	@if ($all-links == false) {
-		$sel: '&:not(.here) > ';
+		$sel: "&:not(.here) > ";
 	}
 
 	&.hover:not(.here) > .menu-link:not(.disabled):not(.active):not(.here),
@@ -204,11 +218,18 @@
 }
 
 // Set menu link active state
-@mixin menu-link-active-state($title-color, $icon-color, $bullet-color, $arrow-color, $bg-color: null, $all-links: true) {
-	$sel: '';
+@mixin menu-link-active-state(
+	$title-color,
+	$icon-color,
+	$bullet-color,
+	$arrow-color,
+	$bg-color: null,
+	$all-links: true
+) {
+	$sel: "";
 
 	@if ($all-links == false) {
-		$sel: '& > ';
+		$sel: "& > ";
 	}
 
 	#{$sel}.menu-link.active {
@@ -239,10 +260,10 @@
 
 // Set menu link default
 @mixin menu-link-default($all-links: true) {
-	$sel: '';
+	$sel: "";
 
 	@if ($all-links == false) {
-		$sel: '& > ';
+		$sel: "& > ";
 	}
 
 	#{$sel}.menu-link {
@@ -252,10 +273,10 @@
 
 // Set menu link hover
 @mixin menu-link-hover($all-links: true) {
-	$sel: '&:not(.here) ';
+	$sel: "&:not(.here) ";
 
 	@if ($all-links == false) {
-		$sel: '&:not(.here) > ';
+		$sel: "&:not(.here) > ";
 	}
 
 	&.hover:not(.here) > .menu-link:not(.disabled):not(.active):not(.here),
@@ -268,10 +289,10 @@
 
 // Set menu link active
 @mixin menu-link-active($all-links: true) {
-	$sel: '';
+	$sel: "";
 
 	@if ($all-links == false) {
-		$sel: '& > ';
+		$sel: "& > ";
 	}
 
 	#{$sel}.menu-link.active {
