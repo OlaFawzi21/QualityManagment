@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { AuthGuard } from '../modules/auth/services/auth.guard';
+import { NotificationsComponent } from '../modules/account/settings/forms/notifications/notifications.component';
 
 const Routing: Routes = [
   {
@@ -28,11 +29,6 @@ const Routing: Routes = [
       import('./places/places.module').then((m) => m.PlacesModule),
   },
   {
-    path: 'location',
-    // canActivate: [AuthGuard],
-    loadChildren: () => import('./map/map.module').then((m) => m.MapModule),
-  },
-  {
     path: 'management',
     // canActivate: [AuthGuard],
     loadChildren: () =>
@@ -40,25 +36,6 @@ const Routing: Routes = [
         (m) => m.WebManagmentModule
       ),
   },
-  {
-    path: 'support',
-    // canActivate: [AuthGuard],
-    loadChildren: () =>
-      import('./support/support.module').then((m) => m.SupportModule),
-  },
-  {
-    path: 'settings',
-    // canActivate: [AuthGuard],
-    loadChildren: () =>
-      import('./settings/settings.module').then((m) => m.SettingsModule),
-  },
-  {
-    path: 'reports',
-    // canActivate: [AuthGuard],
-    loadChildren: () =>
-      import('./reports/reports.module').then((m) => m.ReportsModule),
-  },
-
   {
     path: 'crafted/account',
     // canActivate: [AuthGuard],
@@ -77,7 +54,97 @@ const Routing: Routes = [
     loadChildren: () =>
       import('../pages/user/user.module').then((m) => m.UserModule),
   },
-
+  {
+    path: 'settings',
+    // canActivate: [AuthGuard],
+    loadChildren: () =>
+      import('./settings/settings.module').then((m) => m.SettingsModule),
+  },
+  {
+    path: 'organizationalStructure',
+    loadChildren: () =>
+      import(
+        '../pages/organizational-structure/organizational-structure.module'
+      ).then((m) => m.OrganizationalStructureModule),
+  },
+  {
+    path: 'jobTitles',
+    loadChildren: () =>
+      import('../pages/job-titles/job-titles.module').then(
+        (m) => m.JobTitlesModule
+      ),
+  },
+  {
+    path: 'procedures',
+    loadChildren: () =>
+      import('../pages/procedures/procedures.module').then(
+        (m) => m.ProceduresModule
+      ),
+  },
+  {
+    path: 'training',
+    loadChildren: () =>
+      import('../pages/training/training.module').then((m) => m.TrainingModule),
+  },
+  {
+    path: 'surveys',
+    loadChildren: () =>
+      import('../pages/surveys/surveys.module').then((m) => m.SurveysModule),
+  },
+  {
+    path: 'documentManager',
+    loadChildren: () =>
+      import('../pages/document-manager/document-manager.module').then(
+        (m) => m.DocumentManagerModule
+      ),
+  },
+  {
+    path: 'incidentReporting',
+    loadChildren: () =>
+      import('../pages/incident-reporting/incident-reporting.module').then(
+        (m) => m.IncidentReportingModule
+      ),
+  },
+  {
+    path: 'systemActivity',
+    loadChildren: () =>
+      import('../pages/system-activity/system-activity.module').then(
+        (m) => m.SystemActivityModule
+      ),
+  },
+  {
+    path: 'employeeCommunication',
+    loadChildren: () =>
+      import(
+        '../pages/employee-communication/employee-communication.module'
+      ).then((m) => m.EmployeeCommunicationModule),
+  },
+  {
+    path: 'companies',
+    loadChildren: () =>
+      import('../pages/companies/companies.module').then(
+        (m) => m.CompaniesModule
+      ),
+  },
+  {
+    path: 'medicalLibrary',
+    loadChildren: () =>
+      import('../pages/medical-library/medical-library.module').then(
+        (m) => m.MedicalLibraryModule
+      ),
+  },
+  {
+    path: 'licenses',
+    loadChildren: () =>
+      import('../pages/licenses/licenses.module').then((m) => m.LicensesModule),
+  },
+  {
+    path: 'complaints',
+    loadChildren: () =>
+      import('../pages/complaints/complaints.module').then(
+        (m) => m.ComplaintsModule
+      ),
+  },
   {
     path: '',
     redirectTo: '/auth',

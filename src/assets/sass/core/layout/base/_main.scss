@@ -62,6 +62,7 @@
 @include media-breakpoint-down(lg) {
 	// Base
     .app-main {
+        margin-top: 60px;
         @include property( padding-left, $app-main-padding-x-mobile );
         @include property( padding-right, $app-main-padding-x-mobile );
         @include property( padding-top, $app-main-padding-y-mobile );

@@ -39,7 +39,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
     const storedDir = localStorage.getItem('direction') || 'rtl';
     document.documentElement.dir = storedDir;
     this.currentDir = storedDir;
-    this.getUserProfile();
+    // this.getUserProfile();
     this.updateStylesheets();
   }
 

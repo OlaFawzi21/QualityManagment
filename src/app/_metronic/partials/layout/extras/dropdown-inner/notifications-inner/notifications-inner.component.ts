@@ -23,9 +23,9 @@ export class NotificationsInnerComponent implements OnInit {
   constructor(private notificationService:NotificationService) {}
 notifications:any[] = [];
   ngOnInit(): void {
-    this.notificationService.getLatestNotifications().subscribe((notifications) => {
-      this.notifications = notifications;
-    });
+    // this.notificationService.getLatestNotifications().subscribe((notifications) => {
+    //   this.notifications = notifications;
+    // });
   }
 
   setActiveTabId(tabId: NotificationsTabsType) {

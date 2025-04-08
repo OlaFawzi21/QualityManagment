@@ -44,7 +44,7 @@ function appInitializer() {
     AppRoutingModule,
     InlineSVGModule.forRoot(),
     NgbModule,
-    SweetAlert2Module.forRoot(),
+    SweetAlert2Module.forRoot()
   ],
 
   providers: [

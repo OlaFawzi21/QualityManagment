@@ -40449,7 +40449,7 @@ h6,
 }
 
 .btn:not(.btn-outline):not(.btn-dashed):not(.btn-bordered):not(.border-hover):not(.border-active):not(.btn-flush):not(.btn-icon):not(.btn-hover-outline) {
-  padding: calc(0.775rem + 1px) calc(1.5rem + 1px);
+  padding: calc(0.775rem) calc(1.5rem + 1px) !important;
 }
 
 .btn:not(.btn-outline):not(.btn-dashed):not(.btn-bordered):not(.border-hover):not(.border-active):not(.btn-flush):not(.btn-icon):not(.btn-hover-outline).btn-lg,
@@ -62621,7 +62621,6 @@ body,
 
 @media (min-width: 992px) {
   [data-kt-app-layout="light-sidebar"]:not([data-kt-app-header-fixed="true"]) .app-header {
-    background-color: transparent;
     box-shadow: none;
     border-bottom: none;
   }
@@ -62629,7 +62628,6 @@ body,
 
 @media (max-width: 991.98px) {
   [data-kt-app-layout="light-sidebar"]:not([data-kt-app-header-fixed-mobile="true"]) .app-header {
-    background-color: transparent;
     box-shadow: none;
   }
 }

@@ -5,7 +5,7 @@
 .form-select {
 	appearance: none;
 	//box-shadow: none !important;
-	background-color: var(--bs-gray-100);
+	// background-color: var(--bs-gray-100);
 
 	&:focus {
 		border-color: $form-select-focus-border-color;
