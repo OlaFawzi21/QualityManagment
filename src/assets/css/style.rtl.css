@@ -62723,3 +62723,7 @@ transform: translate3d(-1300px, 57px, 0px) !important;
   z-index: 2;
   border-top-left-radius: 0.625rem;
 }
+
+td .btn:not(.btn-outline):not(.btn-dashed):not(.btn-bordered):not(.border-hover):not(.border-active):not(.btn-flush):not(.btn-icon):not(.btn-hover-outline) {
+  padding: 2px 5px !important;
+}

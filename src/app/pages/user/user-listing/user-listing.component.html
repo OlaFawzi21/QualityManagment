@@ -16,7 +16,7 @@
   <div class="d-flex align-items-center gap-3 flex-wrap">
     <button type="button" class="btn second-color d-flex gap-3" data-action="create" [routerLink]="['/users/add-user']">
       <img src="assets/images/icons/add-user.svg" alt="add-user">
-      <span>إضافة موظف جديد</span>
+      <span>إضافة مستخدم</span>
     </button>
     <div class="min-w-200px">
       <p-dropdown [options]="management" [(ngModel)]="selectedManagement" optionLabel="name" placeholder="الإدارة" />
@@ -87,7 +87,7 @@
                     </button>
                   </li>
                   <li>
-                    <button class="dropdown-item py-2" routerLink="/location/edit-map/1">
+                    <button class="dropdown-item py-2" (click)="openModal(formModal1)">
                       <div class="row justify-content-start">
                         <div class="col-2">
                           <i class="bi bi-ban text-danger"></i>
@@ -144,7 +144,7 @@
                     </button>
                   </li>
                   <li>
-                    <button class="dropdown-item py-2" routerLink="/location/edit-map/1">
+                    <button class="dropdown-item py-2" (click)="openModal(formModal1)">
                       <div class="row justify-content-start">
                         <div class="col-2">
                           <i class="bi bi-ban text-danger"></i>
@@ -201,7 +201,7 @@
                     </button>
                   </li>
                   <li>
-                    <button class="dropdown-item py-2" routerLink="/location/edit-map/1">
+                    <button class="dropdown-item py-2" (click)="openModal(formModal1)">
                       <div class="row justify-content-start">
                         <div class="col-2">
                           <i class="bi bi-ban text-danger"></i>
@@ -258,7 +258,7 @@
                     </button>
                   </li>
                   <li>
-                    <button class="dropdown-item py-2" routerLink="/location/edit-map/1">
+                    <button class="dropdown-item py-2" (click)="openModal(formModal1)">
                       <div class="row justify-content-start">
                         <div class="col-2">
                           <i class="bi bi-ban text-danger"></i>
@@ -315,7 +315,7 @@
                     </button>
                   </li>
                   <li>
-                    <button class="dropdown-item py-2" routerLink="/location/edit-map/1">
+                    <button class="dropdown-item py-2" (click)="openModal(formModal1)">
                       <div class="row justify-content-start">
                         <div class="col-2">
                           <i class="bi bi-ban text-danger"></i>
@@ -337,3 +337,88 @@
     </div>
   </div>
 </section>
+
+
+
+<ng-template #formModal1 let-modal>
+  <form (ngSubmit)="blockUser()">
+    <div class="modal-header border-0">
+      <h4 class="modal-title fw-normal text-primary">حظر المستخدم</h4>
+    </div>
+
+    <div class="modal-body py-0">
+      <div class="d-flex flex-column mw-650px" id="kt_modal_update_customer_scroll">
+        <div>
+          <label class="text-gray-900 fs-6 form-label">سبب الحظر</label>
+          <textarea class="form-control" [formControl]="block" rows="3"></textarea>
+          <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                                            validation: 'required',
+                                            message: 'برجاء ادخال سبب الحظر',
+                                            control: block
+                            }"></ng-container>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer flex-end border-0">
+      <button type="button" class="btn btn-secondary py-2" (click)="modal.dismiss('Cross click')">
+        <span class="indicator-label">إغلاق</span>
+      </button>
+      <button type="submit" class="btn btn-primary py-2" [attr.data-kt-indicator]="isLoading ? 'on' : 'off'">
+        <span class="indicator-label">إرسال</span>
+        <span class="indicator-progress">
+          يرجى الانتظار... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+        </span>
+      </button>
+    </div>
+  </form>
+</ng-template>
+
+
+<!-- <ng-template #formModal2 let-modal>
+  <form [formGroup]="myForm" (ngSubmit)="noticeUser()">
+    <div class="modal-header border-0">
+      <h4 class="modal-title fw-normal">رخصة أ</h4>
+    </div>
+
+    <div class="modal-body py-4">
+      <div class="d-flex flex-column mw-650px" id="kt_modal_update_customer_scroll">
+        <div>
+          <label class="text-gray-900 fs-6 form-label">تاريخ الإنتهاء</label>
+          <p-calendar [showIcon]="true" formControlName="dateLicense" dateFormat="yy-mm-dd">
+          </p-calendar>
+          <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                                            validation: 'required',
+                                            message: 'برجاء ادخال تاريخ الإنتهاء',
+                                            control: myForm.controls['dateLicense']
+                            }"></ng-container>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer flex-end border-0">
+      <button type="button" class="btn btn-secondary py-2" (click)="modal.dismiss('Cross click')">
+        <span class="indicator-label">إغلاق</span>
+      </button>
+      <button type="submit" class="btn btn-primary py-2" [attr.data-kt-indicator]="isLoading ? 'on' : 'off'">
+        <span class="indicator-label">حفظ التغييرات</span>
+        <span class="indicator-progress">
+          يرجى الانتظار... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+        </span>
+      </button>
+    </div>
+  </form>
+</ng-template> -->
+
+
+
+<!--control error msg -->
+<ng-template #formError let-control="control" let-message="message" let-validation="validation">
+  <ng-container *ngIf="control.hasError(validation) && (control.dirty || (control.touched && control.errors))">
+    <div class="fv-plugins-message-container">
+      <span class="text-danger" role="alert">
+        {{ message }}
+      </span>
+    </div>
+  </ng-container>
+</ng-template>

@@ -6,7 +6,7 @@ import {
   inject,
   ChangeDetectorRef,
 } from '@angular/core';
-import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 import { SweetAlertOptions } from 'sweetalert2';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -22,19 +22,6 @@ import { GeneratePdfService } from 'src/app/_metronic/layout/core/services/repor
   styleUrls: ['./user-listing.component.scss'],
 })
 export class UserListingComponent implements OnInit, OnDestroy {
-  @ViewChild('formModal') formModal: any;
-  @ViewChild('deleteSwal') deleteSwal: SwalComponent;
-  @ViewChild('successSwal') successSwal: SwalComponent;
-  @ViewChild('successSwal1') successSwal1: SwalComponent;
-  @ViewChild('successSwal2') successSwal2: SwalComponent;
-
-  swalOptions: SweetAlertOptions = {
-    buttonsStyling: false,
-    showCancelButton: true,
-    confirmButtonText: 'نعم، احذفه!',
-    cancelButtonText: 'إلغاء',
-  };
-
   private readonly _UsersService = inject(UsersService);
   private readonly cdr = inject(ChangeDetectorRef);
   private readonly _GeneralService = inject(GeneralService);
@@ -48,7 +35,6 @@ export class UserListingComponent implements OnInit, OnDestroy {
   totalRecords: number = 10;
 
   users: any[] = [];
-  userId: any;
   title: string = 'المستخدمين';
 
   status = [
@@ -67,6 +53,8 @@ export class UserListingComponent implements OnInit, OnDestroy {
   selectedManagement: any;
   selectedDepartment: any;
   selectedStatus: any;
+
+  block = new FormControl('', Validators.required);
 
   constructor(private modalService: NgbModal) {}
 
@@ -125,6 +113,8 @@ export class UserListingComponent implements OnInit, OnDestroy {
     //   }
     // );
   }
+
+  blockUser() {}
 
   ngOnDestroy(): void {}
 }
