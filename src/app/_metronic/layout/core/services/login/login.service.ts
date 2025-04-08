@@ -66,7 +66,7 @@ export class LoginService {
         this._Router.navigate(['/heritage/dashboard']);
         break;
       default:
-        this.logOut(); // Log out if role is unrecognized
+        this.logOut();
     }
   }
 }

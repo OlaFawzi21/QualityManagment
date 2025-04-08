@@ -48,7 +48,6 @@
 @include media-breakpoint-down(lg) {
     [data-kt-app-layout="light-sidebar"]:not([data-kt-app-header-fixed-mobile="true"]) {
         .app-header {
-            background-color: transparent;    
             box-shadow: none;            
         }
     }

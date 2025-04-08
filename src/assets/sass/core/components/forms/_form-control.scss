@@ -4,6 +4,7 @@
 
 // Customization
 .form-control {
+	// background-color: var(--bs-gray-100) !important;
 	// Transparent style
 	&.form-control-transparent {
 		background-color: transparent;
@@ -52,7 +53,7 @@
 
 // Readonly controls as plain text
 .form-control-plaintext {
-  	color: $input-plaintext-color
+	color: $input-plaintext-color;
 }
 
 // Placeholder colors
@@ -70,6 +71,6 @@
 }
 
 .form-control:focus {
-	border-color: rgb(95, 2, 161) !important;
-	box-shadow: 0 0 0 0.25rem rgba(76, 0, 130, 0.25) !important;
+	border-color: #14b8a6 !important;
+	box-shadow: 0 0 0 0.25rem rgb(7 104 113 / 25%) !important;
 }

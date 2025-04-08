@@ -1,0 +1,19 @@
+
+.nav-line-tabs .nav-item .nav-link {
+    padding-inline: 10px;
+    border-radius: 6px;
+    border: none;
+    transition: all .3s;
+    &:hover {
+        color: var(--bs-white) !important;
+        background-color: var(--bs-primary-active) !important;
+    }
+}
+
+.nav-line-tabs .nav-item .nav-link.active {
+    color: var(--bs-white) !important;
+    background-color: var(--bs-primary-active) !important;
+    border: none;
+    padding-inline: 10px;
+    border-radius: 6px;
+}
