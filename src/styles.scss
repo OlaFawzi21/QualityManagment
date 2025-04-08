@@ -238,3 +238,7 @@ body[data-kt-app-layout="dark-sidebar"] .p-accordion .p-accordion-header .p-acco
   transition: margin 0.3s ease;
   background: white;
 }
+::ng-deep .app-header {
+  background-color: #076871;
+  box-shadow: none;
+}
