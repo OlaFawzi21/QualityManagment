@@ -7,7 +7,6 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { EditorModule } from 'primeng/editor';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { NgxDropzoneModule } from 'ngx-dropzone';
-import { FileInputComponent } from './file-input/file-input.component';
 
 import { ButtonModule } from 'primeng/button';
 import { StepperModule } from 'primeng/stepper';
@@ -24,12 +23,12 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { RatingModule } from 'primeng/rating';
 import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
+import { InputSwitchModule } from 'primeng/inputswitch';
 import { SupportPipe } from './pipes/support.pipe';
 import { SvgPipe } from './pipes/svg.pipe';
 @NgModule({
   declarations: [
     KeeniconComponent,
-    FileInputComponent,
     ImagePipePipe,
     TextPipePipe,
     TransTypePipe,
@@ -56,6 +55,7 @@ import { SvgPipe } from './pipes/svg.pipe';
     RatingModule,
     DropdownModule,
     CalendarModule,
+    InputSwitchModule,
   ],
   exports: [
     KeeniconComponent,
@@ -65,7 +65,6 @@ import { SvgPipe } from './pipes/svg.pipe';
     EditorModule,
     ScrollPanelModule,
     NgxDropzoneModule,
-    FileInputComponent,
     StepperModule,
     ButtonModule,
     InputTextModule,
@@ -81,6 +80,7 @@ import { SvgPipe } from './pipes/svg.pipe';
     RatingModule,
     DropdownModule,
     CalendarModule,
+    InputSwitchModule,
     SupportPipe,
     SvgPipe,
   ],

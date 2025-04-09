@@ -115,7 +115,7 @@
         </div>
 
         <div class="modal-footer flex-end border-0">
-            <button type="button" class="btn btn-secondary py-2" (click)="modal.dismiss('Cross click')">
+            <button type="button" class="btn btn-secondary py-2" ngbAutofocus (click)="modal.dismiss('Cross click')">
                 <span class="indicator-label">إغلاق</span>
             </button>
             <button type="submit" class="btn btn-primary py-2" [attr.data-kt-indicator]="isLoading ? 'on' : 'off'">

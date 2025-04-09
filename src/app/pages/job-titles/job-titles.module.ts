@@ -6,18 +6,21 @@ import { JobTitlesComponent } from './job-titles.component';
 import { AddEditJobComponent } from './components/add-edit-job/add-edit-job.component';
 import { SignatureLogComponent } from './components/signature-log/signature-log.component';
 import { JobTitleDetailComponent } from './components/job-title-detail/job-title-detail.component';
-
+import { SharedModule } from 'src/app/_metronic/shared/shared.module';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
     JobTitlesComponent,
     AddEditJobComponent,
     SignatureLogComponent,
-    JobTitleDetailComponent
+    JobTitleDetailComponent,
   ],
   imports: [
     CommonModule,
-    JobTitlesRoutingModule
-  ]
+    JobTitlesRoutingModule,
+    SharedModule,
+    SweetAlert2Module.forChild(),
+  ],
 })
-export class JobTitlesModule { }
+export class JobTitlesModule {}

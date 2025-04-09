@@ -1,1 +1,109 @@
-<p>job-titles works!</p>
+<section>
+    <div class="d-flex justify-content-between align-items-center mb-10">
+        <div class="d-flex align-items-center gap-5">
+            <span class="text-primary fs-3">{{title}}</span>
+            <p-iconField iconPosition="right">
+                <p-inputIcon styleClass="pi pi-search" />
+                <input type="text" class="w-md-400px w-sm-300px" pInputText placeholder="ابحث هنا" />
+            </p-iconField>
+        </div>
+        <button type="button" class="btn second-color d-flex gap-2 align-items-center" (click)="exportPDF()">
+            <i class="bi bi-box-arrow-down text-white p-0"></i>
+            <span>تصدير</span>
+        </button>
+    </div>
+
+    <div class="d-flex align-items-center gap-3 flex-wrap">
+        <button type="button" class="btn second-color d-flex gap-3" data-action="create"
+            [routerLink]="['/jobTitles/jobTitle']">
+            <img src="assets/images/icons/add-user.svg" alt="add-user">
+            <span>إضافة مسمى وظيفي</span>
+        </button>
+        <div class="min-w-200px">
+            <p-dropdown [options]="management" [(ngModel)]="selectedManagement" optionLabel="name"
+                placeholder="الإدارة" />
+        </div>
+        <div class="min-w-200px">
+            <p-dropdown [options]="department" [(ngModel)]="selectedDepartment" optionLabel="name"
+                placeholder="القسم" />
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <div class="table-responsive mt-5">
+            <table class="table align-middle gs-0 gy-4">
+                <thead>
+                    <tr class="text-gray-600 bg-gray-300">
+                        <th class="min-w-125px">#</th>
+                        <th class="min-w-125px">المسمي الوظيفي</th>
+                        <th class="min-w-125px">الإدارة</th>
+                        <th class="min-w-125px">القسم</th>
+                        <th class="min-w-125px">الإجراءات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-primary">
+                        <td>200</td>
+                        <td>مدير تشغيل</td>
+                        <td>الاداره التنفيذيه للمشروعات</td>
+                        <td>القسم الإدارى</td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="btn dropdown-toggle px-2 p-0" type="button" id="actionsDropdown"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-three-dots text-primary p-0 fs-4"></i>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="actionsDropdown">
+                                    <li>
+                                        <button class="dropdown-item py-2" [routerLink]="['jobTitle','1']">
+                                            <div class="row justify-content-start">
+                                                <div class="col-2">
+                                                    <i class="bi bi-pencil-square text-primary"></i>
+                                                </div>
+                                                <div class="col-4 text-primary">تعديل</div>
+                                            </div>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button class="dropdown-item py-2" routerLink="jobTitleDetail">
+                                            <div class="row justify-content-start">
+                                                <div class="col-2">
+                                                    <i class="bi bi-eye text-primary"></i>
+                                                </div>
+                                                <div class="col-4 text-primary">عرض</div>
+                                            </div>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button class="dropdown-item py-2" routerLink="signatureLog">
+                                            <div class="row justify-content-start">
+                                                <div class="col-2">
+                                                    <i class="bi bi-file-earmark-text text-primary"></i>
+                                                </div>
+                                                <div class="col-4 text-primary">سجل التوقيع</div>
+                                            </div>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button class="dropdown-item py-2">
+                                            <div class="row justify-content-start">
+                                                <div class="col-2">
+                                                    <i class="bi bi-ban text-danger"></i>
+                                                </div>
+                                                <div class="col-4 text-danger">حذف</div>
+                                            </div>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="paginator-div d-flex justify-content-center align-items-center">
+            <p-paginator [totalRecords]="totalRecords" (onPageChange)="onPageChange($event)" [first]="first"
+                [rows]="rows" [rowsPerPageOptions]="[10, 25, 50,100]" />
+        </div>
+    </div>
+</section>

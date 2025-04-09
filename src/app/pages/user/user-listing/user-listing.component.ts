@@ -6,7 +6,13 @@ import {
   inject,
   ChangeDetectorRef,
 } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  NgForm,
+  Validators,
+} from '@angular/forms';
 import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 import { SweetAlertOptions } from 'sweetalert2';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -25,7 +31,7 @@ export class UserListingComponent implements OnInit, OnDestroy {
   private readonly _UsersService = inject(UsersService);
   private readonly cdr = inject(ChangeDetectorRef);
   private readonly _GeneralService = inject(GeneralService);
-  private readonly _FormBuilder = inject(FormBuilder);
+  private readonly fb = inject(FormBuilder);
   private readonly _GeneratePdfService = inject(GeneratePdfService);
 
   isLoading = false;
@@ -55,8 +61,16 @@ export class UserListingComponent implements OnInit, OnDestroy {
   selectedStatus: any;
 
   block = new FormControl('', Validators.required);
+  noticeForm: FormGroup;
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal) {
+    this.noticeForm = this.fb.group({
+      title: ['', Validators.required],
+      content: ['', Validators.required],
+      msg: ['', Validators.required],
+      system: ['', Validators.required],
+    });
+  }
 
   ngOnInit() {
     this.getUsers();
@@ -69,7 +83,7 @@ export class UserListingComponent implements OnInit, OnDestroy {
     };
     // this._service.fun(param).subscribe({
     //   next: (res) => {
-    //     this.licenses = res.body.data || [];
+    //     this.users = res.body.data || [];
     //     const xPagination = res.headers.get('x-pagination');
     //     if (xPagination) {
     //       const paginationData = JSON.parse(xPagination);
@@ -115,6 +129,8 @@ export class UserListingComponent implements OnInit, OnDestroy {
   }
 
   blockUser() {}
+
+  noticeUser() {}
 
   ngOnDestroy(): void {}
 }

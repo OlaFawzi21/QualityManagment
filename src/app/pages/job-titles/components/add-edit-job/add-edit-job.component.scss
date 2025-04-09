@@ -1,0 +1,51 @@
+::ng-deep .p-stepper-action {
+    flex-direction: column;
+}
+
+::ng-deep p-button button {
+    border-radius: 4px !important;
+    padding-inline: 20px;
+}
+
+::ng-deep .p-multiselect-label,
+::ng-deep .p-multiselect-filter {
+    padding: 0.775rem;
+}
+
+::ng-deep .p-multiselect-filter {
+    border-color: var(--bs-gray-300);
+}
+
+::ng-deep .p-multiselect {
+    width: 100%;
+    border-color: var(--bs-gray-300);
+
+    .p-checkbox {
+        margin-inline: 10px;
+    }
+}
+
+::ng-deep .p-multiselect.p-focus,
+::ng-deep .p-multiselect:focus {
+    border-color: rgb(7 104 113) !important;
+    box-shadow: 0 0 0 0.25rem rgb(7 104 113 / 25%) !important;
+}
+
+::ng-deep .p-dropdown {
+    width: 100%;
+    border-color: var(--bs-gray-300);
+    border-radius: 0.475rem;
+    &:not(.p-disabled):hover {
+        border-color: #dbdfe9;
+    }
+}
+
+::ng-deep .p-dropdown-label {
+    padding: 0.775rem;
+}
+
+::ng-deep .p-dropdown.p-focus,
+::ng-deep .p-dropdown:focus {
+    border-color: rgb(7 104 113) !important;
+    box-shadow: 0 0 0 0.25rem rgb(7 104 113 / 25%) !important;
+}

@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { AuthGuard } from '../modules/auth/services/auth.guard';
-import { NotificationsComponent } from '../modules/account/settings/forms/notifications/notifications.component';
 
 const Routing: Routes = [
   {
@@ -21,12 +20,6 @@ const Routing: Routes = [
     path: 'account',
     loadChildren: () =>
       import('../pages/account/account.module').then((m) => m.AccountModule),
-  },
-  {
-    path: 'places',
-    // canActivate: [AuthGuard],
-    loadChildren: () =>
-      import('./places/places.module').then((m) => m.PlacesModule),
   },
   {
     path: 'management',
