@@ -1,7 +1,7 @@
 <section>
   <div class="d-flex justify-content-between align-items-center mb-10">
-    <div class="d-flex gap-5">
-      <span class="text-primary fs-3">{{title}}</span>
+    <div class="d-flex align-items-center gap-5">
+      <span class="text-primary fs-3">{{ title }}</span>
       <p-iconField iconPosition="right">
         <p-inputIcon styleClass="pi pi-search" />
         <input type="text" class="w-md-400px w-sm-300px" pInputText placeholder="ابحث هنا" />
@@ -15,7 +15,7 @@
 
   <div class="d-flex align-items-center gap-3 flex-wrap">
     <button type="button" class="btn second-color d-flex gap-3" data-action="create" [routerLink]="['/users/add-user']">
-      <img src="assets/images/icons/add-user.svg" alt="add-user">
+      <img src="assets/images/icons/add-user.svg" alt="add-user" />
       <span>إضافة مستخدم</span>
     </button>
     <div class="min-w-200px">
@@ -57,7 +57,7 @@
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="actionsDropdown">
                   <li>
-                    <button class="dropdown-item py-2" routerLink="/location/edit-map/1">
+                    <button class="dropdown-item py-2">
                       <div class="row justify-content-start">
                         <div class="col-2">
                           <i class="bi bi-pencil-square"></i>
@@ -67,7 +67,7 @@
                     </button>
                   </li>
                   <li>
-                    <button class="dropdown-item py-2" routerLink="/location/edit-map/1">
+                    <button class="dropdown-item py-2" (click)="openModal(formModal2)">
                       <div class="row justify-content-start">
                         <div class="col-2">
                           <i class="bi bi-bell"></i>
@@ -77,7 +77,7 @@
                     </button>
                   </li>
                   <li>
-                    <button class="dropdown-item py-2" routerLink="/location/edit-map/1">
+                    <button class="dropdown-item py-2">
                       <div class="row justify-content-start">
                         <div class="col-2">
                           <i class="bi bi-person-circle"></i>
@@ -114,7 +114,7 @@
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="actionsDropdown">
                   <li>
-                    <button class="dropdown-item py-2" routerLink="/location/edit-map/1">
+                    <button class="dropdown-item py-2">
                       <div class="row justify-content-start">
                         <div class="col-2">
                           <i class="bi bi-pencil-square"></i>
@@ -124,7 +124,7 @@
                     </button>
                   </li>
                   <li>
-                    <button class="dropdown-item py-2" routerLink="/location/edit-map/1">
+                    <button class="dropdown-item py-2" (click)="openModal(formModal2)">
                       <div class="row justify-content-start">
                         <div class="col-2">
                           <i class="bi bi-bell"></i>
@@ -134,178 +134,7 @@
                     </button>
                   </li>
                   <li>
-                    <button class="dropdown-item py-2" routerLink="/location/edit-map/1">
-                      <div class="row justify-content-start">
-                        <div class="col-2">
-                          <i class="bi bi-person-circle"></i>
-                        </div>
-                        <div class="col-4">سجل المستخدم</div>
-                      </div>
-                    </button>
-                  </li>
-                  <li>
-                    <button class="dropdown-item py-2" (click)="openModal(formModal1)">
-                      <div class="row justify-content-start">
-                        <div class="col-2">
-                          <i class="bi bi-ban text-danger"></i>
-                        </div>
-                        <div class="col-4">حظر</div>
-                      </div>
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            </td>
-          </tr>
-          <tr class="text-primary">
-            <td>احمد محمد محمد</td>
-            <td>موظف استقبال</td>
-            <td>إدارة</td>
-            <td>القسم الإدارى</td>
-            <td>نشط</td>
-            <td>
-              <div class="dropdown">
-                <button class="btn dropdown-toggle px-2 p-0" type="button" id="actionsDropdown"
-                  data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="bi bi-three-dots text-primary p-0 fs-4"></i>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="actionsDropdown">
-                  <li>
-                    <button class="dropdown-item py-2" routerLink="/location/edit-map/1">
-                      <div class="row justify-content-start">
-                        <div class="col-2">
-                          <i class="bi bi-pencil-square"></i>
-                        </div>
-                        <div class="col-4">تعديل</div>
-                      </div>
-                    </button>
-                  </li>
-                  <li>
-                    <button class="dropdown-item py-2" routerLink="/location/edit-map/1">
-                      <div class="row justify-content-start">
-                        <div class="col-2">
-                          <i class="bi bi-bell"></i>
-                        </div>
-                        <div class="col-4">إشعار</div>
-                      </div>
-                    </button>
-                  </li>
-                  <li>
-                    <button class="dropdown-item py-2" routerLink="/location/edit-map/1">
-                      <div class="row justify-content-start">
-                        <div class="col-2">
-                          <i class="bi bi-person-circle"></i>
-                        </div>
-                        <div class="col-4">سجل المستخدم</div>
-                      </div>
-                    </button>
-                  </li>
-                  <li>
-                    <button class="dropdown-item py-2" (click)="openModal(formModal1)">
-                      <div class="row justify-content-start">
-                        <div class="col-2">
-                          <i class="bi bi-ban text-danger"></i>
-                        </div>
-                        <div class="col-4">حظر</div>
-                      </div>
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            </td>
-          </tr>
-          <tr class="text-primary">
-            <td>احمد محمد محمد</td>
-            <td>موظف استقبال</td>
-            <td>إدارة</td>
-            <td>القسم الإدارى</td>
-            <td>نشط</td>
-            <td>
-              <div class="dropdown">
-                <button class="btn dropdown-toggle px-2 p-0" type="button" id="actionsDropdown"
-                  data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="bi bi-three-dots text-primary p-0 fs-4"></i>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="actionsDropdown">
-                  <li>
-                    <button class="dropdown-item py-2" routerLink="/location/edit-map/1">
-                      <div class="row justify-content-start">
-                        <div class="col-2">
-                          <i class="bi bi-pencil-square"></i>
-                        </div>
-                        <div class="col-4">تعديل</div>
-                      </div>
-                    </button>
-                  </li>
-                  <li>
-                    <button class="dropdown-item py-2" routerLink="/location/edit-map/1">
-                      <div class="row justify-content-start">
-                        <div class="col-2">
-                          <i class="bi bi-bell"></i>
-                        </div>
-                        <div class="col-4">إشعار</div>
-                      </div>
-                    </button>
-                  </li>
-                  <li>
-                    <button class="dropdown-item py-2" routerLink="/location/edit-map/1">
-                      <div class="row justify-content-start">
-                        <div class="col-2">
-                          <i class="bi bi-person-circle"></i>
-                        </div>
-                        <div class="col-4">سجل المستخدم</div>
-                      </div>
-                    </button>
-                  </li>
-                  <li>
-                    <button class="dropdown-item py-2" (click)="openModal(formModal1)">
-                      <div class="row justify-content-start">
-                        <div class="col-2">
-                          <i class="bi bi-ban text-danger"></i>
-                        </div>
-                        <div class="col-4">حظر</div>
-                      </div>
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            </td>
-          </tr>
-          <tr class="text-primary">
-            <td>احمد محمد محمد</td>
-            <td>موظف استقبال</td>
-            <td>إدارة</td>
-            <td>القسم الإدارى</td>
-            <td>نشط</td>
-            <td>
-              <div class="dropdown">
-                <button class="btn dropdown-toggle px-2 p-0" type="button" id="actionsDropdown"
-                  data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="bi bi-three-dots text-primary p-0 fs-4"></i>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="actionsDropdown">
-                  <li>
-                    <button class="dropdown-item py-2" routerLink="/location/edit-map/1">
-                      <div class="row justify-content-start">
-                        <div class="col-2">
-                          <i class="bi bi-pencil-square"></i>
-                        </div>
-                        <div class="col-4">تعديل</div>
-                      </div>
-                    </button>
-                  </li>
-                  <li>
-                    <button class="dropdown-item py-2" routerLink="/location/edit-map/1">
-                      <div class="row justify-content-start">
-                        <div class="col-2">
-                          <i class="bi bi-bell"></i>
-                        </div>
-                        <div class="col-4">إشعار</div>
-                      </div>
-                    </button>
-                  </li>
-                  <li>
-                    <button class="dropdown-item py-2" routerLink="/location/edit-map/1">
+                    <button class="dropdown-item py-2">
                       <div class="row justify-content-start">
                         <div class="col-2">
                           <i class="bi bi-person-circle"></i>
@@ -333,12 +162,10 @@
     </div>
     <div class="paginator-div d-flex justify-content-center align-items-center">
       <p-paginator [totalRecords]="totalRecords" (onPageChange)="onPageChange($event)" [first]="first" [rows]="rows"
-        [rowsPerPageOptions]="[10, 25, 50,100]" />
+        [rowsPerPageOptions]="[10, 25, 50, 100]" />
     </div>
   </div>
 </section>
-
-
 
 <ng-template #formModal1 let-modal>
   <form (ngSubmit)="blockUser()">
@@ -352,69 +179,87 @@
           <label class="text-gray-900 fs-6 form-label">سبب الحظر</label>
           <textarea class="form-control" [formControl]="block" rows="3"></textarea>
           <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-                                            validation: 'required',
-                                            message: 'برجاء ادخال سبب الحظر',
-                                            control: block
-                            }"></ng-container>
+              validation: 'required',
+              message: 'برجاء ادخال سبب الحظر',
+              control: block
+            }"></ng-container>
         </div>
       </div>
     </div>
 
     <div class="modal-footer flex-end border-0">
-      <button type="button" class="btn btn-secondary py-2" (click)="modal.dismiss('Cross click')">
+      <button type="button" class="btn btn-secondary py-2" ngbAutofocus (click)="modal.dismiss('Cross click')">
         <span class="indicator-label">إغلاق</span>
       </button>
       <button type="submit" class="btn btn-primary py-2" [attr.data-kt-indicator]="isLoading ? 'on' : 'off'">
         <span class="indicator-label">إرسال</span>
         <span class="indicator-progress">
-          يرجى الانتظار... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+          يرجى الانتظار...
+          <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
         </span>
       </button>
     </div>
   </form>
 </ng-template>
 
-
-<!-- <ng-template #formModal2 let-modal>
-  <form [formGroup]="myForm" (ngSubmit)="noticeUser()">
+<ng-template #formModal2 let-modal>
+  <form [formGroup]="noticeForm" (ngSubmit)="noticeUser()">
     <div class="modal-header border-0">
-      <h4 class="modal-title fw-normal">رخصة أ</h4>
+      <h4 class="modal-title fw-normal text-primary">إشعار المستخدم</h4>
     </div>
 
-    <div class="modal-body py-4">
+    <div class="modal-body py-0">
       <div class="d-flex flex-column mw-650px" id="kt_modal_update_customer_scroll">
-        <div>
-          <label class="text-gray-900 fs-6 form-label">تاريخ الإنتهاء</label>
-          <p-calendar [showIcon]="true" formControlName="dateLicense" dateFormat="yy-mm-dd">
-          </p-calendar>
+        <div class="mb-5">
+          <label class="text-gray-900 fs-6 form-label">العنوان</label>
+          <input type="text" class="form-control" formControlName="title" />
           <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-                                            validation: 'required',
-                                            message: 'برجاء ادخال تاريخ الإنتهاء',
-                                            control: myForm.controls['dateLicense']
-                            }"></ng-container>
+              validation: 'required',
+              message: 'برجاء ادخال العنوان ',
+              control: noticeForm.controls['title']
+            }"></ng-container>
+        </div>
+        <div class="mb-5">
+          <label class="text-gray-900 fs-6 form-label">المحتوي</label>
+          <textarea class="form-control" formControlName="content" rows="3"></textarea>
+          <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+              validation: 'required',
+              message: 'برجاء ادخال المحتوي ',
+              control: noticeForm.controls['content']
+            }"></ng-container>
+        </div>
+        <div class="mb-5 d-flex gap-5">
+          <label class="text-gray-900 fs-6 form-label">رسالة نصية</label>
+          <p-inputSwitch formControlName="msg" />
+        </div>
+        <div class="d-flex gap-5">
+          <label class="text-gray-900 fs-6 form-label">النظام</label>
+          <p-inputSwitch formControlName="system" />
         </div>
       </div>
     </div>
 
     <div class="modal-footer flex-end border-0">
-      <button type="button" class="btn btn-secondary py-2" (click)="modal.dismiss('Cross click')">
+      <button type="button" class="btn btn-secondary py-2" ngbAutofocus (click)="modal.dismiss('Cross click')">
         <span class="indicator-label">إغلاق</span>
       </button>
       <button type="submit" class="btn btn-primary py-2" [attr.data-kt-indicator]="isLoading ? 'on' : 'off'">
-        <span class="indicator-label">حفظ التغييرات</span>
+        <span class="indicator-label">إرسال</span>
         <span class="indicator-progress">
-          يرجى الانتظار... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+          يرجى الانتظار...
+          <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
         </span>
       </button>
     </div>
   </form>
-</ng-template> -->
-
-
+</ng-template>
 
 <!--control error msg -->
 <ng-template #formError let-control="control" let-message="message" let-validation="validation">
-  <ng-container *ngIf="control.hasError(validation) && (control.dirty || (control.touched && control.errors))">
+  <ng-container *ngIf="
+      control.hasError(validation) &&
+      (control.dirty || (control.touched && control.errors))
+    ">
     <div class="fv-plugins-message-container">
       <span class="text-danger" role="alert">
         {{ message }}

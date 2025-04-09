@@ -9,16 +9,15 @@ const routes: Routes = [
   {
     path: '',
     component: JobTitlesComponent,
-    children: [
-      { path: 'jobTitle', component: AddEditJobComponent },
-      { path: 'jobTitleDetail', component: JobTitleDetailComponent },
-      { path: 'signatureLog', component: SignatureLogComponent },
-    ],
   },
+  { path: 'jobTitle', component: AddEditJobComponent },
+  { path: 'jobTitle/:id', component: AddEditJobComponent },
+  { path: 'jobTitleDetail', component: JobTitleDetailComponent },
+  { path: 'signatureLog', component: SignatureLogComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class JobTitlesRoutingModule { }
+export class JobTitlesRoutingModule {}

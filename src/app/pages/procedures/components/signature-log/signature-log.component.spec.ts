@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AllPlacesComponent } from './all-places.component';
+import { SignatureLogComponent } from './signature-log.component';
 
-describe('AllPlacesComponent', () => {
-  let component: AllPlacesComponent;
-  let fixture: ComponentFixture<AllPlacesComponent>;
+describe('SignatureLogComponent', () => {
+  let component: SignatureLogComponent;
+  let fixture: ComponentFixture<SignatureLogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AllPlacesComponent]
+      declarations: [SignatureLogComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AllPlacesComponent);
+    fixture = TestBed.createComponent(SignatureLogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
