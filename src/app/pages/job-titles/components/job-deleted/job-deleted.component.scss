@@ -10,15 +10,15 @@
   }
   
 ::ng-deep {
-    .p-element.p-icon-wrapper{
+   .filteration .p-element.p-icon-wrapper{
         transform: rotate(90deg) !important;
         color: #086771 !important;
     }
-    span.p-element.p-dropdown-label.p-inputtext.p-placeholder.ng-star-inserted {
+    .filteration span.p-element.p-dropdown-label.p-inputtext.p-placeholder.ng-star-inserted {
         padding: 5px 15px !important;
         color: black !important;
     }
-    .p-dropdown {
+    .filteration .p-dropdown {
         width: 100% !important;
         border-radius: 10px !important;
         border: 1px solid #086771;
