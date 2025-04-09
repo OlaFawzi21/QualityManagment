@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   styleUrl: './organizational-structure.component.scss'
 })
 export class OrganizationalStructureComponent {
-
-}
+  }

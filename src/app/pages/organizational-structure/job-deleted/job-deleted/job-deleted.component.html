@@ -1,0 +1,189 @@
+<section>
+    <div class="d-flex justify-content-between align-items-center mb-10">
+        <div class="d-flex align-items-center gap-10">
+            <h3 class="text-muted fw-normal">المسميات الوظيفيه</h3>
+            <h3 class="fw-normal">سله محذوفات الوظائف</h3>
+        </div>
+      <button type="button" class="btn second-color d-flex gap-2 align-items-center" (click)="exportPDF()">
+        <i class="bi bi-box-arrow-down text-white p-0"></i>
+        <span>تصدير</span>
+      </button>
+    </div>
+  
+    <div class="d-flex align-items-center gap-3 flex-wrap">
+      <div class="min-w-200px ">
+        <p-dropdown [options]="management" [(ngModel)]="selectedManagement" optionLabel="name" placeholder="الإدارة" />
+    </div>
+      <div class="min-w-200px rounded-5">
+        <p-dropdown [options]="department" [(ngModel)]="selectedDepartment" optionLabel="name" placeholder="القسم" />
+    </div>
+    </div>
+  
+    <div class="table-responsive">
+      <div class="table-responsive mt-5">
+        <table class="table align-middle gs-0 gy-4">
+          <thead>
+            <tr class="text-gray-600 bg-gray-300">
+              <th class="min-w-75px">#</th>
+              <th class="min-w-125px">المسمي الوظيفي</th>
+              <th class="min-w-125px">الاداره</th>
+              <th class="min-w-125px">القسم</th>
+              <th class="min-w-125px">الإجراءات</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="text-primary">
+              <th>200</th>
+              <td>مدير تشغيل</td>
+              <td>الاداره التنفيذيه للمشروعات</td>
+              <td>القسم الادارى</td>
+            <td>
+                <button class="btn" (click)="showMessage()">
+                    <img src="../../../../../assets/images/img2/delete-icon.svg" class="w-75" alt="">
+                </button>
+            </td>
+            </tr>
+            <tr class="text-primary">
+              <th>200</th>
+              <td>مدير تشغيل</td>
+              <td>الاداره التنفيذيه للمشروعات</td>
+              <td>القسم الادارى</td>
+            <td>
+                <button class="btn" (click)="showMessage()">
+                    <img src="../../../../../assets/images/img2/delete-icon.svg" class="w-75" alt="">
+                </button>
+            </td>
+            </tr>
+            <tr class="text-primary">
+              <th>200</th>
+              <td>مدير تشغيل</td>
+              <td>الاداره التنفيذيه للمشروعات</td>
+              <td>القسم الادارى</td>
+            <td>
+                <button class="btn" (click)="showMessage()">
+                    <img src="../../../../../assets/images/img2/delete-icon.svg" class="w-75" alt="">
+                </button>
+            </td>
+            </tr>
+            <tr class="text-primary">
+              <th>200</th>
+              <td>مدير تشغيل</td>
+              <td>الاداره التنفيذيه للمشروعات</td>
+              <td>القسم الادارى</td>
+            <td>
+                <button class="btn" (click)="showMessage()">
+                    <img src="../../../../../assets/images/img2/delete-icon.svg" class="w-75" alt="">
+                </button>
+            </td>
+            </tr>
+            <tr class="text-primary">
+              <th>200</th>
+              <td>مدير تشغيل</td>
+              <td>الاداره التنفيذيه للمشروعات</td>
+              <td>القسم الادارى</td>
+            <td>
+                <button class="btn" (click)="showMessage()">
+                    <img src="../../../../../assets/images/img2/delete-icon.svg" class="w-75" alt="">
+                </button>
+            </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="isVisible" class="message-box d-flex justify-content-between align-items-center">
+        <p class="text-white m-0">تم استرجاع الوظيفه من سله المهملات</p>
+        <button (click)="hideMessage()" type="button" class="btn second-color d-flex gap-2 align-items-center" (click)="exportPDF()">
+            <span class="text-white">تراجع</span>
+          </button>
+      </div>
+      <div class="paginator-div d-flex justify-content-center align-items-center">
+        <p-paginator [totalRecords]="totalRecords" (onPageChange)="onPageChange($event)" [first]="first" [rows]="rows"
+          [rowsPerPageOptions]="[10, 25, 50,100]" />
+      </div>
+    </div>
+  </section>
+  
+  
+  
+  <ng-template #formModal1 let-modal>
+    <form (ngSubmit)="blockUser()">
+      <div class="modal-header border-0">
+        <h4 class="modal-title fw-normal text-primary">حظر المستخدم</h4>
+      </div>
+  
+      <div class="modal-body py-0">
+        <div class="d-flex flex-column mw-650px" id="kt_modal_update_customer_scroll">
+          <div>
+            <label class="text-gray-900 fs-6 form-label">سبب الحظر</label>
+            <textarea class="form-control" [formControl]="block" rows="3"></textarea>
+            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                                              validation: 'required',
+                                              message: 'برجاء ادخال سبب الحظر',
+                                              control: block
+                              }"></ng-container>
+          </div>
+        </div>
+      </div>
+  
+      <div class="modal-footer flex-end border-0">
+        <button type="button" class="btn btn-secondary py-2" (click)="modal.dismiss('Cross click')">
+          <span class="indicator-label">إغلاق</span>
+        </button>
+        <button type="submit" class="btn btn-primary py-2" [attr.data-kt-indicator]="isLoading ? 'on' : 'off'">
+          <span class="indicator-label">إرسال</span>
+          <span class="indicator-progress">
+            يرجى الانتظار... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+          </span>
+        </button>
+      </div>
+    </form>
+  </ng-template>
+  
+  
+  <!-- <ng-template #formModal2 let-modal>
+    <form [formGroup]="myForm" (ngSubmit)="noticeUser()">
+      <div class="modal-header border-0">
+        <h4 class="modal-title fw-normal">رخصة أ</h4>
+      </div>
+  
+      <div class="modal-body py-4">
+        <div class="d-flex flex-column mw-650px" id="kt_modal_update_customer_scroll">
+          <div>
+            <label class="text-gray-900 fs-6 form-label">تاريخ الإنتهاء</label>
+            <p-calendar [showIcon]="true" formControlName="dateLicense" dateFormat="yy-mm-dd">
+            </p-calendar>
+            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                                              validation: 'required',
+                                              message: 'برجاء ادخال تاريخ الإنتهاء',
+                                              control: myForm.controls['dateLicense']
+                              }"></ng-container>
+          </div>
+        </div>
+      </div>
+  
+      <div class="modal-footer flex-end border-0">
+        <button type="button" class="btn btn-secondary py-2" (click)="modal.dismiss('Cross click')">
+          <span class="indicator-label">إغلاق</span>
+        </button>
+        <button type="submit" class="btn btn-primary py-2" [attr.data-kt-indicator]="isLoading ? 'on' : 'off'">
+          <span class="indicator-label">حفظ التغييرات</span>
+          <span class="indicator-progress">
+            يرجى الانتظار... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+          </span>
+        </button>
+      </div>
+    </form>
+  </ng-template> -->
+  
+  
+  
+  <!--control error msg -->
+  <ng-template #formError let-control="control" let-message="message" let-validation="validation">
+    <ng-container *ngIf="control.hasError(validation) && (control.dirty || (control.touched && control.errors))">
+      <div class="fv-plugins-message-container">
+        <span class="text-danger" role="alert">
+          {{ message }}
+        </span>
+      </div>
+    </ng-container>
+  </ng-template>
