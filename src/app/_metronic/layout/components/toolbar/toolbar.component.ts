@@ -123,4 +123,5 @@ export class ToolbarComponent implements OnInit, OnDestroy {
       viewsWithPageTitles.some((t) => t === this.appToolbarLayout)
     );
   }
+
 }

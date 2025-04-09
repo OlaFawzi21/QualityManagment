@@ -1,0 +1,50 @@
+<section>
+    <div class="table-responsive mt-15">
+        <table class="table align-middle gs-0 gy-4">
+            <thead>
+                <tr class="text-gray-600 bg-gray-300">
+                    <th class="min-w-125px">#</th>
+                    <th class="min-w-125px">الاسم </th>
+                    <th class="min-w-125px">البريد الالكترونى</th>
+                    <th class="min-w-125px">الفرع</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-primary">
+                    <td>200</td>
+                    <td>احمد محمد احمد</td>
+                    <td>{{'Info123@gmail.com'}}</td>
+                    <td>مجمع التعاون</td>
+                </tr>
+                <tr class="text-primary">
+                    <td>200</td>
+                    <td>احمد محمد احمد</td>
+                    <td>{{'Info123@gmail.com'}}</td>
+                    <td>مجمع التعاون</td>
+                </tr>
+                <tr class="text-primary">
+                    <td>200</td>
+                    <td>احمد محمد احمد</td>
+                    <td>{{'Info123@gmail.com'}}</td>
+                    <td>مجمع التعاون</td>
+                </tr>
+                <tr class="text-primary">
+                    <td>200</td>
+                    <td>احمد محمد احمد</td>
+                    <td>{{'Info123@gmail.com'}}</td>
+                    <td>مجمع التعاون</td>
+                </tr>
+                <tr class="text-primary">
+                    <td>200</td>
+                    <td>احمد محمد احمد</td>
+                    <td>{{'Info123@gmail.com'}}</td>
+                    <td>مجمع التعاون</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="paginator-div d-flex justify-content-center align-items-center">
+        <p-paginator [totalRecords]="totalRecords" (onPageChange)="onPageChange($event)" [first]="first" [rows]="rows"
+            [rowsPerPageOptions]="[10, 25, 50, 100]" />
+    </div>
+</section>
