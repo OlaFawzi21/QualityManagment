@@ -1,0 +1,47 @@
+.data-info {
+    padding: 1rem;
+    margin-top: 3rem;
+    border-radius: 20px;
+    // box-shadow: 0 4px 8px rgba(10, 20, 57, 0.08);
+
+    h3,
+    p {
+        font-family: "Tajawal";
+        font-weight: 500;
+    }
+    h3 {
+        color: rgba(18, 159, 165, 1);
+        font-weight: 700;
+        font-size: 20px;
+    }
+    p {
+        font-size: 18px;
+        width: 970px;
+        margin-top: 2rem;
+        margin-right: 3rem;
+    }
+    .indicator-datainfo {
+        margin-right: 3rem;
+        margin-top: 3rem;
+        .data-name {
+            background-color: rgba(222, 221, 228, 0.35);
+            font-size: 16px;
+            font-weight: 500;
+            width: 25%;
+        }
+        .data-detail {
+            // color: rgba(18, 18, 18, 1);
+            font-size: 16px;
+            font-weight: 400;
+            padding-right: 10px;
+            text-align: start;
+        }
+    }
+}
+
+::ng-deep td.data-name {
+    border-bottom: 1px solid rgba(222, 221, 228, 1) !important;
+}
+::ng-deep td.data-detail {
+    border-bottom: 1px solid rgba(222, 221, 228, 1) !important;
+}

@@ -4,6 +4,8 @@ import { JobTitlesComponent } from './job-titles.component';
 import { AddEditJobComponent } from './components/add-edit-job/add-edit-job.component';
 import { JobTitleDetailComponent } from './components/job-title-detail/job-title-detail.component';
 import { SignatureLogComponent } from './components/signature-log/signature-log.component';
+import { UnwatchedComponent } from './components/unwatched/unwatched.component';
+import { WatchedComponent } from './components/watched/watched.component';
 
 const routes: Routes = [
   {
@@ -13,7 +15,15 @@ const routes: Routes = [
   { path: 'jobTitle', component: AddEditJobComponent },
   { path: 'jobTitle/:id', component: AddEditJobComponent },
   { path: 'jobTitleDetail', component: JobTitleDetailComponent },
-  { path: 'signatureLog', component: SignatureLogComponent },
+  {
+    path: 'signatureLog',
+    component: SignatureLogComponent,
+    children: [
+      { path: '', redirectTo: 'watched', pathMatch: 'full' },
+      { path: 'watched', component: WatchedComponent },
+      { path: 'Unwatched', component: UnwatchedComponent },
+    ],
+  },
 ];
 
 @NgModule({
