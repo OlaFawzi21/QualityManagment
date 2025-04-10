@@ -1,0 +1,22 @@
+::ng-deep{
+    .p-organizationchart-node-content {
+        padding: 00px 0 00px 0;
+        width: 200px;
+        height: 150px;
+    }
+    .title {
+        height: 105px !important;
+    }
+    .p-organizationchart-line-down {
+        background:  rgb(7 104 113) !important;
+        width: 3px !important;
+    }
+    a.p-node-toggler {
+        transform: translateY(38px);
+        border: none;
+        background: no-repeat;
+    }
+    td {
+        border-bottom: 0px solid var(--bs-border-color) !important;
+    }
+}

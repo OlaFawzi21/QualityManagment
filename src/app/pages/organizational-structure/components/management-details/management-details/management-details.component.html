@@ -1,0 +1,137 @@
+<div class="card border-0 mt-10">
+    <div class="card-body p-10">
+        <form [formGroup]="myForm" (ngSubmit)="submitForm()">
+            <div class="row align-items-start g-3 mb-8">
+                <div class="col-lg-2">
+                    <label class="fs-6 text-gray-800">الصورة</label>
+                </div>
+                <div class="col-lg-8 position-relative symbol symbol-100px symbol-lg-160px rounded-3 overflow-hidden">
+                    <input type="file" id="profilePicture" (change)="onFileSelected($event)"
+                        accept=".jpg, .jpeg, .png, .webp, .svg" hidden />
+                    <label for="profilePicture" class="cursor-pointer">
+                        <img [src]="profileImage" alt="userImg" width="100" height="100" />
+                    </label>
+                    <label for="profilePicture"
+                        class="pen-icon position-absolute bottom-0 end-0 bg-white p-2 rounded-circle shadow-sm">
+                        <i class="bi bi-pencil-fill text-primary"></i>
+                    </label>
+                </div>
+            </div>
+
+            <div class="row align-items-start g-3 mb-8">
+                <div class="col-lg-2">
+                    <label class="fs-6 text-gray-800">اسم الاداره </label>
+                </div>
+                <div class="col-lg-8 position-relative">
+                    <input type="text" class="form-control" formControlName="fullName" placeholder="اسم الاداره" />
+                    <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                    validation: 'required',
+                    message: 'اسم الاداره مطلوب',
+                    control: myForm.controls['fullName']
+                    }"></ng-container>
+                    <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                    validation: 'minlength',
+                    message: 'يجب أن يكون الاسم مكونًا من 4 أحرف على الأقل',
+                    control: myForm.controls['fullName']
+                    }"></ng-container>
+                </div>
+            </div>
+            <div class="row align-items-start g-3 mb-8">
+                <div class="col-lg-2">
+                    <label class="fs-6 text-gray-800">اسم الاداره (EN ) </label>
+                </div>
+                <div class="col-lg-8 position-relative">
+                    <input type="text" class="form-control" formControlName="fullName" placeholder="اسم الاداره (EN )" />
+                    <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                    validation: 'required',
+                    message: 'اسم الاداره (EN ) مطلوب',
+                    control: myForm.controls['fullName']
+                    }"></ng-container>
+                    <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                    validation: 'minlength',
+                    message: 'يجب أن يكون الاسم مكونًا من 4 أحرف على الأقل',
+                    control: myForm.controls['fullName']
+                    }"></ng-container>
+                </div>
+            </div>
+            <div class="row align-items-start g-3 mb-8">
+                <div class="col-lg-2">
+                    <label class="fs-6 text-gray-800">رمز الاداره </label>
+                </div>
+                <div class="col-lg-8 position-relative">
+                    <input type="text" class="form-control" formControlName="fullName" placeholder="رمز الاداره" />
+                    <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                    validation: 'required',
+                    message: 'رمز الاداره مطلوب',
+                    control: myForm.controls['fullName']
+                    }"></ng-container>
+                    <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                    validation: 'minlength',
+                    message: 'يجب أن يكون الاسم مكونًا من 4 أحرف على الأقل',
+                    control: myForm.controls['fullName']
+                    }"></ng-container>
+                </div>
+            </div>
+            <div class="row align-items-start g-3 mb-8">
+                <div class="col-lg-2">
+                    <label class="fs-6 text-gray-800">نطاق العمل </label>
+                </div>
+                <div class="col-lg-8 position-relative">
+                    <textarea rows="5" type="text" class="form-control" formControlName="fullName" placeholder="نطاق العمل" ></textarea>
+                    <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                    validation: 'required',
+                    message: 'نطاق العمل مطلوب',
+                    control: myForm.controls['fullName']
+                    }"></ng-container>
+                    <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                    validation: 'minlength',
+                    message: 'يجب أن يكون الاسم مكونًا من 4 أحرف على الأقل',
+                    control: myForm.controls['fullName']
+                    }"></ng-container>
+                </div>
+            </div>
+            <div class="row align-items-start g-3 mb-8">
+                <div class="col-lg-2">
+                    <label class="fs-6 text-gray-800">نطاق العمل ( EN ) </label>
+                </div>
+                <div class="col-lg-8 position-relative">
+                    <textarea rows="5" type="text" class="form-control" formControlName="fullName" placeholder="نطاق العمل ( EN )" ></textarea>
+                    <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                    validation: 'required',
+                    message: 'نطاق العمل ( EN ) مطلوب',
+                    control: myForm.controls['fullName']
+                    }"></ng-container>
+                    <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                    validation: 'minlength',
+                    message: 'يجب أن يكون الاسم مكونًا من 4 أحرف على الأقل',
+                    control: myForm.controls['fullName']
+                    }"></ng-container>
+                </div>
+            </div>
+
+            <div class="col-lg-10 d-flex justify-content-end gap-3">
+                <button type="button" class="btn btn-secondary px-15" routerLink="/organizationalStructure">
+                    <span>اغلاق</span>
+                </button>
+                <button type="button" class="btn btn-primary px-15" routerLink="/organizationalStructure/details/adding-section">
+                    <span>التالي</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<!--control error msg -->
+<ng-template #formError let-control="control" let-message="message" let-validation="validation">
+    <ng-container *ngIf="
+        control.hasError(validation) &&
+        (control.dirty || (control.touched && control.errors))
+        ">
+        <div class="fv-plugins-message-container">
+            <span class="text-danger" role="alert">
+                {{ message }}
+            </span>
+        </div>
+    </ng-container>
+</ng-template>

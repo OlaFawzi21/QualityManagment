@@ -1,0 +1,104 @@
+<div class="card border-0 mt-10">
+    <div class="card-body p-10">
+        <form>
+
+            <div class="row align-items-start g-3 mb-8">
+                <div class="col-lg-2">
+                    <label class="fs-6 text-gray-800">اسم القسم </label>
+                </div>
+                <div class="col-lg-8 position-relative">
+                    <input type="text" class="form-control" formControlName="fullName" placeholder="اسم القسم" />
+                    <!-- <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                    validation: 'required',
+                    message: 'اسم القسم مطلوب',
+                    control: myForm.controls['fullName']
+                    }"></ng-container>
+                    <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                    validation: 'minlength',
+                    message: 'يجب أن يكون الاسم مكونًا من 4 أحرف على الأقل',
+                    control: myForm.controls['fullName']
+                    }"></ng-container> -->
+                </div>
+            </div>
+            <div class="row align-items-start g-3 mb-8">
+                <div class="col-lg-2">
+                    <label class="fs-6 text-gray-800">اسم القسم (EN ) </label>
+                </div>
+                <div class="col-lg-8 position-relative">
+                    <input type="text" class="form-control" formControlName="fullName" placeholder="اسم القسم (EN )" />
+                    <!-- <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                    validation: 'required',
+                    message: 'اسم القسم (EN ) مطلوب',
+                    control: myForm.controls['fullName']
+                    }"></ng-container>
+                    <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                    validation: 'minlength',
+                    message: 'يجب أن يكون الاسم مكونًا من 4 أحرف على الأقل',
+                    control: myForm.controls['fullName']
+                    }"></ng-container> -->
+                </div>
+            </div>
+            <div class="addingUni mb-10">
+                <h6 class="fw-bold">اضافه وحده</h6>
+            </div>
+            <div class="col-lg-10 d-flex justify-content-end gap-3">
+                <button type="button" class="btn btn-secondary px-15" routerLink="/organizationalStructure/details/management-details">
+                    <span>السابق</span>
+                </button>
+                <button type="button" class="btn btn-primary px-15" (click)="show()">
+                    <span>اضافة</span>
+                </button>
+            </div>
+        </form>
+        <div class="saveSection" [class.d-none]="!showSavingSection" (click)="hide()">
+            <div class="table-responsive mt-20">
+                <div class="table-responsive mt-5">
+                  <table class="table align-middle gs-0 gy-4">
+                    <thead>
+                      <tr class="text-gray-600 bg-gray-300">
+                        <th>صوره توضيحيه</th>
+                        <th>اسم القسم</th>
+                        <th>اسم  القسم ( EN)</th>                  
+                    </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="text-primary">
+                      <td class="">
+                        <svg width="65" height="54" viewBox="0 0 65 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="65" height="54" fill="#129FA5" fill-opacity="0.31"/>
+                        </svg>                        
+                      </td>
+                      <td>
+                        البيع
+                      </td>
+                      <td>
+                        Sales
+                      </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+            <div class="btnContainer d-flex justify-content-end">
+                <button type="button" class="btn btn-primary px-15" routerLink="/organizationalStructure/details/management-details">
+                    <span>حفظ</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--control error msg -->
+<ng-template #formError let-control="control" let-message="message" let-validation="validation">
+    <ng-container *ngIf="
+        control.hasError(validation) &&
+        (control.dirty || (control.touched && control.errors))
+        ">
+        <div class="fv-plugins-message-container">
+            <span class="text-danger" role="alert">
+                {{ message }}
+            </span>
+        </div>
+    </ng-container>
+</ng-template>
