@@ -4,7 +4,7 @@
             <span class="text-primary fs-3">{{title}}</span>
             <p-iconField iconPosition="right">
                 <p-inputIcon styleClass="pi pi-search" />
-                <input type="text" class="w-md-400px w-sm-300px" pInputText placeholder="ابحث هنا" />
+                <input type="search" class="w-md-400px w-sm-300px" pInputText placeholder="ابحث هنا" />
             </p-iconField>
         </div>
         <button type="button" class="btn second-color d-flex gap-2 align-items-center" (click)="exportPDF()">
@@ -56,41 +56,41 @@
                                 <ul class="dropdown-menu" aria-labelledby="actionsDropdown">
                                     <li>
                                         <button class="dropdown-item py-2" [routerLink]="['jobTitle','1']">
-                                            <div class="row justify-content-start">
-                                                <div class="col-2">
+                                            <div class="d-flex gap-3">
+                                                <div>
                                                     <i class="bi bi-pencil-square text-primary"></i>
                                                 </div>
-                                                <div class="col-4 text-primary">تعديل</div>
+                                                <div class="ext-primary">تعديل</div>
                                             </div>
                                         </button>
                                     </li>
                                     <li>
                                         <button class="dropdown-item py-2" routerLink="jobTitleDetail">
-                                            <div class="row justify-content-start">
-                                                <div class="col-2">
+                                            <div class="d-flex gap-3">
+                                                <div>
                                                     <i class="bi bi-eye text-primary"></i>
                                                 </div>
-                                                <div class="col-4 text-primary">عرض</div>
+                                                <div class="ext-primary">عرض</div>
                                             </div>
                                         </button>
                                     </li>
                                     <li>
                                         <button class="dropdown-item py-2" routerLink="signatureLog">
-                                            <div class="row justify-content-start">
-                                                <div class="col-2">
+                                            <div class="d-flex gap-3">
+                                                <div>
                                                     <i class="bi bi-file-earmark-text text-primary"></i>
                                                 </div>
-                                                <div class="col-4 text-primary">سجل التوقيع</div>
+                                                <div class="ext-primary">سجل التوقيع</div>
                                             </div>
                                         </button>
                                     </li>
                                     <li>
                                         <button class="dropdown-item py-2">
-                                            <div class="row justify-content-start">
-                                                <div class="col-2">
+                                            <div class="d-flex gap-3">
+                                                <div>
                                                     <i class="bi bi-ban text-danger"></i>
                                                 </div>
-                                                <div class="col-4 text-danger">حذف</div>
+                                                <div class="text-danger">حذف</div>
                                             </div>
                                         </button>
                                     </li>

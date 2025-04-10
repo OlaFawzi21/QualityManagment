@@ -1,389 +1,385 @@
-<div class="card d-flex justify-content-center">
-    <div class="card">
-        <div class="card-header py-5 px-10 justify-content-between align-items-center">
-            <h3 class="card-title m-0 text-primary fs-3">
-                <span class="text-gray-500">المسميات الوظيفية /</span>&nbsp;
-                {{editMode? 'تعديل' : 'إضافة'}} مسمى وظيفي
-            </h3>
-            <a class="text-gray-500 fs-5 d-flex align-items-center back-icon" routerLink="/jobTitles">عودة <i
-                    class="pi pi-angle-left fs-5"></i></a>
-        </div>
-
-        <div class="card-body border-0">
-            <form class="form" [formGroup]="formGroup" (ngSubmit)="submitPlace()">
-                <p-stepper [linear]="true">
-                    <!-- 1 -->
-                    <p-stepperPanel header="المسمى الوظيفي">
-                        <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
-                            <div class="d-flex flex-column">
-
-                                <div class="row mb-8">
-                                    <div class="col-lg-2">
-                                        <label class="form-label">المسمى الوظيفي</label>
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <input type="text" class="form-control" formControlName="jobTitle"
-                                            placeholder="المسمى الوظيفي" />
-                                        <div *ngIf="formGroup.get('jobTitle')?.invalid && formGroup.get('jobTitle')?.touched"
-                                            class="text-danger">
-                                            برجاء إدخال المسمى الوظيفي
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-8">
-                                    <div class="col-lg-2">
-                                        <label class="form-label">المسمى الوظيفي (EN)</label>
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <input type="text" class="form-control" formControlName="jobTitleEn"
-                                            placeholder="المسمى الوظيفي (EN)" />
-                                        <div *ngIf="formGroup.get('jobTitleEn')?.invalid && formGroup.get('jobTitleEn')?.touched"
-                                            class="text-danger">
-                                            برجاء إدخال المسمى الوظيفي (EN)
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-8">
-                                    <div class="col-lg-2">
-                                        <label class="form-label">رقم الوظيفة</label>
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <input type="text" class="form-control" formControlName="jobNumber"
-                                            placeholder="رقم الوظيفة" />
-                                        <div *ngIf="formGroup.get('jobNumber')?.invalid && formGroup.get('jobNumber')?.touched"
-                                            class="text-danger">
-                                            برجاء إدخال رقم الوظيفة
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-8">
-                                    <div class="col-lg-2">
-                                        <label class="form-label">رتبة الوظيفة</label>
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <p-dropdown [options]="governments" optionLabel="name" optionValue="id"
-                                            formControlName="" placeholder="رتبة الوظيفة" />
-                                        <div *ngIf="formGroup.get('')?.invalid && formGroup.get('')?.touched"
-                                            class="text-danger">
-                                            برجاء إدخال رتبة الوظيفة
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-8">
-                                    <div class="col-lg-2">
-                                        <label class="form-label">الفئة الرئيسية</label>
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <p-dropdown [options]="governments" optionLabel="name" optionValue="id"
-                                            formControlName="mainCategory" placeholder="الفئة الرئيسية" />
-                                        <div *ngIf="formGroup.get('mainCategory')?.invalid && formGroup.get('mainCategory')?.touched"
-                                            class="text-danger">
-                                            برجاء إدخال الفئة الرئيسية
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-8">
-                                    <div class="col-lg-2">
-                                        <label class="form-label">الإدارة</label>
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <p-dropdown [options]="governments" optionLabel="name" optionValue="id"
-                                            formControlName="department" placeholder="الإدارة" />
-                                        <div *ngIf="formGroup.get('department')?.invalid && formGroup.get('department')?.touched"
-                                            class="text-danger">
-                                            برجاء إدخال الإدارة
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-8">
-                                    <div class="col-lg-2">
-                                        <label class="form-label">القسم</label>
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <p-dropdown [options]="governments" optionLabel="name" optionValue="id"
-                                            formControlName="section" placeholder="القسم" />
-                                        <div *ngIf="formGroup.get('section')?.invalid && formGroup.get('section')?.touched"
-                                            class="text-danger">
-                                            برجاء إدخال القسم
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-8">
-                                    <div class="col-lg-2">
-                                        <label class="form-label">الوحدة</label>
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <p-dropdown [options]="governments" optionLabel="name" optionValue="id"
-                                            formControlName="unit" placeholder="الوحدة" />
-                                        <div *ngIf="formGroup.get('unit')?.invalid && formGroup.get('unit')?.touched"
-                                            class="text-danger">
-                                            برجاء إدخال الوحدة
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-8">
-                                    <div class="col-lg-2">
-                                        <label class="form-label">المدير المسؤل</label>
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <input type="text" class="form-control" formControlName="responsibleManager"
-                                            placeholder="المدير المسؤل" />
-                                        <div *ngIf="formGroup.get('responsibleManager')?.invalid && formGroup.get('responsibleManager')?.touched"
-                                            class="text-danger">
-                                            برجاء إدخال المدير المسؤل
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-8">
-                                    <div class="col-lg-2">
-                                        <label class="form-label">المدير المسؤل (EN )</label>
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <input type="text" class="form-control" formControlName="responsibleManagerEn"
-                                            placeholder="المدير المسؤل (EN )" />
-                                        <div *ngIf="formGroup.get('responsibleManagerEn')?.invalid && formGroup.get('responsibleManagerEn')?.touched"
-                                            class="text-danger">
-                                            برجاء إدخال المدير المسؤل (EN )
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-8">
-                                    <div class="col-lg-2">
-                                        <label class="form-label">الفئة</label>
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <input type="text" class="form-control" formControlName="category"
-                                            placeholder="الفئة" />
-                                        <div *ngIf="formGroup.get('category')?.invalid && formGroup.get('category')?.touched"
-                                            class="text-danger">
-                                            برجاء إدخال الفئة
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-8">
-                                    <div class="col-lg-2">
-                                        <label class="form-label">الفئة (EN)</label>
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <input type="text" class="form-control" formControlName="categoryEn"
-                                            placeholder="الفئة (EN)" />
-                                        <div *ngIf="formGroup.get('categoryEn')?.invalid && formGroup.get('categoryEn')?.touched"
-                                            class="text-danger">
-                                            برجاء إدخال الفئة (EN)
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-8">
-                                    <div class="col-lg-2">
-                                        <label class="form-label">تاريخ المراجعه</label>
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <input type="text" class="form-control" formControlName="reviewDate"
-                                            placeholder="تاريخ المراجعه" />
-                                        <div *ngIf="formGroup.get('reviewDate')?.invalid && formGroup.get('reviewDate')?.touched"
-                                            class="text-danger">
-                                            برجاء إدخال تاريخ المراجعه
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="d-flex pt-4 justify-content-end">
-                                <p-button label="التالي" iconPos="right" (onClick)="nextCallback.emit();" />
-                            </div>
-                        </ng-template>
-                    </p-stepperPanel>
-
-
-                    <!-- 2 -->
-                    <p-stepperPanel header="المسؤلون">
-                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
-                            let-index="index">
-                            <div class="d-flex flex-column">
-
-                                <div class="row mb-8">
-                                    <div class="col-lg-2">
-                                        <label class="form-label">المسؤولون تجاهه</label>
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <p-editor formControlName="reportsTo" [style]="{ height: '320px' }"></p-editor>
-                                        <div *ngIf="formGroup.get('reportsTo')?.invalid && formGroup.get('reportsTo')?.touched"
-                                            class="text-danger">
-                                            برجاء إدخال المسؤولون تجاهه
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-8">
-                                    <div class="col-lg-2">
-                                        <label class="form-label">المسؤولون تجاهه (EN)</label>
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <p-editor formControlName="reportsToEn"
-                                            [style]="{ height: '320px' }"></p-editor>
-                                        <div *ngIf="formGroup.get('reportsToEn')?.invalid && formGroup.get('reportsToEn')?.touched"
-                                            class="text-danger">
-                                            برجاء إدخال المسؤولون تجاهه (EN)
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-8">
-                                    <div class="col-lg-2">
-                                        <label class="form-label">المسؤولية الرئيسية</label>
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <p-editor formControlName="mainResponsibility"
-                                            [style]="{ height: '320px' }"></p-editor>
-                                        <div *ngIf="formGroup.get('mainResponsibility')?.invalid && formGroup.get('mainResponsibility')?.touched"
-                                            class="text-danger">
-                                            برجاء إدخال المسؤولية الرئيسية
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="d-flex pt-4 justify-content-between">
-                                <p-button label="السابق" (onClick)="prevCallback.emit()" />
-                                <p-button label="التالي" iconPos="right" (onClick)="nextCallback.emit()" />
-                            </div>
-                        </ng-template>
-                    </p-stepperPanel>
-
-
-                    <!-- 3 -->
-                    <p-stepperPanel header="المسؤليات">
-                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
-                            let-index="index">
-                            <div class="d-flex flex-column">
-
-                                <div class="row mb-8">
-                                    <div class="col-lg-2">
-                                        <label class="form-label">المسؤوليات</label>
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <p-editor formControlName="responsibilities"
-                                            [style]="{ height: '320px' }"></p-editor>
-                                        <div *ngIf="formGroup.get('responsibilities')?.invalid && formGroup.get('responsibilities')?.touched"
-                                            class="text-danger">
-                                            برجاء إدخال المسؤوليات
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-8">
-                                    <div class="col-lg-2">
-                                        <label class="form-label">يتضمن برنامج عمله الشهرى اشياء اخرى</label>
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <p-editor formControlName="monthlyProgramIncludes"
-                                            [style]="{ height: '320px' }"></p-editor>
-                                        <div *ngIf="formGroup.get('monthlyProgramIncludes')?.invalid && formGroup.get('monthlyProgramIncludes')?.touched"
-                                            class="text-danger">
-                                            برجاء إدخال يتضمن برنامج عمله الشهرى اشياء اخرى
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="d-flex pt-4 justify-content-between">
-                                <p-button label="السابق" (onClick)="prevCallback.emit()" />
-                                <p-button label="التالي" iconPos="right" (onClick)="nextCallback.emit()" />
-                            </div>
-                        </ng-template>
-                    </p-stepperPanel>
-
-
-                    <!-- 4 -->
-                    <p-stepperPanel header="بيانات إضافية">
-                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
-                            <div class="d-flex flex-column">
-
-                                <div class="row mb-8">
-                                    <div class="col-lg-2">
-                                        <label class="form-label">المؤهلات المطلوبة</label>
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <p-editor formControlName="requiredQualifications"
-                                            [style]="{ height: '320px' }"></p-editor>
-                                        <div *ngIf="formGroup.get('requiredQualifications')?.invalid && formGroup.get('requiredQualifications')?.touched"
-                                            class="text-danger">
-                                            برجاء إدخال المؤهلات المطلوبة
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-8">
-                                    <div class="col-lg-2">
-                                        <label class="form-label">اللغات</label>
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <p-editor formControlName="languages" [style]="{ height: '320px' }"></p-editor>
-                                        <div *ngIf="formGroup.get('languages')?.invalid && formGroup.get('languages')?.touched"
-                                            class="text-danger">
-                                            برجاء إدخال اللغات
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-8">
-                                    <div class="col-lg-2">
-                                        <label class="form-label">الخبرة العملية</label>
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <p-editor formControlName="practicalExperience"
-                                            [style]="{ height: '320px' }"></p-editor>
-                                        <div *ngIf="formGroup.get('practicalExperience')?.invalid && formGroup.get('practicalExperience')?.touched"
-                                            class="text-danger">
-                                            برجاء إدخال الخبرة العملية
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-8">
-                                    <div class="col-lg-2">
-                                        <label class="form-label">الثقافة والمزايا الشخصية</label>
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <p-editor formControlName="cultureAndPersonalBenefits"
-                                            [style]="{ height: '320px' }"></p-editor>
-                                        <div *ngIf="formGroup.get('cultureAndPersonalBenefits')?.invalid && formGroup.get('cultureAndPersonalBenefits')?.touched"
-                                            class="text-danger">
-                                            برجاء إدخال الثقافة والمزايا الشخصية
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="d-flex pt-4 justify-content-between">
-                                <p-button label="السابق" (onClick)="prevCallback.emit()" />
-                                <p-button label="حفظ" type="submit" />
-                            </div>
-                        </ng-template>
-                    </p-stepperPanel>
-                </p-stepper>
-            </form>
-        </div>
+<div class="card">
+    <div class="card-header py-5 px-10 justify-content-between align-items-center">
+        <h3 class="card-title m-0 text-primary fs-3">
+            <span class="text-gray-500 cursor-pointer" routerLink="/jobTitles">المسميات الوظيفية /</span>&nbsp;
+            {{editMode? 'تعديل' : 'إضافة'}} مسمى وظيفي
+        </h3>
     </div>
 
-    <swal #deleteSwal [swalOptions]="swalOptions" title="حدث خطأ!" icon="error"
-        [customClass]="{ confirmButton: 'btn btn-danger' }" [showCancelButton]="false">
-    </swal>
+    <div class="card-body border-0">
+        <form class="form" [formGroup]="formGroup" (ngSubmit)="submitPlace()">
+            <p-stepper [linear]="true">
+                <!-- 1 -->
+                <p-stepperPanel header="المسمى الوظيفي">
+                    <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
+                        <div class="d-flex flex-column">
+
+                            <div class="row mb-8">
+                                <div class="col-lg-2">
+                                    <label class="form-label">المسمى الوظيفي</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <input type="text" class="form-control" formControlName="jobTitle"
+                                        placeholder="المسمى الوظيفي" />
+                                    <div *ngIf="formGroup.get('jobTitle')?.invalid && formGroup.get('jobTitle')?.touched"
+                                        class="text-danger">
+                                        برجاء إدخال المسمى الوظيفي
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-8">
+                                <div class="col-lg-2">
+                                    <label class="form-label">المسمى الوظيفي (EN)</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <input type="text" class="form-control" formControlName="jobTitleEn"
+                                        placeholder="المسمى الوظيفي (EN)" />
+                                    <div *ngIf="formGroup.get('jobTitleEn')?.invalid && formGroup.get('jobTitleEn')?.touched"
+                                        class="text-danger">
+                                        برجاء إدخال المسمى الوظيفي (EN)
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-8">
+                                <div class="col-lg-2">
+                                    <label class="form-label">رقم الوظيفة</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <input type="text" class="form-control" formControlName="jobNumber"
+                                        placeholder="رقم الوظيفة" />
+                                    <div *ngIf="formGroup.get('jobNumber')?.invalid && formGroup.get('jobNumber')?.touched"
+                                        class="text-danger">
+                                        برجاء إدخال رقم الوظيفة
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-8">
+                                <div class="col-lg-2">
+                                    <label class="form-label">رتبة الوظيفة</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <p-dropdown [options]="governments" optionLabel="name" optionValue="id"
+                                        formControlName="" placeholder="رتبة الوظيفة" />
+                                    <div *ngIf="formGroup.get('')?.invalid && formGroup.get('')?.touched"
+                                        class="text-danger">
+                                        برجاء إدخال رتبة الوظيفة
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-8">
+                                <div class="col-lg-2">
+                                    <label class="form-label">الفئة الرئيسية</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <p-dropdown [options]="governments" optionLabel="name" optionValue="id"
+                                        formControlName="mainCategory" placeholder="الفئة الرئيسية" />
+                                    <div *ngIf="formGroup.get('mainCategory')?.invalid && formGroup.get('mainCategory')?.touched"
+                                        class="text-danger">
+                                        برجاء إدخال الفئة الرئيسية
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-8">
+                                <div class="col-lg-2">
+                                    <label class="form-label">الإدارة</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <p-dropdown [options]="governments" optionLabel="name" optionValue="id"
+                                        formControlName="department" placeholder="الإدارة" />
+                                    <div *ngIf="formGroup.get('department')?.invalid && formGroup.get('department')?.touched"
+                                        class="text-danger">
+                                        برجاء إدخال الإدارة
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-8">
+                                <div class="col-lg-2">
+                                    <label class="form-label">القسم</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <p-dropdown [options]="governments" optionLabel="name" optionValue="id"
+                                        formControlName="section" placeholder="القسم" />
+                                    <div *ngIf="formGroup.get('section')?.invalid && formGroup.get('section')?.touched"
+                                        class="text-danger">
+                                        برجاء إدخال القسم
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-8">
+                                <div class="col-lg-2">
+                                    <label class="form-label">الوحدة</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <p-dropdown [options]="governments" optionLabel="name" optionValue="id"
+                                        formControlName="unit" placeholder="الوحدة" />
+                                    <div *ngIf="formGroup.get('unit')?.invalid && formGroup.get('unit')?.touched"
+                                        class="text-danger">
+                                        برجاء إدخال الوحدة
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-8">
+                                <div class="col-lg-2">
+                                    <label class="form-label">المدير المسؤل</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <input type="text" class="form-control" formControlName="responsibleManager"
+                                        placeholder="المدير المسؤل" />
+                                    <div *ngIf="formGroup.get('responsibleManager')?.invalid && formGroup.get('responsibleManager')?.touched"
+                                        class="text-danger">
+                                        برجاء إدخال المدير المسؤل
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-8">
+                                <div class="col-lg-2">
+                                    <label class="form-label">المدير المسؤل (EN )</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <input type="text" class="form-control" formControlName="responsibleManagerEn"
+                                        placeholder="المدير المسؤل (EN )" />
+                                    <div *ngIf="formGroup.get('responsibleManagerEn')?.invalid && formGroup.get('responsibleManagerEn')?.touched"
+                                        class="text-danger">
+                                        برجاء إدخال المدير المسؤل (EN )
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-8">
+                                <div class="col-lg-2">
+                                    <label class="form-label">الفئة</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <input type="text" class="form-control" formControlName="category"
+                                        placeholder="الفئة" />
+                                    <div *ngIf="formGroup.get('category')?.invalid && formGroup.get('category')?.touched"
+                                        class="text-danger">
+                                        برجاء إدخال الفئة
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-8">
+                                <div class="col-lg-2">
+                                    <label class="form-label">الفئة (EN)</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <input type="text" class="form-control" formControlName="categoryEn"
+                                        placeholder="الفئة (EN)" />
+                                    <div *ngIf="formGroup.get('categoryEn')?.invalid && formGroup.get('categoryEn')?.touched"
+                                        class="text-danger">
+                                        برجاء إدخال الفئة (EN)
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-8">
+                                <div class="col-lg-2">
+                                    <label class="form-label">تاريخ المراجعه</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <input type="text" class="form-control" formControlName="reviewDate"
+                                        placeholder="تاريخ المراجعه" />
+                                    <div *ngIf="formGroup.get('reviewDate')?.invalid && formGroup.get('reviewDate')?.touched"
+                                        class="text-danger">
+                                        برجاء إدخال تاريخ المراجعه
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex pt-4 justify-content-end">
+                            <p-button label="التالي" iconPos="right" (onClick)="nextCallback.emit();" />
+                        </div>
+                    </ng-template>
+                </p-stepperPanel>
 
 
-    <!-- <div class="col-lg-9">
+                <!-- 2 -->
+                <p-stepperPanel header="المسؤلون">
+                    <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                        let-index="index">
+                        <div class="d-flex flex-column">
+
+                            <div class="row mb-8">
+                                <div class="col-lg-2">
+                                    <label class="form-label">المسؤولون تجاهه</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <p-editor formControlName="reportsTo" [style]="{ height: '320px' }"></p-editor>
+                                    <div *ngIf="formGroup.get('reportsTo')?.invalid && formGroup.get('reportsTo')?.touched"
+                                        class="text-danger">
+                                        برجاء إدخال المسؤولون تجاهه
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-8">
+                                <div class="col-lg-2">
+                                    <label class="form-label">المسؤولون تجاهه (EN)</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <p-editor formControlName="reportsToEn" [style]="{ height: '320px' }"></p-editor>
+                                    <div *ngIf="formGroup.get('reportsToEn')?.invalid && formGroup.get('reportsToEn')?.touched"
+                                        class="text-danger">
+                                        برجاء إدخال المسؤولون تجاهه (EN)
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-8">
+                                <div class="col-lg-2">
+                                    <label class="form-label">المسؤولية الرئيسية</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <p-editor formControlName="mainResponsibility"
+                                        [style]="{ height: '320px' }"></p-editor>
+                                    <div *ngIf="formGroup.get('mainResponsibility')?.invalid && formGroup.get('mainResponsibility')?.touched"
+                                        class="text-danger">
+                                        برجاء إدخال المسؤولية الرئيسية
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex pt-4 justify-content-between">
+                            <p-button label="السابق" (onClick)="prevCallback.emit()" />
+                            <p-button label="التالي" iconPos="right" (onClick)="nextCallback.emit()" />
+                        </div>
+                    </ng-template>
+                </p-stepperPanel>
+
+
+                <!-- 3 -->
+                <p-stepperPanel header="المسؤليات">
+                    <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                        let-index="index">
+                        <div class="d-flex flex-column">
+
+                            <div class="row mb-8">
+                                <div class="col-lg-2">
+                                    <label class="form-label">المسؤوليات</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <p-editor formControlName="responsibilities"
+                                        [style]="{ height: '320px' }"></p-editor>
+                                    <div *ngIf="formGroup.get('responsibilities')?.invalid && formGroup.get('responsibilities')?.touched"
+                                        class="text-danger">
+                                        برجاء إدخال المسؤوليات
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-8">
+                                <div class="col-lg-2">
+                                    <label class="form-label">يتضمن برنامج عمله الشهرى اشياء اخرى</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <p-editor formControlName="monthlyProgramIncludes"
+                                        [style]="{ height: '320px' }"></p-editor>
+                                    <div *ngIf="formGroup.get('monthlyProgramIncludes')?.invalid && formGroup.get('monthlyProgramIncludes')?.touched"
+                                        class="text-danger">
+                                        برجاء إدخال يتضمن برنامج عمله الشهرى اشياء اخرى
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex pt-4 justify-content-between">
+                            <p-button label="السابق" (onClick)="prevCallback.emit()" />
+                            <p-button label="التالي" iconPos="right" (onClick)="nextCallback.emit()" />
+                        </div>
+                    </ng-template>
+                </p-stepperPanel>
+
+
+                <!-- 4 -->
+                <p-stepperPanel header="بيانات إضافية">
+                    <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
+                        <div class="d-flex flex-column">
+
+                            <div class="row mb-8">
+                                <div class="col-lg-2">
+                                    <label class="form-label">المؤهلات المطلوبة</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <p-editor formControlName="requiredQualifications"
+                                        [style]="{ height: '320px' }"></p-editor>
+                                    <div *ngIf="formGroup.get('requiredQualifications')?.invalid && formGroup.get('requiredQualifications')?.touched"
+                                        class="text-danger">
+                                        برجاء إدخال المؤهلات المطلوبة
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-8">
+                                <div class="col-lg-2">
+                                    <label class="form-label">اللغات</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <p-editor formControlName="languages" [style]="{ height: '320px' }"></p-editor>
+                                    <div *ngIf="formGroup.get('languages')?.invalid && formGroup.get('languages')?.touched"
+                                        class="text-danger">
+                                        برجاء إدخال اللغات
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-8">
+                                <div class="col-lg-2">
+                                    <label class="form-label">الخبرة العملية</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <p-editor formControlName="practicalExperience"
+                                        [style]="{ height: '320px' }"></p-editor>
+                                    <div *ngIf="formGroup.get('practicalExperience')?.invalid && formGroup.get('practicalExperience')?.touched"
+                                        class="text-danger">
+                                        برجاء إدخال الخبرة العملية
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-8">
+                                <div class="col-lg-2">
+                                    <label class="form-label">الثقافة والمزايا الشخصية</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <p-editor formControlName="cultureAndPersonalBenefits"
+                                        [style]="{ height: '320px' }"></p-editor>
+                                    <div *ngIf="formGroup.get('cultureAndPersonalBenefits')?.invalid && formGroup.get('cultureAndPersonalBenefits')?.touched"
+                                        class="text-danger">
+                                        برجاء إدخال الثقافة والمزايا الشخصية
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex pt-4 justify-content-between">
+                            <p-button label="السابق" (onClick)="prevCallback.emit()" />
+                            <p-button label="حفظ" type="submit" />
+                        </div>
+                    </ng-template>
+                </p-stepperPanel>
+            </p-stepper>
+        </form>
+    </div>
+</div>
+
+<swal #deleteSwal [swalOptions]="swalOptions" title="حدث خطأ!" icon="error"
+    [customClass]="{ confirmButton: 'btn btn-danger' }" [showCancelButton]="false">
+</swal>
+
+
+<!-- <div class="col-lg-9">
         <label class="form-label"></label>
         <p-multiSelect class="w-100 mb-8" [options]="trans"
             formControlName="" optionValue="id" optionLabel="name"

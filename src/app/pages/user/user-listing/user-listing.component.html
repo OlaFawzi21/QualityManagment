@@ -4,7 +4,7 @@
       <span class="text-primary fs-3">{{ title }}</span>
       <p-iconField iconPosition="right">
         <p-inputIcon styleClass="pi pi-search" />
-        <input type="text" class="w-md-400px w-sm-300px" pInputText placeholder="ابحث هنا" />
+        <input type="search" class="w-md-400px w-sm-300px" pInputText placeholder="ابحث هنا" />
       </p-iconField>
     </div>
     <button type="button" class="btn second-color d-flex gap-2 align-items-center" (click)="exportPDF()">
@@ -58,41 +58,41 @@
                 <ul class="dropdown-menu" aria-labelledby="actionsDropdown">
                   <li>
                     <button class="dropdown-item py-2">
-                      <div class="row justify-content-start">
-                        <div class="col-2">
+                      <div class="d-flex gap-3">
+                        <div>
                           <i class="bi bi-pencil-square"></i>
                         </div>
-                        <div class="col-4">تعديل</div>
+                        <div class="text-primary">تعديل</div>
                       </div>
                     </button>
                   </li>
                   <li>
                     <button class="dropdown-item py-2" (click)="openModal(formModal2)">
-                      <div class="row justify-content-start">
-                        <div class="col-2">
+                      <div class="d-flex gap-3">
+                        <div>
                           <i class="bi bi-bell"></i>
                         </div>
-                        <div class="col-4">إشعار</div>
+                        <div class="text-primary">إشعار</div>
                       </div>
                     </button>
                   </li>
                   <li>
                     <button class="dropdown-item py-2">
-                      <div class="row justify-content-start">
-                        <div class="col-2">
+                      <div class="d-flex gap-3">
+                        <div>
                           <i class="bi bi-person-circle"></i>
                         </div>
-                        <div class="col-4">سجل المستخدم</div>
+                        <div class="text-primary">سجل المستخدم</div>
                       </div>
                     </button>
                   </li>
                   <li>
                     <button class="dropdown-item py-2" (click)="openModal(formModal1)">
-                      <div class="row justify-content-start">
-                        <div class="col-2">
+                      <div class="d-flex gap-3">
+                        <div>
                           <i class="bi bi-ban text-danger"></i>
                         </div>
-                        <div class="col-4">حظر</div>
+                        <div class="text-danger">حظر</div>
                       </div>
                     </button>
                   </li>
@@ -115,41 +115,41 @@
                 <ul class="dropdown-menu" aria-labelledby="actionsDropdown">
                   <li>
                     <button class="dropdown-item py-2">
-                      <div class="row justify-content-start">
-                        <div class="col-2">
+                      <div class="d-flex gap-3">
+                        <div>
                           <i class="bi bi-pencil-square"></i>
                         </div>
-                        <div class="col-4">تعديل</div>
+                        <div class="text-primary">تعديل</div>
                       </div>
                     </button>
                   </li>
                   <li>
                     <button class="dropdown-item py-2" (click)="openModal(formModal2)">
-                      <div class="row justify-content-start">
-                        <div class="col-2">
+                      <div class="d-flex gap-3">
+                        <div>
                           <i class="bi bi-bell"></i>
                         </div>
-                        <div class="col-4">إشعار</div>
+                        <div class="text-primary">إشعار</div>
                       </div>
                     </button>
                   </li>
                   <li>
                     <button class="dropdown-item py-2">
-                      <div class="row justify-content-start">
-                        <div class="col-2">
+                      <div class="d-flex gap-3">
+                        <div>
                           <i class="bi bi-person-circle"></i>
                         </div>
-                        <div class="col-4">سجل المستخدم</div>
+                        <div class="text-primary">سجل المستخدم</div>
                       </div>
                     </button>
                   </li>
                   <li>
                     <button class="dropdown-item py-2" (click)="openModal(formModal1)">
-                      <div class="row justify-content-start">
-                        <div class="col-2">
+                      <div class="d-flex gap-3">
+                        <div>
                           <i class="bi bi-ban text-danger"></i>
                         </div>
-                        <div class="col-4">حظر</div>
+                        <div class="text-danger">حظر</div>
                       </div>
                     </button>
                   </li>
