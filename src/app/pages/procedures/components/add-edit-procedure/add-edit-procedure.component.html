@@ -1,1 +1,15 @@
-<p>add-edit-procedure works!</p>
+<div class="card">
+    <div class="card-header py-5 px-10 justify-content-between align-items-center">
+        <h3 class="card-title m-0 text-primary fs-3">
+            <span class="text-gray-500 cursor-pointer" routerLink="/jobTitles"> الإجراءات /</span>&nbsp;
+            {{editMode? 'تعديل' : 'إضافة'}} إجراء
+        </h3>
+    </div>
+
+    <div class="card-body border-0">
+        <div class="mb-15">
+            <p-steps [model]="items" [readonly]="false" />
+        </div>
+        <router-outlet></router-outlet>
+    </div>
+</div>
