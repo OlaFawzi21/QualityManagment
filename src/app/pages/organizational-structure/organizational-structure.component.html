@@ -1,0 +1,250 @@
+<section>
+    <div class="d-flex justify-content-between align-items-center mb-10">
+      <div class="d-flex align-items-center gap-5">
+        <span class="text-primary fs-3">االاداره</span>
+        <p-iconField iconPosition="right">
+          <p-inputIcon styleClass="pi pi-search" />
+          <input type="text" class="w-md-400px w-sm-300px" pInputText placeholder="ابحث هنا" />
+        </p-iconField>
+      </div>
+      <button type="button" class="btn second-color d-flex gap-2 align-items-center" (click)="exportPDF()">
+        <i class="bi bi-box-arrow-down text-white p-0"></i>
+        <span>تصدير</span>
+      </button>
+    </div>
+  
+    <div class="d-flex align-items-center gap-3 flex-wrap">
+      <button type="button" class="btn second-color d-flex gap-3" data-action="create" [routerLink]="['details']">
+        <img src="assets/images/icons/add-user.svg" alt="add-user" />
+        <span>اضافه اداره </span>
+      </button>
+    </div>
+  
+    <div class="table-responsive">
+      <div class="table-responsive mt-5">
+        <table class="table align-middle gs-0 gy-4">
+          <thead>
+            <tr class="text-gray-600 bg-gray-300">
+              <th class="w-75 text-start px-10">الاداره</th>
+              <th class="w-25">الإجراءات</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="text-primary">
+              <td class="text-start px-15">الاداره الرئيسيه</td>
+            <td>
+                <div class="svgContainer justify-content-center d-flex gap-2 align-items-center">
+                    <button class="btn" routerLink="details">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11 5H6C4.89543 5 4 5.89543 4 7V18C4 19.1046 4.89543 20 6 20H17C18.1046 20 19 19.1046 19 18V13M17.5858 3.58579C18.3668 2.80474 19.6332 2.80474 20.4142 3.58579C21.1953 4.36683 21.1953 5.63316 20.4142 6.41421L11.8284 15H9L9 12.1716L17.5858 3.58579Z" stroke="#076871" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>                        
+                    </button>
+                    <button class="btn" routerLink="user-chart">
+                        <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.5 25.7812C8.48375 25.7812 4.71625 17.27 4.55125 16.9125C4.49679 16.7818 4.46875 16.6416 4.46875 16.5C4.46875 16.3584 4.49679 16.2182 4.55125 16.0875C4.71625 15.73 8.48375 7.21875 16.5 7.21875C24.5163 7.21875 28.2838 15.73 28.4488 16.0875C28.5032 16.2182 28.5312 16.3584 28.5312 16.5C28.5312 16.6416 28.5032 16.7818 28.4488 16.9125C28.2838 17.27 24.5163 25.7812 16.5 25.7812ZM6.64125 16.5C7.4525 18.0813 10.7662 23.7188 16.5 23.7188C22.2337 23.7188 25.5475 18.0813 26.3587 16.5C25.5475 14.9187 22.2337 9.28125 16.5 9.28125C10.7662 9.28125 7.4525 14.9187 6.64125 16.5Z" fill="#084749"/>
+                            <path d="M16.5 20.9688C15.6162 20.9688 14.7522 20.7067 14.0173 20.2156C13.2824 19.7246 12.7096 19.0267 12.3714 18.2101C12.0332 17.3936 11.9447 16.495 12.1171 15.6282C12.2895 14.7613 12.7152 13.9651 13.3401 13.3401C13.9651 12.7152 14.7613 12.2895 15.6282 12.1171C16.495 11.9447 17.3936 12.0332 18.2101 12.3714C19.0267 12.7096 19.7246 13.2824 20.2156 14.0173C20.7067 14.7522 20.9688 15.6162 20.9688 16.5C20.9651 17.6841 20.4931 18.8186 19.6559 19.6559C18.8186 20.4931 17.6841 20.9651 16.5 20.9688ZM16.5 14.0938C16.0241 14.0938 15.5589 14.2349 15.1632 14.4993C14.7675 14.7637 14.459 15.1395 14.2769 15.5792C14.0948 16.0189 14.0471 16.5027 14.14 16.9694C14.2328 17.4362 14.462 17.865 14.7985 18.2015C15.135 18.538 15.5638 18.7672 16.0306 18.86C16.4973 18.9529 16.9811 18.9052 17.4208 18.7231C17.8605 18.541 18.2363 18.2325 18.5007 17.8368C18.7651 17.4411 18.9063 16.9759 18.9063 16.5C18.9026 15.8629 18.648 15.253 18.1975 14.8025C17.747 14.352 17.1371 14.0974 16.5 14.0938Z" fill="#084749"/>
+                        </svg>                                            
+                    </button>
+                </div>
+            </td>
+            </tr>
+            <tr class="text-primary">
+            <td class="text-start px-15">الاداره الرئيسيه</td>
+            <td>
+                <div class="svgContainer justify-content-center d-flex gap-2 align-items-center">
+                    <button class="btn" routerLink="details">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11 5H6C4.89543 5 4 5.89543 4 7V18C4 19.1046 4.89543 20 6 20H17C18.1046 20 19 19.1046 19 18V13M17.5858 3.58579C18.3668 2.80474 19.6332 2.80474 20.4142 3.58579C21.1953 4.36683 21.1953 5.63316 20.4142 6.41421L11.8284 15H9L9 12.1716L17.5858 3.58579Z" stroke="#076871" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>                        
+                    </button>
+                    <button class="btn" routerLink="user-chart">
+                        <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.5 25.7812C8.48375 25.7812 4.71625 17.27 4.55125 16.9125C4.49679 16.7818 4.46875 16.6416 4.46875 16.5C4.46875 16.3584 4.49679 16.2182 4.55125 16.0875C4.71625 15.73 8.48375 7.21875 16.5 7.21875C24.5163 7.21875 28.2838 15.73 28.4488 16.0875C28.5032 16.2182 28.5312 16.3584 28.5312 16.5C28.5312 16.6416 28.5032 16.7818 28.4488 16.9125C28.2838 17.27 24.5163 25.7812 16.5 25.7812ZM6.64125 16.5C7.4525 18.0813 10.7662 23.7188 16.5 23.7188C22.2337 23.7188 25.5475 18.0813 26.3587 16.5C25.5475 14.9187 22.2337 9.28125 16.5 9.28125C10.7662 9.28125 7.4525 14.9187 6.64125 16.5Z" fill="#084749"/>
+                            <path d="M16.5 20.9688C15.6162 20.9688 14.7522 20.7067 14.0173 20.2156C13.2824 19.7246 12.7096 19.0267 12.3714 18.2101C12.0332 17.3936 11.9447 16.495 12.1171 15.6282C12.2895 14.7613 12.7152 13.9651 13.3401 13.3401C13.9651 12.7152 14.7613 12.2895 15.6282 12.1171C16.495 11.9447 17.3936 12.0332 18.2101 12.3714C19.0267 12.7096 19.7246 13.2824 20.2156 14.0173C20.7067 14.7522 20.9688 15.6162 20.9688 16.5C20.9651 17.6841 20.4931 18.8186 19.6559 19.6559C18.8186 20.4931 17.6841 20.9651 16.5 20.9688ZM16.5 14.0938C16.0241 14.0938 15.5589 14.2349 15.1632 14.4993C14.7675 14.7637 14.459 15.1395 14.2769 15.5792C14.0948 16.0189 14.0471 16.5027 14.14 16.9694C14.2328 17.4362 14.462 17.865 14.7985 18.2015C15.135 18.538 15.5638 18.7672 16.0306 18.86C16.4973 18.9529 16.9811 18.9052 17.4208 18.7231C17.8605 18.541 18.2363 18.2325 18.5007 17.8368C18.7651 17.4411 18.9063 16.9759 18.9063 16.5C18.9026 15.8629 18.648 15.253 18.1975 14.8025C17.747 14.352 17.1371 14.0974 16.5 14.0938Z" fill="#084749"/>
+                        </svg>                                            
+                    </button>
+                </div>
+            </td>
+            </tr>
+            <tr class="text-primary">
+              <td class="text-start px-15">الاداره الرئيسيه</td>
+            <td>
+                <div class="svgContainer justify-content-center d-flex gap-2 align-items-center">
+                    <button class="btn" routerLink="details">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11 5H6C4.89543 5 4 5.89543 4 7V18C4 19.1046 4.89543 20 6 20H17C18.1046 20 19 19.1046 19 18V13M17.5858 3.58579C18.3668 2.80474 19.6332 2.80474 20.4142 3.58579C21.1953 4.36683 21.1953 5.63316 20.4142 6.41421L11.8284 15H9L9 12.1716L17.5858 3.58579Z" stroke="#076871" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>                        
+                    </button>
+                    <button class="btn" routerLink="user-chart">
+                        <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.5 25.7812C8.48375 25.7812 4.71625 17.27 4.55125 16.9125C4.49679 16.7818 4.46875 16.6416 4.46875 16.5C4.46875 16.3584 4.49679 16.2182 4.55125 16.0875C4.71625 15.73 8.48375 7.21875 16.5 7.21875C24.5163 7.21875 28.2838 15.73 28.4488 16.0875C28.5032 16.2182 28.5312 16.3584 28.5312 16.5C28.5312 16.6416 28.5032 16.7818 28.4488 16.9125C28.2838 17.27 24.5163 25.7812 16.5 25.7812ZM6.64125 16.5C7.4525 18.0813 10.7662 23.7188 16.5 23.7188C22.2337 23.7188 25.5475 18.0813 26.3587 16.5C25.5475 14.9187 22.2337 9.28125 16.5 9.28125C10.7662 9.28125 7.4525 14.9187 6.64125 16.5Z" fill="#084749"/>
+                            <path d="M16.5 20.9688C15.6162 20.9688 14.7522 20.7067 14.0173 20.2156C13.2824 19.7246 12.7096 19.0267 12.3714 18.2101C12.0332 17.3936 11.9447 16.495 12.1171 15.6282C12.2895 14.7613 12.7152 13.9651 13.3401 13.3401C13.9651 12.7152 14.7613 12.2895 15.6282 12.1171C16.495 11.9447 17.3936 12.0332 18.2101 12.3714C19.0267 12.7096 19.7246 13.2824 20.2156 14.0173C20.7067 14.7522 20.9688 15.6162 20.9688 16.5C20.9651 17.6841 20.4931 18.8186 19.6559 19.6559C18.8186 20.4931 17.6841 20.9651 16.5 20.9688ZM16.5 14.0938C16.0241 14.0938 15.5589 14.2349 15.1632 14.4993C14.7675 14.7637 14.459 15.1395 14.2769 15.5792C14.0948 16.0189 14.0471 16.5027 14.14 16.9694C14.2328 17.4362 14.462 17.865 14.7985 18.2015C15.135 18.538 15.5638 18.7672 16.0306 18.86C16.4973 18.9529 16.9811 18.9052 17.4208 18.7231C17.8605 18.541 18.2363 18.2325 18.5007 17.8368C18.7651 17.4411 18.9063 16.9759 18.9063 16.5C18.9026 15.8629 18.648 15.253 18.1975 14.8025C17.747 14.352 17.1371 14.0974 16.5 14.0938Z" fill="#084749"/>
+                        </svg>                                            
+                    </button>
+                </div>
+            </td>
+            </tr>
+            <tr class="text-primary">
+              <td class="text-start px-15">الاداره الرئيسيه</td>
+            <td>
+                <div class="svgContainer justify-content-center d-flex gap-2 align-items-center">
+                    <button class="btn" routerLink="details">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11 5H6C4.89543 5 4 5.89543 4 7V18C4 19.1046 4.89543 20 6 20H17C18.1046 20 19 19.1046 19 18V13M17.5858 3.58579C18.3668 2.80474 19.6332 2.80474 20.4142 3.58579C21.1953 4.36683 21.1953 5.63316 20.4142 6.41421L11.8284 15H9L9 12.1716L17.5858 3.58579Z" stroke="#076871" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>                        
+                    </button>
+                    <button class="btn" routerLink="user-chart">
+                        <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.5 25.7812C8.48375 25.7812 4.71625 17.27 4.55125 16.9125C4.49679 16.7818 4.46875 16.6416 4.46875 16.5C4.46875 16.3584 4.49679 16.2182 4.55125 16.0875C4.71625 15.73 8.48375 7.21875 16.5 7.21875C24.5163 7.21875 28.2838 15.73 28.4488 16.0875C28.5032 16.2182 28.5312 16.3584 28.5312 16.5C28.5312 16.6416 28.5032 16.7818 28.4488 16.9125C28.2838 17.27 24.5163 25.7812 16.5 25.7812ZM6.64125 16.5C7.4525 18.0813 10.7662 23.7188 16.5 23.7188C22.2337 23.7188 25.5475 18.0813 26.3587 16.5C25.5475 14.9187 22.2337 9.28125 16.5 9.28125C10.7662 9.28125 7.4525 14.9187 6.64125 16.5Z" fill="#084749"/>
+                            <path d="M16.5 20.9688C15.6162 20.9688 14.7522 20.7067 14.0173 20.2156C13.2824 19.7246 12.7096 19.0267 12.3714 18.2101C12.0332 17.3936 11.9447 16.495 12.1171 15.6282C12.2895 14.7613 12.7152 13.9651 13.3401 13.3401C13.9651 12.7152 14.7613 12.2895 15.6282 12.1171C16.495 11.9447 17.3936 12.0332 18.2101 12.3714C19.0267 12.7096 19.7246 13.2824 20.2156 14.0173C20.7067 14.7522 20.9688 15.6162 20.9688 16.5C20.9651 17.6841 20.4931 18.8186 19.6559 19.6559C18.8186 20.4931 17.6841 20.9651 16.5 20.9688ZM16.5 14.0938C16.0241 14.0938 15.5589 14.2349 15.1632 14.4993C14.7675 14.7637 14.459 15.1395 14.2769 15.5792C14.0948 16.0189 14.0471 16.5027 14.14 16.9694C14.2328 17.4362 14.462 17.865 14.7985 18.2015C15.135 18.538 15.5638 18.7672 16.0306 18.86C16.4973 18.9529 16.9811 18.9052 17.4208 18.7231C17.8605 18.541 18.2363 18.2325 18.5007 17.8368C18.7651 17.4411 18.9063 16.9759 18.9063 16.5C18.9026 15.8629 18.648 15.253 18.1975 14.8025C17.747 14.352 17.1371 14.0974 16.5 14.0938Z" fill="#084749"/>
+                        </svg>                                            
+                    </button>
+                </div>
+            </td>
+            </tr>
+            <tr class="text-primary">
+              <td class="text-start px-15">الاداره الرئيسيه</td>
+            <td>
+                <div class="svgContainer justify-content-center d-flex gap-2 align-items-center">
+                    <button class="btn" routerLink="details">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11 5H6C4.89543 5 4 5.89543 4 7V18C4 19.1046 4.89543 20 6 20H17C18.1046 20 19 19.1046 19 18V13M17.5858 3.58579C18.3668 2.80474 19.6332 2.80474 20.4142 3.58579C21.1953 4.36683 21.1953 5.63316 20.4142 6.41421L11.8284 15H9L9 12.1716L17.5858 3.58579Z" stroke="#076871" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>                        
+                    </button>
+                    <button class="btn" routerLink="user-chart">
+                        <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.5 25.7812C8.48375 25.7812 4.71625 17.27 4.55125 16.9125C4.49679 16.7818 4.46875 16.6416 4.46875 16.5C4.46875 16.3584 4.49679 16.2182 4.55125 16.0875C4.71625 15.73 8.48375 7.21875 16.5 7.21875C24.5163 7.21875 28.2838 15.73 28.4488 16.0875C28.5032 16.2182 28.5312 16.3584 28.5312 16.5C28.5312 16.6416 28.5032 16.7818 28.4488 16.9125C28.2838 17.27 24.5163 25.7812 16.5 25.7812ZM6.64125 16.5C7.4525 18.0813 10.7662 23.7188 16.5 23.7188C22.2337 23.7188 25.5475 18.0813 26.3587 16.5C25.5475 14.9187 22.2337 9.28125 16.5 9.28125C10.7662 9.28125 7.4525 14.9187 6.64125 16.5Z" fill="#084749"/>
+                            <path d="M16.5 20.9688C15.6162 20.9688 14.7522 20.7067 14.0173 20.2156C13.2824 19.7246 12.7096 19.0267 12.3714 18.2101C12.0332 17.3936 11.9447 16.495 12.1171 15.6282C12.2895 14.7613 12.7152 13.9651 13.3401 13.3401C13.9651 12.7152 14.7613 12.2895 15.6282 12.1171C16.495 11.9447 17.3936 12.0332 18.2101 12.3714C19.0267 12.7096 19.7246 13.2824 20.2156 14.0173C20.7067 14.7522 20.9688 15.6162 20.9688 16.5C20.9651 17.6841 20.4931 18.8186 19.6559 19.6559C18.8186 20.4931 17.6841 20.9651 16.5 20.9688ZM16.5 14.0938C16.0241 14.0938 15.5589 14.2349 15.1632 14.4993C14.7675 14.7637 14.459 15.1395 14.2769 15.5792C14.0948 16.0189 14.0471 16.5027 14.14 16.9694C14.2328 17.4362 14.462 17.865 14.7985 18.2015C15.135 18.538 15.5638 18.7672 16.0306 18.86C16.4973 18.9529 16.9811 18.9052 17.4208 18.7231C17.8605 18.541 18.2363 18.2325 18.5007 17.8368C18.7651 17.4411 18.9063 16.9759 18.9063 16.5C18.9026 15.8629 18.648 15.253 18.1975 14.8025C17.747 14.352 17.1371 14.0974 16.5 14.0938Z" fill="#084749"/>
+                        </svg>                                            
+                    </button>
+                </div>
+            </td>
+            </tr>
+            <tr class="text-primary">
+              <td class="text-start px-15">الاداره الرئيسيه</td>
+            <td>
+                <div class="svgContainer justify-content-center d-flex gap-2 align-items-center">
+                    <button class="btn" routerLink="details">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11 5H6C4.89543 5 4 5.89543 4 7V18C4 19.1046 4.89543 20 6 20H17C18.1046 20 19 19.1046 19 18V13M17.5858 3.58579C18.3668 2.80474 19.6332 2.80474 20.4142 3.58579C21.1953 4.36683 21.1953 5.63316 20.4142 6.41421L11.8284 15H9L9 12.1716L17.5858 3.58579Z" stroke="#076871" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>                        
+                    </button>
+                    <button class="btn" routerLink="user-chart">
+                        <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.5 25.7812C8.48375 25.7812 4.71625 17.27 4.55125 16.9125C4.49679 16.7818 4.46875 16.6416 4.46875 16.5C4.46875 16.3584 4.49679 16.2182 4.55125 16.0875C4.71625 15.73 8.48375 7.21875 16.5 7.21875C24.5163 7.21875 28.2838 15.73 28.4488 16.0875C28.5032 16.2182 28.5312 16.3584 28.5312 16.5C28.5312 16.6416 28.5032 16.7818 28.4488 16.9125C28.2838 17.27 24.5163 25.7812 16.5 25.7812ZM6.64125 16.5C7.4525 18.0813 10.7662 23.7188 16.5 23.7188C22.2337 23.7188 25.5475 18.0813 26.3587 16.5C25.5475 14.9187 22.2337 9.28125 16.5 9.28125C10.7662 9.28125 7.4525 14.9187 6.64125 16.5Z" fill="#084749"/>
+                            <path d="M16.5 20.9688C15.6162 20.9688 14.7522 20.7067 14.0173 20.2156C13.2824 19.7246 12.7096 19.0267 12.3714 18.2101C12.0332 17.3936 11.9447 16.495 12.1171 15.6282C12.2895 14.7613 12.7152 13.9651 13.3401 13.3401C13.9651 12.7152 14.7613 12.2895 15.6282 12.1171C16.495 11.9447 17.3936 12.0332 18.2101 12.3714C19.0267 12.7096 19.7246 13.2824 20.2156 14.0173C20.7067 14.7522 20.9688 15.6162 20.9688 16.5C20.9651 17.6841 20.4931 18.8186 19.6559 19.6559C18.8186 20.4931 17.6841 20.9651 16.5 20.9688ZM16.5 14.0938C16.0241 14.0938 15.5589 14.2349 15.1632 14.4993C14.7675 14.7637 14.459 15.1395 14.2769 15.5792C14.0948 16.0189 14.0471 16.5027 14.14 16.9694C14.2328 17.4362 14.462 17.865 14.7985 18.2015C15.135 18.538 15.5638 18.7672 16.0306 18.86C16.4973 18.9529 16.9811 18.9052 17.4208 18.7231C17.8605 18.541 18.2363 18.2325 18.5007 17.8368C18.7651 17.4411 18.9063 16.9759 18.9063 16.5C18.9026 15.8629 18.648 15.253 18.1975 14.8025C17.747 14.352 17.1371 14.0974 16.5 14.0938Z" fill="#084749"/>
+                        </svg>                                            
+                    </button>
+                </div>
+            </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="paginator-div d-flex justify-content-center align-items-center">
+        <p-paginator [totalRecords]="totalRecords" (onPageChange)="onPageChange($event)" [first]="first" [rows]="rows"
+          [rowsPerPageOptions]="[10, 25, 50, 100]" />
+      </div>
+    </div>
+  </section>
+  
+  <ng-template #formModal1 let-modal>
+    <form (ngSubmit)="blockUser()">
+      <div class="modal-header border-0">
+        <h4 class="modal-title fw-normal text-primary">حظر المستخدم</h4>
+      </div>
+  
+      <div class="modal-body py-0">
+        <div class="d-flex flex-column mw-650px" id="kt_modal_update_customer_scroll">
+          <div>
+            <label class="text-gray-900 fs-6 form-label">سبب الحظر</label>
+            <textarea class="form-control" [formControl]="block" rows="3"></textarea>
+            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                validation: 'required',
+                message: 'برجاء ادخال سبب الحظر',
+                control: block
+              }"></ng-container>
+          </div>
+        </div>
+      </div>
+  
+      <div class="modal-footer flex-end border-0">
+        <button type="button" class="btn btn-secondary py-2" ngbAutofocus (click)="modal.dismiss('Cross click')">
+          <span class="indicator-label">إغلاق</span>
+        </button>
+        <button type="submit" class="btn btn-primary py-2" [attr.data-kt-indicator]="isLoading ? 'on' : 'off'">
+          <span class="indicator-label">إرسال</span>
+          <span class="indicator-progress">
+            يرجى الانتظار...
+            <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+          </span>
+        </button>
+      </div>
+    </form>
+  </ng-template>
+  
+  <ng-template #formModal2 let-modal>
+    <form [formGroup]="noticeForm" (ngSubmit)="noticeUser()">
+      <div class="modal-header border-0">
+        <h4 class="modal-title fw-normal text-primary">إشعار المستخدم</h4>
+      </div>
+  
+      <div class="modal-body py-0">
+        <div class="d-flex flex-column mw-650px" id="kt_modal_update_customer_scroll">
+          <div class="mb-5">
+            <label class="text-gray-900 fs-6 form-label">العنوان</label>
+            <input type="text" class="form-control" formControlName="title" />
+            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                validation: 'required',
+                message: 'برجاء ادخال العنوان ',
+                control: noticeForm.controls['title']
+              }"></ng-container>
+          </div>
+          <div class="mb-5">
+            <label class="text-gray-900 fs-6 form-label">المحتوي</label>
+            <textarea class="form-control" formControlName="content" rows="3"></textarea>
+            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                validation: 'required',
+                message: 'برجاء ادخال المحتوي ',
+                control: noticeForm.controls['content']
+              }"></ng-container>
+          </div>
+          <div class="mb-5 d-flex gap-5">
+            <label class="text-gray-900 fs-6 form-label">رسالة نصية</label>
+            <p-inputSwitch formControlName="msg" />
+          </div>
+          <div class="d-flex gap-5">
+            <label class="text-gray-900 fs-6 form-label">النظام</label>
+            <p-inputSwitch formControlName="system" />
+          </div>
+        </div>
+      </div>
+  
+      <div class="modal-footer flex-end border-0">
+        <button type="button" class="btn btn-secondary py-2" ngbAutofocus (click)="modal.dismiss('Cross click')">
+          <span class="indicator-label">إغلاق</span>
+        </button>
+        <button type="submit" class="btn btn-primary py-2" [attr.data-kt-indicator]="isLoading ? 'on' : 'off'">
+          <span class="indicator-label">إرسال</span>
+          <span class="indicator-progress">
+            يرجى الانتظار...
+            <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+          </span>
+        </button>
+      </div>
+    </form>
+  </ng-template>
+  
+  <!--control error msg -->
+  <ng-template #formError let-control="control" let-message="message" let-validation="validation">
+    <ng-container *ngIf="
+        control.hasError(validation) &&
+        (control.dirty || (control.touched && control.errors))
+      ">
+      <div class="fv-plugins-message-container">
+        <span class="text-danger" role="alert">
+          {{ message }}
+        </span>
+      </div>
+    </ng-container>
+  </ng-template>
