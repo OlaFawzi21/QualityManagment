@@ -24,6 +24,7 @@ import { RatingModule } from 'primeng/rating';
 import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import { StepsModule } from 'primeng/steps';
 import { SupportPipe } from './pipes/support.pipe';
 import { SvgPipe } from './pipes/svg.pipe';
 @NgModule({
@@ -56,6 +57,7 @@ import { SvgPipe } from './pipes/svg.pipe';
     DropdownModule,
     CalendarModule,
     InputSwitchModule,
+    StepsModule,
   ],
   exports: [
     KeeniconComponent,
@@ -81,6 +83,7 @@ import { SvgPipe } from './pipes/svg.pipe';
     DropdownModule,
     CalendarModule,
     InputSwitchModule,
+    StepsModule,
     SupportPipe,
     SvgPipe,
   ],

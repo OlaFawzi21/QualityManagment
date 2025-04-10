@@ -1,0 +1,9 @@
+
+::ng-deep .p-steps .p-steps-item:first-child::before {
+    transform: none;
+}
+
+::ng-deep .p-steps .p-steps-item:last-child::before {
+    transform: translateX(100%);
+}
+
