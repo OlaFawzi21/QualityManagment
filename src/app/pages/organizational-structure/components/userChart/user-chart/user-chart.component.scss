@@ -1,22 +1,40 @@
-::ng-deep{
+::ng-deep {
+    .p-organizationchart-table {
+        direction: ltr !important;
+    }
+
     .p-organizationchart-node-content {
         padding: 00px 0 00px 0;
         width: 200px;
         height: 150px;
     }
+
     .title {
         height: 105px !important;
     }
+
     .p-organizationchart-line-down {
-        background:  rgb(7 104 113) !important;
-        width: 3px !important;
+        background: #129ea5 !important;
     }
-    a.p-node-toggler {
-        transform: translateY(38px);
-        border: none;
-        background: no-repeat;
-    }
+
     td {
         border-bottom: 0px solid var(--bs-border-color) !important;
+    }
+
+    .p-organizationchart .p-organizationchart-line-top {
+        border-top: 1px solid #129ea5;
+        border-color: #129ea5;
+    }
+
+    .p-organizationchart .p-organizationchart-line-left {
+        border-right: 1px solid #129ea5;
+        border-color: #129ea5;
+    }
+
+    .p-organizationchart-preservespace .p-organizationchart-node-hidden {
+        .p-organizationchart-line-top,
+        .p-organizationchart-line-left {
+            border: none !important;
+        }
     }
 }
