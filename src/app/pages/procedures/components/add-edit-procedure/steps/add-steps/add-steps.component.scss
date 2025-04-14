@@ -1,0 +1,13 @@
+.dropdown-toggle::after {
+    display: none !important;
+}
+
+ngx-dropzone {
+    height: 162px !important;
+    border-color:#cdcdce !important;
+}
+
+ngx-dropzone-label {
+    overflow-wrap: anywhere !important;
+    font-size: 14px !important;
+}

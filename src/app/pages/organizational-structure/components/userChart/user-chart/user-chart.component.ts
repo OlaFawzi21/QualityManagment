@@ -30,7 +30,7 @@ export class UserChartComponent {
             data: {
               name: 'اداره المستخدمين',
               title: 'اداره المستخدمين'
-          },
+            },
           },
           {
             label: 'اداره المستخدمين',

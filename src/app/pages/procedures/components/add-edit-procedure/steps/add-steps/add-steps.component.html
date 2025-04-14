@@ -1,1 +1,260 @@
-<p>add-steps works!</p>
+<form class="form px-5 mb-10" [formGroup]="formGroup" (ngSubmit)="submit()">
+    <div class="row mb-8">
+        <div class="col-lg-2">
+            <label class="form-label">اسم الخطوة</label>
+        </div>
+        <div class="col-lg-10">
+            <input type="text" class="form-control" formControlName="stepName" placeholder="اسم الخطوة" />
+            <div *ngIf="formGroup.get('stepName')?.invalid && formGroup.get('stepName')?.touched" class="text-danger">
+                برجاء إدخال اسم الخطوة
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-8">
+        <div class="col-lg-2">
+            <label class="form-label">اسم الخطوة (EN)</label>
+        </div>
+        <div class="col-lg-10">
+            <input type="text" class="form-control" formControlName="stepNameEn" placeholder="اسم الخطوة (EN)" />
+            <div *ngIf="formGroup.get('stepNameEn')?.invalid && formGroup.get('stepNameEn')?.touched"
+                class="text-danger">
+                برجاء إدخال اسم الخطوة (EN)
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-8">
+        <div class="col-lg-2">
+            <label class="form-label">المنفذ</label>
+        </div>
+        <div class="col-lg-10">
+            <p-dropdown [options]="steps" optionLabel="name" optionValue="id" formControlName="executor"
+                placeholder="اختر المنفذ" />
+            <div *ngIf="formGroup.get('executor')?.invalid && formGroup.get('executor')?.touched" class="text-danger">
+                برجاء إدخال المنفذ
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-8">
+        <div class="col-lg-2">
+            <label class="form-label">معتمد الاجراء ( خارجى )</label>
+        </div>
+        <div class="col-lg-10">
+            <p-dropdown [options]="steps" optionLabel="name" optionValue="id" formControlName="externalApprover"
+                placeholder=" اختر معتمد الاجراء ( خارجى )" />
+            <div *ngIf="formGroup.get('externalApprover')?.invalid && formGroup.get('externalApprover')?.touched"
+                class="text-danger">
+                برجاء إدخال معتمد الاجراء ( خارجى )
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-8">
+        <div class="col-lg-2">
+            <label class="form-label">معتمد الاجراء ( خارجى ) ( EN) </label>
+        </div>
+        <div class="col-lg-10">
+            <p-dropdown [options]="steps" optionLabel="name" optionValue="id" formControlName="externalApproverEn"
+                placeholder=" اختر معتمد الاجراء ( خارجى ) ( EN)" />
+            <div *ngIf="formGroup.get('externalApproverEn')?.invalid && formGroup.get('externalApproverEn')?.touched"
+                class="text-danger">
+                برجاء إدخال معتمد الاجراء ( خارجى ) ( EN)
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-8">
+        <div class="col-lg-2">
+            <label class="form-label">اسم الإجراء</label>
+        </div>
+        <div class="col-lg-10">
+            <input type="text" class="form-control" formControlName="procedureName" placeholder="اسم الإجراء" />
+            <div *ngIf="formGroup.get('procedureName')?.invalid && formGroup.get('procedureName')?.touched"
+                class="text-danger">
+                برجاء إدخال اسم الإجراء
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-8">
+        <div class="col-lg-2">
+            <label class="form-label">رقم النموذج</label>
+        </div>
+        <div class="col-lg-10">
+            <input type="text" class="form-control" formControlName="formNumber" placeholder="رقم النموذج" />
+            <div *ngIf="formGroup.get('formNumber')?.invalid && formGroup.get('formNumber')?.touched"
+                class="text-danger">
+                برجاء إدخال رقم النموذج
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-8">
+        <div class="col-lg-2">
+            <label class="form-label">رقم التقرير</label>
+        </div>
+        <div class="col-lg-10">
+            <ngx-dropzone (change)="onSelect($event)">
+                <ngx-dropzone-label>تحميل رقم التقرير</ngx-dropzone-label>
+                <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                    <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                </ngx-dropzone-preview>
+            </ngx-dropzone>
+            <div *ngIf="formGroup.get('reportNumber')?.invalid && formGroup.get('reportNumber')?.touched"
+                class="text-danger">
+                برجاء إدخال رقم التقرير
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-8">
+        <div class="col-lg-2">
+            <label class="form-label">رقم قائمه التدفق</label>
+        </div>
+        <div class="col-lg-10">
+            <ngx-dropzone (change)="onSelect($event)">
+                <ngx-dropzone-label>تحميل رقم قائمه التدفق</ngx-dropzone-label>
+                <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                    <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                </ngx-dropzone-preview>
+            </ngx-dropzone>
+            <div *ngIf="formGroup.get('workflowNumber')?.invalid && formGroup.get('workflowNumber')?.touched"
+                class="text-danger">
+                برجاء إدخال رقم قائمه التدفق
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-8">
+        <div class="col-lg-2">
+            <label class="form-label">المرفقات الاخرى</label>
+        </div>
+        <div class="col-lg-10">
+            <ngx-dropzone (change)="onSelect($event)">
+                <ngx-dropzone-label>تحميل المرفقات الاخرى</ngx-dropzone-label>
+                <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                    <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                </ngx-dropzone-preview>
+            </ngx-dropzone>
+            <div *ngIf="formGroup.get('otherAttachments')?.invalid && formGroup.get('otherAttachments')?.touched"
+                class="text-danger">
+                برجاء إدخال المرفقات الاخرى
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-8">
+        <div class="col-lg-2"><label class="form-label">مؤرشف</label></div>
+        <div class="col-lg-10">
+            <p-inputSwitch formControlName="archived" />
+        </div>
+    </div>
+
+    <div class="row mb-8">
+        <div class="col-lg-2"><label class="form-label">الكتروني</label></div>
+        <div class="col-lg-10">
+            <p-inputSwitch formControlName="electronic" />
+        </div>
+    </div>
+
+    <div class="row mb-8">
+        <div class="col-lg-2"><label class="form-label">يدوي</label></div>
+        <div class="col-lg-10">
+            <p-inputSwitch formControlName="manual" />
+        </div>
+    </div>
+
+
+    <div class="d-flex flex-end gap-5">
+        <!-- <button type="button" class="btn btn-secondary">إغلاق</button> -->
+        <button type="submit" class="btn btn-primary py-2" [disabled]="formGroup.invalid">
+            إرسال
+            <span class="spinner-border spinner-border-sm align-middle ms-2" *ngIf="isLoading"></span>
+        </button>
+    </div>
+</form>
+
+
+
+<div class="table-responsive">
+    <div class="table-responsive mt-5">
+        <table class="table align-middle gs-0 gy-4">
+            <thead>
+                <tr class="text-gray-600 bg-gray-300">
+                    <th>#</th>
+                    <th>الوصف</th>
+                    <th>المنفذ</th>
+                    <th>رقم الاجراء</th>
+                    <th>رقم النموذج</th>
+                    <th>رقم التقرير</th>
+                    <th>رقم قائمه التدفق</th>
+                    <th>المرفقات الاخرى</th>
+                    <th>مؤرشف</th>
+                    <th>الكترونى</th>
+                    <th>يدوى</th>
+                    <th>الإجراءات</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-primary">
+                    <td>200</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle px-2 p-0" type="button" id="actionsDropdown"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-three-dots text-primary p-0 fs-4"></i>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="actionsDropdown">
+                                <li>
+                                    <button class="dropdown-item py-2" [routerLink]="['editProcedure', '1']">
+                                        <div class="d-flex gap-3">
+                                            <div>
+                                                <i class="bi bi-pencil-square text-primary"></i>
+                                            </div>
+                                            <div class="ext-primary">تعديل</div>
+                                        </div>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button class="dropdown-item py-2" (click)="showDeleteSec=true;">
+                                        <div class="d-flex gap-3">
+                                            <div>
+                                                <i class="bi bi-ban text-danger"></i>
+                                            </div>
+                                            <div class="text-danger">حذف</div>
+                                        </div>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- delete section -->
+    <div class="bg-danger px-4 py-3 d-flex justify-content-between align-items-center" *ngIf="showDeleteSec">
+        <span class="text-white fs-6">سيتم حذف الوظيفه ( مدير تشغيل )</span>
+        <div>
+            <button type="button" class="btn btn-secondary mx-3" (click)="showDeleteSec=false;">
+                إلغاء
+            </button>
+            <button type="submit" class="btn second-color ">
+                تأكيد
+            </button>
+        </div>
+    </div>
+</div>
